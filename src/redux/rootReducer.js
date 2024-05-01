@@ -1,17 +1,17 @@
-import { combineReducers } from "@reduxjs/toolkit";
-import { persistReducer } from "redux-persist";
-import storage from './redux-persist/lib/storage'
+// import { combineReducers } from "@reduxjs/toolkit";
+// import { persistReducer } from "redux-persist";
+// import storage from './redux-persist/lib/storage'
 
-const persistConfig = {
-  key: 'root',
-  storage,
-  whitelist: ['token', 'quote'],
-};
+// const persistConfig = {
+//   key: 'root',
+//   storage,
+//   whitelist: ['token', 'quote'],
+// };
 
-// const persistedAuthReducer = persistReducer(persistConfig, authReducer);
+// // const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 
-const rootReducer = combineReducers({
-  // auth: persistedAuthReducer,
-})
+// const rootReducer = combineReducers({
+//   // auth: persistedAuthReducer,
+// })
 
-export default rootReducer
+// export default rootReducer
