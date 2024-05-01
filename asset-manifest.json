@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ProTask_TechTeam/static/css/main.69ba8984.css",
+    "main.js": "/ProTask_TechTeam/static/js/main.34b3a65d.js",
+    "index.html": "/ProTask_TechTeam/index.html",
+    "main.69ba8984.css.map": "/ProTask_TechTeam/static/css/main.69ba8984.css.map",
+    "main.34b3a65d.js.map": "/ProTask_TechTeam/static/js/main.34b3a65d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69ba8984.css",
+    "static/js/main.34b3a65d.js"
+  ]
+}
