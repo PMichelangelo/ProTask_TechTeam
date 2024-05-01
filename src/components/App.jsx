@@ -1,5 +1,3 @@
-import { useRef } from "react";
-import Modal from "./Modal/Modal";
 export const App = () => {
   return (
     <div
