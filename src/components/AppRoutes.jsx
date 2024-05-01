@@ -1,28 +1,28 @@
 import { lazy } from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 
-const StartPage = lazy(() => import('pages/StartPage/StartPage'));
-const TaskProPage = lazy(() => import('pages/TaskProPage/TaskProPage'));
-const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
-const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
+const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
+const AuthPage = lazy(() => import('pages/AuthPage/AuthPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 
 const AppRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<StartPage />} />
-        <Route element={<PublicRoute />}>
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="login" element={<LoginPage />} />
-        </Route>
-        <Route element={<PrivateRoute />}>
-          <Route path="taskpro" element={<TaskProPage />} />
-        </Route>
-      <Route path="*" element={<NotFoundPage/> } />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+          <Route element={<PublicRoute />}>
+            <Route path="auth/:id" element={<AuthPage />} />
+          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path="/home" element={<HomePage />} />
+          </Route>
+        <Route path="*" element={<NotFoundPage/> } />
+        </Routes>
+      </Router>
   )
 }
 
