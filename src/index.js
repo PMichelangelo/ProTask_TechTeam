@@ -11,7 +11,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   //<React.StrictMode>
-  <Provider>
+  <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter basename='/ProTask_TechTeam'>
          <App />

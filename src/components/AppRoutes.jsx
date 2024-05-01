@@ -1,8 +1,8 @@
 import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
-// import PrivateRoute from './PrivateRoute/PrivateRoute';
-// import PublicRoute from './PublicRoute/PublicRoute';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 
 const StartPage = lazy(() => import('pages/StartPage/StartPage'));
 const TaskProPage = lazy(() => import('pages/TaskProPage/TaskProPage'));

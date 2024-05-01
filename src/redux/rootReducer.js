@@ -8,10 +8,10 @@ const persistConfig = {
   whitelist: ['token', 'quote'],
 };
 
-const persistedAuthReducer = persistReducer(persistConfig, authReducer);
+// const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 
 const rootReducer = combineReducers({
-  auth: persistedAuthReducer,
+  // auth: persistedAuthReducer,
 })
 
 export default rootReducer
