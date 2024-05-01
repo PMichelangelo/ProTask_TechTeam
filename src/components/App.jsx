@@ -1,10 +1,6 @@
 import { useRef } from "react";
 import Modal from "./Modal/Modal";
 export const App = () => {
-  const modal1 = useRef()
-  const modal2 = useRef()
-
-  console.log(modal1)
   return (
     <div
       style={{
