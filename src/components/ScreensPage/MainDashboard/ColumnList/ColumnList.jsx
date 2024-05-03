@@ -1,4 +1,4 @@
-import Column from './Column';
+import Column from './Column/Column';
 
 import css from './columnList.module.css';
 

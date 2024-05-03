@@ -1,4 +1,4 @@
-import AddColumn from './AddColumn';
+import AddColumn from './AddColumn/AddСolumn';
 import ColumnList from './ColumnList';
 
 import css from './mainDashboard.module.css';
