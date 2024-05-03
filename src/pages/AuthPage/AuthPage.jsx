@@ -1,3 +1,4 @@
+
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { signup, login } from "../../redux/auth/auth-operation";
@@ -42,3 +43,4 @@ const AuthPage = () => {
 };
 
 export default AuthPage;
+

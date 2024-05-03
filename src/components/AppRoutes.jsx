@@ -1,5 +1,7 @@
+
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
+
 
 // import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
@@ -23,6 +25,7 @@ const AppRoutes = () => {
         <Route path="*" element={<NotFoundPage/> } /> */}
         </Routes>
     </Suspense>
+
   )
 }
 
