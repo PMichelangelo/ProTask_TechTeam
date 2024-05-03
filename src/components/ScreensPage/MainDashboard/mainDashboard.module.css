@@ -1,0 +1,10 @@
+.mainDashboardSection {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  height: 100%;
+}

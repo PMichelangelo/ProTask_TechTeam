@@ -1,0 +1,12 @@
+.filterButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.8);
+}
