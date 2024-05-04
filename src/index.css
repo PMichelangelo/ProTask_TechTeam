@@ -1,5 +1,10 @@
 @import-normalize; /* bring in normalize.css styles */
 
+
+html {
+  height: 100%;
+}
+
 :root {
   --dark-main-color: #232323;
   --dark-input-color: #212121;
@@ -16,6 +21,7 @@
   --radio-blue: #8fa1d0;
   --radio-pink: #e09cb5;
   --radio-green: #bedbb0;
+
 }
 
 body {
@@ -23,6 +29,8 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 code {
@@ -49,4 +57,14 @@ label {
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+div#root {
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
 }
