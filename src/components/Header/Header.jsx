@@ -1,10 +1,14 @@
 import React from 'react';
-import SidebarIcon from './HeaderIcons/SidebarIcon';
+import MenuIcon from './MenuIcon';
+import ThemeSelector from './ThemeSelector';
 
 const Header = () => {
   return (
     <header>
-      <SidebarIcon />
+      <button>
+        <MenuIcon />
+      </button>
+      <ThemeSelector />
     </header>
   );
 };

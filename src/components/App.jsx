@@ -26,6 +26,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { current } from '../redux/auth/auth-operation';
+import { ThemeProvider } from './Header/ThemeContext';
 
 import AppRoutes from './AppRoutes';
 
@@ -35,6 +36,9 @@ export const App = () => {
   useEffect(() => {
     dispatch(current());
   }, [dispatch]);
-  return <AppRoutes />;
+  return (
+    <ThemeProvider>
+      <AppRoutes />
+    </ThemeProvider>
+  );
 };
-

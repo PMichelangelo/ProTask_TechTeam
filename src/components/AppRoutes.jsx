@@ -1,7 +1,5 @@
-
-import { Suspense, lazy } from "react";
-import { Route, Routes } from "react-router-dom";
-
+import { Suspense, lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
@@ -13,22 +11,15 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 const AppRoutes = () => {
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-          <Route element={<PublicRoute />}>
-            <Route path="auth/:id" element={<AuthPage />} />
-          </Route>
-
-            <Route path="/home/*" element={<HomePage />} />
-
-        <Route path="*" element={<NotFoundPage/> } />
-        </Routes>
+        <Route path="auth/:id" element={<AuthPage />} />
+        <Route path="/home/*" element={<HomePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </Suspense>
+  );
+};
 
-  )
-}
-
-
-export default AppRoutes
-
+export default AppRoutes;
