@@ -1,10 +1,10 @@
 import css from './card.module.css';
 
-const Card = ({ item: { id, title, text, priority, deadline } }) => {
+const Card = ({ item: { id, title, description, priority, deadline } }) => {
   return (
     <li className={css.card}>
-      <h5 className={css.cardTitle}>{title}</h5>
-      <p className={css.cardText}>{text}</p>
+      <h4 className={css.cardTitle}>{title}</h4>
+      <p className={css.cardText}>{description}</p>
       <div className={css.wrapCardInfo}>
         <div className={css.wrapPriorityDeadline}>
           <div className={css.wrapLeft}>
