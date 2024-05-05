@@ -1,3 +1,5 @@
+import Sidebar from './Sidebar/Sidebar';
+
 export const App = () => {
   return (
     <div
@@ -7,11 +9,10 @@ export const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
       }}
     >
-
-
+      <Sidebar />
     </div>
   );
 };
@@ -19,7 +20,7 @@ export const App = () => {
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 
-// import { current } from '../redux/auth/auth-operations';
+// import { current } from '../redux/auth/auth-operation';
 
 // import AppRoutes from './AppRoutes';
 
@@ -31,4 +32,3 @@ export const App = () => {
 //   }, [dispatch]);
 //   return <AppRoutes />;
 // };
-
