@@ -13,6 +13,11 @@
         width: 124px;
         height: 124px;
     }
+    .logoIcon{
+        border-radius: 8px;
+        padding: 10px 12px 10px 12px;
+        background-color: #161616;
+    }
     .item{
         display: flex;
         align-items: center;
@@ -75,6 +80,11 @@
         min-width: 335px;
     }
 
+    .logoIcon{
+        width: 18px;
+        height: 24px;
+        padding: 12px 15px 12px 15px;
+    }
 }
 
 @media (min-width:1440px) {
