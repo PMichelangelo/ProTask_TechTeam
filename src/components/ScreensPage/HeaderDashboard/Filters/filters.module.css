@@ -10,3 +10,11 @@
   letter-spacing: -0.02em;
   color: rgba(22, 22, 22, 0.8);
 }
+
+.filterIcon {
+  stroke-width: 1.5px;
+  stroke: rgba(22, 22, 22, 0.8);
+  width: 16px;
+  height: 14px;
+  fill: none;
+}
