@@ -127,7 +127,7 @@
         padding: 15px;
     }
     
-    .showPasswordInput:-webkit-autofill {
+    .passwordInput:-webkit-autofill {
         -webkit-box-shadow: 0 0 0 30px #1f1f1f inset;
         -webkit-text-fill-color: #fff;
     }
