@@ -6,7 +6,7 @@
         justify-content: center;
         flex-wrap: wrap;
         flex-direction: column;
-        background-image: linear-gradient(#ffffff, #BEDBB0);
+        background-image: linear-gradient(#ffffff, var(--button-color));
         padding: 10px;
     }
     .image{
