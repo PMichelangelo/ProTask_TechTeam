@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
-import { register, login, current, logout } from './auth-operation';
+import { register, login, logout } from './auth-operation';
 
 import { pending, rejected } from '../../shared/functions/redux';
 
@@ -27,7 +27,7 @@ const authSlice = createSlice({
                 state.error = null;
             })
             .addCase(register.rejected, rejected)
-            
+
             .addCase(login.pending, pending)
             .addCase(login.fulfilled, (state, {payload}) => {
                 state.user = payload.user;

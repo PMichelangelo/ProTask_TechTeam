@@ -5,7 +5,6 @@ import { Notify } from 'notiflix';
 import {
   registerRequest,
   loginRequest,
-  currentRequest,
   logoutRequest,
 } from 'api/auth-api';
 
@@ -37,6 +36,7 @@ export const login = createAsyncThunk(
       Notify.failure('Wrong email or password');
       return rejectWithValue(console.log(error.response.data.message));
     }
+})
 
 export const logout = createAsyncThunk(
   'auth/logout',
