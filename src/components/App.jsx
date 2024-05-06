@@ -1,7 +1,7 @@
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 
-// import { current } from '../redux/auth/auth-operations';
+// import { current } from '../redux/auth/auth-operation';
 
 // import AppRoutes from './AppRoutes';
 
@@ -37,4 +37,3 @@ export const App = () => {
   }, [dispatch]);
   return <AppRoutes />;
 };
-
