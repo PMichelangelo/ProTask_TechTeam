@@ -25,3 +25,9 @@
   justify-content: center;
   border-radius: 8px;
 }
+
+.plusIcon {
+  width: 14px;
+  height: 14px;
+  stroke: #fff;
+}

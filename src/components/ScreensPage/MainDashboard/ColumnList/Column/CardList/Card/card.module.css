@@ -5,15 +5,48 @@
   background-color: #fff;
 }
 
-.card::before {
+.cardPriorityHigh::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 4px;
-  background-color: red;
   border-radius: 8px 0 0 8px;
+  background-color: var(--radio-green);
+}
+
+.cardPriorityMedium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  border-radius: 8px 0 0 8px;
+  background-color: var(--radio-pink);
+}
+
+.cardPriorityLow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  border-radius: 8px 0 0 8px;
+  background-color: var(--radio-blue);
+}
+
+.cardPriorityWithout::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  border-radius: 8px 0 0 8px;
+  background-color: var(--radio-grey);
 }
 
 .cardTitle {
@@ -67,7 +100,11 @@
 }
 
 .cardBtn {
-  background-color: transparent;
+  height: 16px;
+}
+
+.cardBtnItem {
+  height: 16px;
 }
 
 .wrapCardInfo {
@@ -88,4 +125,40 @@
   font-size: 10px;
   letter-spacing: -0.02em;
   color: #161616;
+}
+
+.cardIcon {
+  width: 16px;
+  height: 16px;
+  stroke: #161616;
+  opacity: 50%;
+  fill: none;
+}
+
+.prioritySpanText {
+  display: flex;
+  gap: 4px;
+}
+
+.colorSpan {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.priorityHigh {
+  background-color: var(--radio-green);
+}
+
+.priorityMedium {
+  background-color: var(--radio-pink);
+}
+
+.priorityLow {
+  background-color: var(--radio-blue);
+}
+
+.priorityWithout {
+  background-color: var(--radio-grey);
 }
