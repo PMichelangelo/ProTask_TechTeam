@@ -13,7 +13,7 @@ const Logout = () => {
         <svg className={css.logoutIcon} width="32" height="32">
           <use href=""></use>
         </svg>
-        <p className={css.logoutText}>Logout</p>
+        <p className={css.logoutText}>Log out</p>
       </button>
     </div>
   );
