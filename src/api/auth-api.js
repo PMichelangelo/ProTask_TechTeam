@@ -4,12 +4,14 @@ const authInstance = axios.create({
     baseURL: "https://protask-backend-qjoh.onrender.com/"
 })
 
-    if(token) {
+
+
+export const setToken = async token => {
+  if(token) {
         return authInstance.defaults.headers.authorization = `Bearer ${token}`;
     }
     authInstance.defaults.headers.authorization = "";
 }
-export const setToken = async token => {
 
 export const registerRequest = async body => {
     const {data} = await authInstance.post("/users/register", body)

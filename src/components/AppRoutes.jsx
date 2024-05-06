@@ -21,9 +21,9 @@ const AppRoutes = () => {
           <Route element={<PublicRoute />}>
             <Route path="auth/:id" element={<AuthPage />} />
           </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="/home" element={<HomePage />} />
-          </Route>
+          {/* <Route element={<PrivateRoute />}> */}
+            <Route path="/home/*" element={<HomePage />} />
+          {/* </Route> */}
         <Route path="*" element={<NotFoundPage/> } />
         </Routes>
     </Suspense>

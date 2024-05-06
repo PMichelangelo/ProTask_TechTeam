@@ -9,6 +9,8 @@ import LoginForm from "components/LoginForm/LoginForm";
 import styles from "./registerForm.module.css"
 import { NavLink, useLocation } from "react-router-dom";
 
+import sprite from "../../images/icons.svg"
+
 const RegisterForm = ({onSubmit}) => {
     const { pathname } = useLocation();
     const isRegisterForm = pathname === "/auth/register"
@@ -34,46 +36,46 @@ const RegisterForm = ({onSubmit}) => {
 
       return (
         <div className={styles.wrap}>
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.formWrapper} noValidate> 
+          <form onSubmit={handleSubmit(onSubmit)} className={styles.formWrapper} noValidate>
             <div className={styles.contentWrapper}>
               <div className={styles.switcher}>
                 <button className={styles.button} disabled={isRegisterForm}>Registration</button>
                 <NavLink to="/auth/login">
                   <button className={styles.button} disabled={!isRegisterForm}>Log In</button>
-                </NavLink>  
+                </NavLink>
               </div>
               <div className={styles.inputContainer}>
-                <input 
-                  placeholder="Enter your name" 
-                  className={styles.input} 
+                <input
+                  placeholder="Enter your name"
+                  className={styles.input}
                   id={nameId}
                   {...register("name")}
-                  name="name" 
-                  required 
+                  name="name"
+                  required
                 />
                 {errors.name && <p className={styles.error}>{errors.name.message}</p>}
-                <input 
-                  placeholder="Enter your email"  
-                  className={styles.input} 
-                  id={emailId} 
+                <input
+                  placeholder="Enter your email"
+                  className={styles.input}
+                  id={emailId}
                   {...register("email")}
-                  type="email" 
-                  name="email" 
-                  required 
-                /> 
+                  type="email"
+                  name="email"
+                  required
+                />
                 {errors.email && <p className={styles.error}>{errors.email.message}</p>}
                 <div className={styles.passwordContainer}>
-                  <input 
+                  <input
                     placeholder="Create a password"
-                    className={styles.passwordInput} 
+                    className={styles.passwordInput}
                     id={passwordId}
                     {...register("password")}
                     type={showPassword ? "text" : "password"}
-                    name="password" 
-                    required 
+                    name="password"
+                    required
                   />
                     <div className={styles.showPasswordButtonWrap}>
-                        <div 
+                        <div
                         className={styles.showPasswordButton}
                         onClick={togglePasswordVisibility}
                         >
