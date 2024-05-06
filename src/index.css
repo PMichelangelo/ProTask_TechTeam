@@ -1,12 +1,36 @@
 @import-normalize; /* bring in normalize.css styles */
 
+
+html {
+  height: 100%;
+}
+
+:root {
+  --dark-main-color: #232323;
+  --dark-input-color: #212121;
+  --dark-input-focus-color: #1f1f1f;
+  --light-main-color: #fdfdfd;
+  --violet-main-color: #d6d8ff;
+  --button-color: #bedbb0;
+  --button-alt-color: #9dc888;
+  --button-violet-color: #b8bcfd;
+  --button-violet-alt-color: #979cea;
+  --button-violet-wrap-color: #5255bc;
+  --button-violet-wrap-alt-color: #7b7ede;
+  --radio-grey: #656565;
+  --radio-blue: #8fa1d0;
+  --radio-pink: #e09cb5;
+  --radio-green: #bedbb0;
+
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 code {
@@ -25,7 +49,6 @@ button,
 input,
 label {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -34,4 +57,14 @@ label {
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+div#root {
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
 }

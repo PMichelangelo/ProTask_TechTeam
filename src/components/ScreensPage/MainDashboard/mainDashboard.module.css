@@ -1,0 +1,8 @@
+.mainDashboardSection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  flex: 1;
+}
