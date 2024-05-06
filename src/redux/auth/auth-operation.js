@@ -1,18 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const logout = createAsyncThunk(
-  'auth/logout',
-  async (_, { rejectWithValue }) => {
-    try {
-      const data = await logoutRequest();
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
-import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import { Notify } from 'notiflix';
 
 import {
@@ -70,5 +57,17 @@ export const current = createAsyncThunk(
         return false;
       }
     },
+  }
+);
+
+export const logout = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      const data = await logoutRequest();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   }
 );
