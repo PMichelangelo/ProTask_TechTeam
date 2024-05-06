@@ -1,5 +1,4 @@
 import css from './logoComponent.module.css';
-// import sprite from '';
 
 const LogoComponent = () => {
   return (
