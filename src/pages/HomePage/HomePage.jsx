@@ -1,20 +1,20 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 
-import Header from "components/Header/Header";
-import Sidebar from "components/Sidebar/Sidebar";
-import ScreenPage from "components/ScreensPage/ScreenPage";
+import Header from 'components/Header/Header';
+import Sidebar from 'components/Sidebar/Sidebar';
+import ScreensPage from 'components/ScreensPage';
 
 const HomePage = () => {
   return (
-    <div>
+    <div style={{ height: '100%' }}>
       <Header />
       <Sidebar />
       <Routes>
-        <Route path="/" element={<ScreenPage />} />
-        <Route path="/:boardName" element={<ScreenPage/> } />
+        <Route path="/" element={<ScreensPage />} />
+        <Route path="/:boardName" element={<ScreensPage />} />
       </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

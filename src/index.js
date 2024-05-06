@@ -16,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <BrowserRouter basename='/ProTask_TechTeam'>
           <App />
         </BrowserRouter>
+
       </PersistGate>
     </Provider>
   </React.StrictMode>

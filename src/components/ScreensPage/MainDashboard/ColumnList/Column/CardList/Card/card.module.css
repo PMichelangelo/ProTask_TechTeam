@@ -1,0 +1,91 @@
+.card {
+  position: relative;
+  padding: 14px 14px 14px 24px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  background-color: red;
+  border-radius: 8px 0 0 8px;
+}
+
+.cardTitle {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #161616;
+  padding-bottom: 8px;
+}
+
+.cardText {
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.7);
+  max-width: 290px;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.card::after {
+  position: absolute;
+  content: '';
+  height: 1px;
+  width: calc(100% - 24px - 20px);
+  background-color: rgba(22, 22, 22, 0.1);
+  top: 85px;
+  left: 24px;
+  transform: translateY(-50%);
+}
+
+.wrapPriorityDeadline {
+  display: flex;
+  gap: 14px;
+}
+
+.wrapLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardBtnList {
+  display: flex;
+  gap: 8px;
+}
+
+.cardBtn {
+  background-color: transparent;
+}
+
+.wrapCardInfo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 29px;
+}
+
+.infoText {
+  font-weight: normal;
+  font-size: 8px;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.5);
+}
+
+.info {
+  font-size: 10px;
+  letter-spacing: -0.02em;
+  color: #161616;
+}

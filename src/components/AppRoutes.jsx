@@ -6,10 +6,12 @@ import { Route, Routes } from "react-router-dom";
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 
+
 const WelcomePage = lazy(() => import('pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const AuthPage = lazy(() => import('pages/AuthPage/AuthPage'));
 const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
+
 
 const AppRoutes = () => {
   return (
