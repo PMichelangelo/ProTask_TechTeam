@@ -4,8 +4,6 @@ const authInstance = axios.create({
     baseURL: "https://protask-backend-qjoh.onrender.com/"
 })
 
-
-
 export const setToken = async token => {
   if(token) {
         return authInstance.defaults.headers.authorization = `Bearer ${token}`;
@@ -24,19 +22,6 @@ export const loginRequest = async body => {
     setToken(data.token)
     return data;
 };
-
-export const currentRequest = async (token) => {
-    setToken(token);
-    try{
-        const {data} = await authInstance.get("/users/current")
-        return data;
-    }
-    catch(error) {
-        setToken();
-        throw error;
-    }
-};
-
 
 export default authInstance;
 

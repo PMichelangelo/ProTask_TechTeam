@@ -13,10 +13,19 @@
         width: 124px;
         height: 124px;
     }
-    .logoIcon{
-        border-radius: 8px;
-        padding: 10px 12px 10px 12px;
+    .logoIconWrap{
+        width: 40px;
+        height: 40px;
         background-color: #161616;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logoIcon{
+       width: 20px;
+       height: 20px;
+       fill: #ffffff;
     }
     .item{
         display: flex;
@@ -68,7 +77,7 @@
 
 }
 
-@media (min-width:768px) and (max-width:1439px) {
+@media (min-width:768px) {
     .itemText{
         font-size: 40px;
     }
@@ -79,15 +88,12 @@
     .button{
         min-width: 335px;
     }
-
-    .logoIcon{
-        width: 18px;
-        height: 24px;
-        padding: 12px 15px 12px 15px;
+    .logoIconWrap{
+        width: 48px;
+        height: 48px;
     }
-}
-
-@media (min-width:1440px) {
-
-
+    .logoIcon{
+        width: 25px;
+        height: 24px;
+     }
 }

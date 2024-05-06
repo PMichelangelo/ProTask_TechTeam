@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { Notify } from "notiflix";
 
-import { registerRequest, loginRequest, currentRequest } from "api/auth-api";
+import { registerRequest, loginRequest } from "api/auth-api";
 
 export const register = createAsyncThunk(
     "auth/register",
@@ -30,28 +30,6 @@ export const login = createAsyncThunk(
         catch(error){
             Notify.failure("Wrong email or password")
             return rejectWithValue(console.log(error.response.data.message));
-        }
-    }
-);
-
-export const current = createAsyncThunk(
-    "auth/current",
-    async(_, {rejectWithValue, getState}) => {
-        try{
-            const {auth} = getState();
-            const data = await currentRequest(auth.token);
-            return data;
-        }
-        catch(error){
-            return rejectWithValue(error.response.data.message)
-        }
-    },
-    {
-        condition: (_, {getState}) => {
-            const {auth} = getState();
-            if(!auth.token) {
-                return false
-            };
         }
     }
 );

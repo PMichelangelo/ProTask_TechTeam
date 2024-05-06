@@ -1,14 +1,12 @@
-
 import { useState, useId } from "react";
 import { useForm } from "react-hook-form";
+import { NavLink, useLocation } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerSchema } from "schemas/registerSchemas";
 
-//import LoginForm from "components/LoginForm/LoginForm";
+import { registerSchema } from "schemas/registerSchemas";
+import icon from "../../images/icons.svg"
 
 import styles from "./registerForm.module.css"
-import { NavLink, useLocation } from "react-router-dom";
-
 
 const RegisterForm = ({onSubmit}) => {
     const { pathname } = useLocation();
@@ -18,24 +16,24 @@ const RegisterForm = ({onSubmit}) => {
     const passwordId = useId();
     const nameId = useId();
 
-    const { register, handleSubmit, formState: { errors },  } = useForm({
+    const { register, handleSubmit, formState: { errors }, trigger } = useForm({
         resolver: yupResolver(registerSchema)
       });
-// trigger
+
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
       };
 
-      // const submitForm = async (data) => {
-      //   await trigger();
-      //   onSubmit(data);
-      // };
+      const submitForm = async (data) => {
+        await trigger();
+        onSubmit(data);
+      };
 
       return (
         <div className={styles.wrap}>
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.formWrapper} noValidate>
+          <form onSubmit={handleSubmit(submitForm)} className={styles.formWrapper} noValidate>
             <div className={styles.contentWrapper}>
               <div className={styles.switcher}>
                 <button className={styles.button} disabled={isRegisterForm}>Registration</button>
@@ -78,13 +76,10 @@ const RegisterForm = ({onSubmit}) => {
                         className={styles.showPasswordButton}
                         onClick={togglePasswordVisibility}
                         >
-                            <svg className={styles.logoIconOuter} width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.75 7C0.75 7 3.75 1 9 1C14.25 1 17.25 7 17.25 7C17.25 7 14.25 13 9 13C3.75 13 0.75 7 0.75 7Z" stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-                                <svg className={styles.logoIconInner} width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 5.25C4.24264 5.25 5.25 4.24264 5.25 3C5.25 1.75736 4.24264 0.75 3 0.75C1.75736 0.75 0.75 1.75736 0.75 3C0.75 4.24264 1.75736 5.25 3 5.25Z" stroke="white" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </svg>
-                            </div>
+                          <svg className={styles.logoIconOuterWrap}>
+                            <use href={`${icon}#eye-icon`} className={styles.logoIconOuter}  />
+                          </svg>  
+                        </div>
                     </div>
                 </div>
                 {errors.password && <p className={styles.error}>{errors.password.message}</p>}
