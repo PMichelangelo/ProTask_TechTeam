@@ -1,15 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-import { register, login } from "./auth-operation";
 
-import {pending, rejected} from "../../shared/functions/redux"
+import { register, login, current, logout } from './auth-operation';
+
+import { pending, rejected } from '../../shared/functions/redux';
 
 const initialState = {
-    user: {},
-    token: "",
-    isLogin: false,
-    isLoading: false,
-    error: null,
+  user: {},
+  token: '',
+  isLogin: false,
+  isLoading: false,
+  error: null,
 };
 
 const authSlice = createSlice({
@@ -35,7 +36,17 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.error = null;
             })
+            .addCase(logout.pending, pending)
+            .addCase(logout.fulfilled, state => {
+                state.isLoading = false;
+                state.isLogin = false;
+                state.user = {};
+                state.token = '';
+             })
+            .addCase(logout.rejected, rejected);
     }
+
+
 });
 
 export default authSlice.reducer;

@@ -1,0 +1,20 @@
+.logoComponent {
+  display: flex;
+  width: 104px;
+  height: 32px;
+  margin-top: 14px;
+  margin-left: 14px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  /* margin-right: 8px; */
+}
+
+.logoTitle {
+  font-style: Poppins;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+}
