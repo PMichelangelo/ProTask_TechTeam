@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "schemas/registerSchemas";
 
-import LoginForm from "components/LoginForm/LoginForm";
+//import LoginForm from "components/LoginForm/LoginForm";
 
 import styles from "./registerForm.module.css"
 import { NavLink, useLocation } from "react-router-dom";
@@ -18,20 +18,20 @@ const RegisterForm = ({onSubmit}) => {
     const passwordId = useId();
     const nameId = useId();
 
-    const { register, handleSubmit, formState: { errors }, trigger } = useForm({
+    const { register, handleSubmit, formState: { errors },  } = useForm({
         resolver: yupResolver(registerSchema)
       });
-
+// trigger
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
       };
 
-      const submitForm = async (data) => {
-        await trigger();
-        onSubmit(data);
-      };
+      // const submitForm = async (data) => {
+      //   await trigger();
+      //   onSubmit(data);
+      // };
 
       return (
         <div className={styles.wrap}>

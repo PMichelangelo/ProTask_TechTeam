@@ -3,7 +3,7 @@ import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
 
-import PrivateRoute from './PrivateRoute/PrivateRoute';
+//import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 
 
