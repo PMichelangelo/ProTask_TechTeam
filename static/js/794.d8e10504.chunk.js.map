@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/794.d8e10504.chunk.js","mappings":"2KAAO,IAAMA,EAAe,WACxB,MAAO,GACX,C","sources":["pages/NotFoundPage/NotFoundPage.jsx"],"sourcesContent":["export const NotFoundPage = () => {\n    return \"X\"\n}"],"names":["NotFoundPage"],"sourceRoot":""}
