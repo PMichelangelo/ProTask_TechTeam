@@ -29,7 +29,6 @@
   line-height: 133%;
   letter-spacing: -0.02em;
   color: rgba(22, 22, 22, 0.7);
-  position: relative;
   max-width: 290px;
   width: 100%;
   display: -webkit-box;
@@ -40,14 +39,14 @@
   white-space: normal;
 }
 
-.cardText::after {
+.card::after {
   position: absolute;
   content: '';
   height: 1px;
-  width: calc(100% - 6px);
+  width: calc(100% - 24px - 20px);
   background-color: rgba(22, 22, 22, 0.1);
-  top: calc(100% + 14px);
-  left: 0;
+  top: 85px;
+  left: 24px;
   transform: translateY(-50%);
 }
 
@@ -59,6 +58,7 @@
 .wrapLeft {
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
 .cardBtnList {
