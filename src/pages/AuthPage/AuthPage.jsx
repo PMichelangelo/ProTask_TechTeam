@@ -1,7 +1,7 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { signup, login } from "../../redux/auth/auth-operation";
+import { register, login } from "../../redux/auth/auth-operation";
 import { selectAuthError, selectAuthLoading } from "../../redux/auth/auth-selectors";
 import RegisterForm from "components/RegisterForm/RegisterForm";
 import LoginForm from "components/LoginForm/LoginForm";
@@ -13,8 +13,8 @@ const AuthPage = () => {
     const authError = useSelector(selectAuthError);
     const dispatch = useDispatch();
 
-    const handleSignup = data => {
-        dispatch(signup(data));
+    const handleRegister = data => {
+        dispatch(register(data));
     }
 
     const handleLogin = data => {
@@ -27,7 +27,7 @@ const AuthPage = () => {
             {id === "register" ? (
                 <>
                     {authLoading && <div>Loading...</div>}
-                    <RegisterForm onSubmit={handleSignup}/>
+                    <RegisterForm onSubmit={handleRegister}/>
                     {authError && <div className={styles.error}>{authError}</div>}
                 </>
             ) : (

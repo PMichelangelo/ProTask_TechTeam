@@ -11,7 +11,7 @@ const authInstance = axios.create({
 }
 export const setToken = async token => {
 
-export const signupRequest = async body => {
+export const registerRequest = async body => {
     const {data} = await authInstance.post("/users/register", body)
     setToken(data.token)
     return data;

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { signup, login, current} from "./auth-operation";
+import { register, login, current} from "./auth-operation";
 
 import {pending, rejected} from "../../shared/functions/redux"
 
@@ -17,15 +17,15 @@ const authSlice = createSlice({
     initialState,
     extraReducers: builder => {
         builder
-            .addCase(signup.pending, pending)
-            .addCase(signup.fulfilled, (state, {payload}) => {
+            .addCase(register.pending, pending)
+            .addCase(register.fulfilled, (state, {payload}) => {
                 state.user = payload.user;
                 state.token = payload.token;
                 state.isLogin = true;
                 state.isLoading = false;
                 state.error = null;
             })
-            .addCase(signup.rejected, rejected)
+            .addCase(register.rejected, rejected)
             
             .addCase(login.pending, pending)
             .addCase(login.fulfilled, (state, {payload}) => {

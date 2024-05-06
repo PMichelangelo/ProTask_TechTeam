@@ -2,13 +2,13 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { Notify } from "notiflix";
 
-import { signupRequest, loginRequest, currentRequest } from "api/auth-api";
+import { registerRequest, loginRequest, currentRequest } from "api/auth-api";
 
-export const signup = createAsyncThunk(
-    "auth/signup",
+export const register = createAsyncThunk(
+    "auth/register",
     async (body, {rejectWithValue}) => {
         try{    
-            const data = await signupRequest(body);
+            const data = await registerRequest(body);
             Notify.success("Registration has been successful!")
             return data;
         }
