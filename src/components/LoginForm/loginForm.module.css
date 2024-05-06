@@ -136,6 +136,12 @@
         display: flex;
         align-items: center;
     }
+    .logoIconOuterWrap{
+        width: 22px;
+        height: 18px;
+        stroke: #fff;
+        fill: #1f1f1f;
+    }
 }
 @media (min-width:768px){
     .formWrapper{

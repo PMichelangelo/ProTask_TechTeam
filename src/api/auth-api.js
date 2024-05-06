@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 const authInstance = axios.create({
-  baseURL: 'https://protask-backend-qjoh.onrender.com/',
-});
+    baseURL: "https://protask-backend-qjoh.onrender.com/"
+})
+
 
 export const setToken = async token => {
   if (token) {
@@ -23,21 +24,12 @@ export const loginRequest = async body => {
   return data;
 };
 
-export const currentRequest = async token => {
-  setToken(token);
-  try {
-    const { data } = await authInstance.get('/users/current');
-    return data;
-  } catch (error) {
-    setToken();
-    throw error;
-  }
-};
 
 export const logoutRequest = async () => {
   const { data } = await authInstance.post('/users/logout');
   setToken();
   return data;
 };
+
 
 export default authInstance;
