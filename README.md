@@ -1,2 +1,4 @@
+#Eng
 Our project, "TaskPro", is a collaborative online platform designed to streamline project management. Similar to Trello, it employs a card-based system organized within customizable boards. Users can create, assign, and track tasks, set deadlines, and collaborate with team members in real-time. With intuitive features and user-friendly interface, "TaskPro" empowers teams to efficiently organize and execute their projects.
+#UA
 Наш проект, "TaskPro", - це спільна онлайн-платформа, призначена для оптимізації управління проектами. Подібно до Trello, він використовує систему карток, організованих у настроюваних дошках. Користувачі можуть створювати, призначати та відстежувати завдання, встановлювати строки та співпрацювати з членами команди в реальному часі. З інтуїтивними функціями та простим у використанні інтерфейсом, "TaskPro" дозволяє командам ефективно організовувати та виконувати свої проекти.
