@@ -9,7 +9,6 @@ import LoginForm from "components/LoginForm/LoginForm";
 import styles from "./registerForm.module.css"
 import { NavLink, useLocation } from "react-router-dom";
 
-import sprite from "../../images/icons.svg"
 
 const RegisterForm = ({onSubmit}) => {
     const { pathname } = useLocation();
