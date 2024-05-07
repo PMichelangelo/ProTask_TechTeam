@@ -1,16 +1,28 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../redux/auth/auth-selectors';
 import MenuIcon from './MenuIcon';
 import ThemeSelector from './ThemeSelector';
+import UserInfo from './UserInfo/UserInfo';
 
 import styles from './header.module.css';
 
 const Header = () => {
+  const user = useSelector(selectUser);
+
   return (
     <header className={styles.header}>
-      <button type="buttom" className={styles.button}>
+      <button type="button" className={styles.button}>
         <MenuIcon />
       </button>
-      <ThemeSelector />
+      <div className={styles.headerContainer}>
+        <ThemeSelector />
+        {user && (
+          <div className={styles.userInfo}>
+            <UserInfo user={user} />
+          </div>
+        )}
+      </div>
     </header>
   );
 };
