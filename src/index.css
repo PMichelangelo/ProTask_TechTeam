@@ -6,6 +6,9 @@ html {
 
 :root {
   --dark-main-color: #232323;
+  --dark-input-color: #212121;
+  --dark-input-focus-color: #1f1f1f;
+  --dark-button-color: #161616;
   --light-main-color: #fdfdfd;
   --violet-main-color: #d6d8ff;
 
