@@ -65,9 +65,11 @@ export const logout = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const data = await logoutRequest();
+
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
+      // return rejectWithValue(error.message);
     }
   }
 );
