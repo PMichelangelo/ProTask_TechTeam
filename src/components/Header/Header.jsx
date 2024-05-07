@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuIcon from './MenuIcon';
-import ThemeSelector from './ThemeSelector';
+//import ThemeSelector from './ThemeSelector';
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       <button>
         <MenuIcon />
       </button>
-      <ThemeSelector />
+      {/* <ThemeSelector /> */}
     </header>
   );
 };
