@@ -8,9 +8,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* 
+
   transform: translateX(-100%);
-  transition: 500ms transform; */
+  transition: 500ms transform;
 }
 
 .openSidebar {

@@ -14,13 +14,15 @@ const ScreensPage = () => {
       {boardName ? (
         <MainDashboard />
       ) : (
-        <p className={css.noDashboardText}>
-          Before starting your project, it is essential{' '}
-          <span className={css.createDashboardText}>to create a board</span> to
-          visualize and track all the necessary tasks and milestones. This board
-          serves as a powerful tool to organize the workflow and ensure
-          effective collaboration among team members.
-        </p>
+        <div className={css.noDashboardWrap}>
+          <p className={css.noDashboardText}>
+            Before starting your project, it is essential{' '}
+            <span className={css.createDashboardText}>to create a board</span>{' '}
+            to visualize and track all the necessary tasks and milestones. This
+            board serves as a powerful tool to organize the workflow and ensure
+            effective collaboration among team members.
+          </p>
+        </div>
       )}
     </div>
   );
