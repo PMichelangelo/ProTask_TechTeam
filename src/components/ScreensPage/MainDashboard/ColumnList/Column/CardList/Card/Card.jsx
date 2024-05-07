@@ -1,36 +1,23 @@
-import sprite from '../../../../../../../images/icons.svg';
+import CardBtnList from './CardBtnList';
 
 import css from './card.module.css';
 
 const Card = ({ item: { id, title, description, priority, deadline } }) => {
-  function getPriorityClass(priority) {
+  function getPriorityClass(priority, prefix = '') {
     switch (priority) {
       case 'High':
-        return css.priorityHigh;
+        return css[`${prefix}High`];
       case 'Medium':
-        return css.priorityMedium;
+        return css[`${prefix}Medium`];
       case 'Low':
-        return css.priorityLow;
+        return css[`${prefix}Low`];
       default:
-        return css.priorityWithout;
-    }
-  }
-
-  function getCardPriorityClass(priority) {
-    switch (priority) {
-      case 'High':
-        return css.cardPriorityHigh;
-      case 'Medium':
-        return css.cardPriorityMedium;
-      case 'Low':
-        return css.cardPriorityLow;
-      default:
-        return css.cardPriorityWithout;
+        return css[`${prefix}Without`];
     }
   }
 
   return (
-    <li className={`${css.card} ${getCardPriorityClass(priority)}`}>
+    <li className={`${css.card} ${getPriorityClass(priority, 'cardPriority')}`}>
       <h4 className={css.cardTitle}>{title}</h4>
       <p className={css.cardText}>{description}</p>
       <div className={css.wrapCardInfo}>
@@ -39,7 +26,10 @@ const Card = ({ item: { id, title, description, priority, deadline } }) => {
             <h6 className={css.infoText}>Priority</h6>
             <div className={css.prioritySpanText}>
               <span
-                className={`${css.colorSpan} ${getPriorityClass(priority)}`}
+                className={`${css.colorSpan} ${getPriorityClass(
+                  priority,
+                  'priority'
+                )}`}
               ></span>
               <p className={css.info}>{priority}</p>
             </div>
@@ -49,29 +39,7 @@ const Card = ({ item: { id, title, description, priority, deadline } }) => {
             <p className={css.info}>{deadline}</p>
           </div>
         </div>
-        <ul className={css.cardBtnList}>
-          <li key="1" className={css.cardBtnItem}>
-            <button className={css.cardBtn}>
-              <svg className={css.cardIcon}>
-                <use href={`${sprite}#arrow-circle-icon`} />
-              </svg>
-            </button>
-          </li>
-          <li key="2" className={css.cardBtnItem}>
-            <button className={css.cardBtn}>
-              <svg className={css.cardIcon}>
-                <use href={`${sprite}#pencil-icon`} />
-              </svg>
-            </button>
-          </li>
-          <li key="3" className={css.cardBtnItem}>
-            <button className={css.cardBtn}>
-              <svg className={css.cardIcon}>
-                <use href={`${sprite}#trash-icon`} />
-              </svg>
-            </button>
-          </li>
-        </ul>
+        <CardBtnList deadline={deadline} />
       </div>
     </li>
   );

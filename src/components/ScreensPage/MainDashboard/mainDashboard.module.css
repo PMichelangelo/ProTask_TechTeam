@@ -4,5 +4,23 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   gap: 20px;
+  height: 100%;
   flex: 1;
+  padding-bottom: 60px;
+}
+
+@media screen and (min-width: 375px) {
+}
+
+@media screen and (min-width: 768px) {
+  .mainDashboardSection {
+    padding-bottom: 96px;
+    gap: 34px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainDashboardSection {
+    padding-bottom: 36px;
+  }
 }

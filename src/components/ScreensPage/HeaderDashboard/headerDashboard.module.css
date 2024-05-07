@@ -1,13 +1,31 @@
 .headerDashboardSection {
   display: flex;
   justify-content: space-between;
-  padding-top: 14px;
-  padding-bottom: 40px;
 }
 
 .titleDashboard {
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
+  color: var(--light-text-color);
+  padding-top: 14px;
+  padding-bottom: 40px;
+}
+
+@media screen and (min-width: 375px) {
+}
+
+@media screen and (min-width: 768px) {
+  .titleDashboard {
+    font-size: 18px;
+    padding-top: 26px;
+    padding-bottom: 26px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .titleDashboard {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
