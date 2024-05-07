@@ -6,20 +6,35 @@ html {
 
 :root {
   --dark-main-color: #232323;
-  --dark-input-color: #212121;
-  --dark-input-focus-color: #1f1f1f;
   --light-main-color: #fdfdfd;
   --violet-main-color: #d6d8ff;
-  --button-color: #bedbb0;
-  --button-alt-color: #9dc888;
+
+  --light-background-color: #e5e5e5;
+
+  --dark-input-color: #212121;
+  --dark-input-focus-color: #1f1f1f;
+
+  --button-light-color: #bedbb0;
+  --button-light-alt-color: #9dc888;
+
   --button-violet-color: #b8bcfd;
   --button-violet-alt-color: #979cea;
+
   --button-violet-wrap-color: #5255bc;
   --button-violet-wrap-alt-color: #7b7ede;
+
   --radio-grey: #656565;
   --radio-blue: #8fa1d0;
   --radio-pink: #e09cb5;
   --radio-green: #bedbb0;
+
+  --light-text-color: #161616;
+  --dark-text-color: #ffffff;
+
+  --light-header-color: #fcfcfc;
+
+  --dark-plus-color: #121212;
+  --light-plus-color: #ffffff;
 }
 
 body {
@@ -67,4 +82,5 @@ button {
   background-color: transparent;
   cursor: pointer;
   border: none;
+  font-family: inherit;
 }
