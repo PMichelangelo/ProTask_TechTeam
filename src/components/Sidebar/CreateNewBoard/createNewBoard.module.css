@@ -1,0 +1,12 @@
+.sideBar {
+  width: 260px;
+}
+.createNewBoardTitle {
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffffff;
+  margin-left: 14px;
+}
+
+/* @media screen and (min-width: 768px) {
+} */

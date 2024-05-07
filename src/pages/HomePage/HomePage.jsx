@@ -6,7 +6,7 @@ import ScreensPage from 'components/ScreensPage';
 
 const HomePage = () => {
   return (
-    <div>
+    <div style={{ display: 'flex', height: '100%' }}>
       <Header />
       <Sidebar />
       <Routes>

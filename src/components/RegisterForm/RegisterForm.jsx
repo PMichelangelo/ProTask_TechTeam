@@ -1,105 +1,95 @@
-
 import { useState, useId } from "react";
 import { useForm } from "react-hook-form";
+import { NavLink, useLocation } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerSchema } from "schemas/registerSchemas";
 
-import LoginForm from "components/LoginForm/LoginForm";
+import { registerSchema } from "schemas/registerSchemas";
+import icon from "../../images/icons.svg"
 
 import styles from "./registerForm.module.css"
-import { NavLink } from "react-router-dom";
 
 const RegisterForm = ({onSubmit}) => {
+    const { pathname } = useLocation();
+    const isRegisterForm = pathname === "/auth/register"
+
     const emailId = useId();
     const passwordId = useId();
     const nameId = useId();
 
-    const [showPassword, setShowPassword] = useState(false);
-
-    const [isRegisterForm, setIsRegisterForm] = useState(true);
-
-    const handleSwitchForm = () => {
-      setIsRegisterForm(!isRegisterForm);
-    }
-
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors }, trigger } = useForm({
         resolver: yupResolver(registerSchema)
       });
 
-    const handleFormSubmit = (data) => {
-        onSubmit(data);
-    };
+    const [showPassword, setShowPassword] = useState(false);
 
-    return (
-        <div>
-            <div className={styles.switcher}>
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+      };
+
+      const submitForm = async (data) => {
+        await trigger();
+        onSubmit(data);
+      };
+
+      return (
+        <div className={styles.wrap}>
+          <form onSubmit={handleSubmit(submitForm)} className={styles.formWrapper} noValidate>
+            <div className={styles.contentWrapper}>
+              <div className={styles.switcher}>
+                <button className={styles.button} disabled={isRegisterForm}>Registration</button>
                 <NavLink to="/auth/login">
-                    <button onClick={handleSwitchForm} disabled={!isRegisterForm}>Login</button>
-                </NavLink>  
-                <button onClick={handleSwitchForm} disabled={isRegisterForm} className={isRegisterForm ? styles.disabled : ''}>Register</button>
-            </div>
-            {isRegisterForm ? (
-            <form onSubmit={handleSubmit(handleFormSubmit)} className={styles.wrap}> 
-                <div className={styles.container}>
-                    <label className={styles.label} htmlFor={nameId} >
-                        Name:
-                    </label>
-                    <input 
-                        placeholder="Enter your name" 
-                        className={styles.input} 
-                        id={nameId}
-                        {...register("name")}
-                        name="name" 
-                        required 
-                    />
-                    {errors.name && <p className={styles.error}>{errors.name.message}</p>}
-                </div>
-                <div className={styles.container}>
-                    <label className={styles.label} htmlFor={emailId} >
-                        Email:
-                    </label>
-                    <input 
-                        placeholder="Enter your email"  
-                        className={styles.input} 
-                        id={emailId} 
-                        {...register("email")}
-                        type="email" 
-                        name="email" 
-                        required 
-                    /> 
-                    {errors.email && <p className={styles.error}>{errors.email.message}</p>}
-                </div>
-                <div className={styles.container}>
-                    <label className={styles.label} htmlFor={passwordId} >
-                        Password:
-                    </label>
-                    <div className={styles.passwordContainer}>
-                        <input 
-                            placeholder="Create a password"
-                            className={styles.input} 
-                            id={passwordId}
-                            {...register("password")}
-                            type={showPassword ? "text" : "password"}
-                            name="password" 
-                            required 
-                        />
-                        <button 
-                            type="button" 
-                            onClick={() => setShowPassword(!showPassword)}
-                            className={styles.showPasswordButton}
+                  <button className={styles.button} disabled={!isRegisterForm}>Log In</button>
+                </NavLink>
+              </div>
+              <div className={styles.inputContainer}>
+                <input
+                  placeholder="Enter your name"
+                  className={styles.input}
+                  id={nameId}
+                  {...register("name")}
+                  name="name"
+                  required
+                />
+                {errors.name && <p className={styles.error}>{errors.name.message}</p>}
+                <input
+                  placeholder="Enter your email"
+                  className={styles.input}
+                  id={emailId}
+                  {...register("email")}
+                  type="email"
+                  name="email"
+                  required
+                />
+                {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+                <div className={styles.passwordContainer}>
+                  <input
+                    placeholder="Create a password"
+                    className={styles.passwordInput}
+                    id={passwordId}
+                    {...register("password")}
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    required
+                  />
+                    <div className={styles.showPasswordButtonWrap}>
+                        <div
+                        className={styles.showPasswordButton}
+                        onClick={togglePasswordVisibility}
                         >
-                        {showPassword} 0
-                        </button>
+                          <svg className={styles.logoIconOuterWrap}>
+                            <use href={`${icon}#eye-icon`} className={styles.logoIconOuter}  />
+                          </svg>  
+                        </div>
                     </div>
-                    {errors.password && <p className={styles.error}>{errors.password.message}</p>}
                 </div>
-                <button className={styles.button} type="submit">Register</button>
-            </form>) : (
-          <LoginForm onSubmit={onSubmit} />
-      )}
-    </div>
-    )
-}
+                {errors.password && <p className={styles.error}>{errors.password.message}</p>}
+                <button className={styles.registerButton} type="submit">Register Now</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      );
+    }
 
 export default RegisterForm;
 

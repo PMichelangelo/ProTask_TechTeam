@@ -1,0 +1,52 @@
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 225px;
+  height: 100vh;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(-100%);
+  transition: 500ms transform;
+}
+
+.openSidebar {
+  min-height: 768px;
+  z-index: 2;
+  position: absolute;
+  transition: 500ms;
+  transform: translateX(0);
+}
+
+.myBoardsTitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    width: 260px;
+  }
+  .myBoards {
+    margin-top: 70px;
+  }
+  .openSidebar {
+    width: 260px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    width: 260px;
+    transform: none;
+    position: absolute;
+  }
+  .openSidebar {
+    position: absolute;
+    width: 260px;
+  }
+}

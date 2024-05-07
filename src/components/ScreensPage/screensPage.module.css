@@ -1,5 +1,53 @@
 .screensPage {
-  display: block;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  width: 100%;
   background-color: #e5e5e5;
 }
+
+.noDashboardText {
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--light-text-color);
+  opacity: 0.7;
+  max-width: 335px;
+  margin: 0 auto;
+}
+
+.createDashboardText {
+  color: var(--button-light-color);
+  opacity: 1;
+}
+
+@media screen and (min-width: 375px) {
+}
+
+@media screen and (min-width: 768px) {
+  .noDashboardText {
+    font-size: 14px;
+    line-height: 1.29;
+    max-width: 486px;
+  }
+  .screensPage {
+    padding-left: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .screensPage {
+    padding-left: 24px;
+  }
+}
+
+/* @media screen and (min-width: 375px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1440px) {
+} */

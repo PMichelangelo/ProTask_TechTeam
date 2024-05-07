@@ -1,11 +1,10 @@
 .addColumnBtn {
   border-radius: 8px;
-  padding: 0;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
-  background-color: #fff;
+  color: var(--light-text-color);
+  background-color: var(--light-plus-color);
   max-width: 335px;
   width: calc(100vw - 20px * 2);
   height: 56px;
@@ -13,17 +12,33 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 280px;
   flex: 0 0 100%;
 }
 
 .plus {
-  color: #fff;
-  background-color: #161616;
+  background-color: var(--light-text-color);
   height: 28px;
   width: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+}
+
+.plusIcon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--light-plus-color);
+}
+
+@media screen and (min-width: 375px) {
+}
+
+@media screen and (min-width: 768px) {
+  .addColumnBtn {
+    max-width: 334px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
 }

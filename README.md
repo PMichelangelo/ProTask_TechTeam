@@ -1,112 +1,38 @@
-# React homework template
+# <img src="./src/images/logo-readme.png" alt="logo" width="100" height="30" >
 
-Цей проект був створений за допомогою
-[Create React App](https://github.com/facebook/create-react-app). Для знайомства
-і налаштування додаткових можливостей
-[звернися до документації](https://facebook.github.io/create-react-app/docs/getting-started).
+## Eng
+Our project, <b>TaskPro</b>, is a collaborative online platform designed to streamline project management.</br> Similar to Trello, it employs a card-based system organized within customizable boards. Users can create, assign, and track tasks, set deadlines, and collaborate with team members in real-time. </br>
+With intuitive features and user-friendly interface, <b>TaskPro</b> empowers teams to efficiently organize and execute their projects.
 
-## Створення репозиторію за шаблоном
+## Ua
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення репозиторію
-свого проєкта. Для цього натисни на кнопку `«Use this template»` і вибери опцію
-`«Create a new repository»`, як показано на зображенні.
+Наш проект, <b>TaskPro</b>, - це спільна онлайн-платформа, призначена для оптимізації управління проектами.</br>
+Подібно до Trello, він використовує систему карток, організованих у настроюваних дошках. Користувачі можуть створювати, призначати та відстежувати завдання, встановлювати строки та співпрацювати з членами команди в реальному часі.</br>
+З інтуїтивними функціями та простим у використанні інтерфейсом <b>TaskPro</b> дозволяє командам ефективно організовувати та виконувати свої проекти.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+## Technology
+ <ul align="left">
+  <li><a href="https://nodejs.org/en" target="_blank" rel="noreferrer"> <img src="https://create-react-app.dev/img/logo.svg" alt="react" width="40" height="40"/> </a> </li>
+  <li><a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> </li>
+    <li><a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> </li>
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a></li> </ul>
 
-На наступному кроці відкриється сторінка створення нового репозиторію. Заповни поле
-його імені, переконайся що репозиторій публічний, після чого натисни кнопку
-`«Create repository from template»`.
+## JS library (which were used)
+<ul align="left"> 
+<li><a href="https://axios-http.com/docs/intro" target="_blank" rel="noreferrer">  axios </a></li>
+<li><a href="https://github.com/ai/nanoid" target="_blank" rel="noreferrer">  nanoid </a></li>
+<li><a href="https://www.npmjs.com/package/react-date-picker" target="_blank" rel="noreferrer"> react-date-picker </a></li>
+<li><a href="https://www.npmjs.com/package/react-hook-form" target="_blank" rel="noreferrer"> react-hook-form </a></li>
+<li><a href="https://www.npmjs.com/package/react-loader-spinner" target="_blank" rel="noreferrer"> react-loader-spiner </a></li>
+<li><a href="https://www.npmjs.com/package/react-redux" target="_blank" rel="noreferrer"> react-redux </a></li>
+<li><a href="https://www.npmjs.com/package/redux-persist" target="_blank" rel="noreferrer"> redux-persist </a></li>
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+<li><a href="https://github.com/remix-run/react-router#readme" target="_blank" rel="noreferrer"> react-router </a></li>
+<li><a href="https://www.npmjs.com/package/yup" target="_blank" rel="noreferrer"> yup </a></li>
 
-Після того як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як
-показано на зображенні.
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
 
-Проскроливши сторінку до самого кінця, у секції `«Workflow permissions»` вибери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це
-необхідно для автоматизації процесу деплою проєкту.
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
 
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів і папок
-репозиторію-шаблону. Далі працюй із ним як із будь-яким іншим особистим репозиторієм,
-клонуй його собі на комп'ютер, пиши код, роби комміти і відправляй їх на
-GitHub.
 
-## Підготовка до роботи
-
-1. Переконайся що на комп'ютері встановлено LTS-версія Node.js.
-   [Завантаж і встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проєкту командою `npm install`.
-3. Запусти режим розробки, виконавши команду `npm start`.
-4. Перейди в браузері за адресою [http://localhost:3000](http://localhost:3000).
-   Ця сторінка буде автоматично перезавантажуватися після збереження змін у файлах проєкту.
-
-## Деплой
-
-Продакшн версія проєкту буде автоматично проходити лінтинг, збиратися і
-деплоїтися на GitHub Pages, у гілку `gh-pages`, щоразу, коли оновлюється
-гілка `main`. Наприклад, після прямого пушу або прийнятого пул-реквесту. Для цього
-необхідно у файлі `package.json` відредагувати поле `homepage`, замінивши
-`your_username` і `your_repo_name` на свої, і відправити зміни на GitHub.
-
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
-
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) і
-виставити роздачу продакшн-версії файлів із папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
-
-- **Жовтий колір** - виконується збірка і деплой проєкту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, сборки або деплою сталася помилка.
-
-Детальнішу інформацію про статус можна подивитися, клікнувши на іконку, і
-у вікні, що випадає, перейти за посиланням `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Жива сторінка
-
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися
-за адресою, вказаною у відредагованій властивості `homepage`. Наприклад, ось
-посилання на живу версію для цього репозиторію
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Якщо відкривається порожня сторінка, переконайся, що у вкладці `Console` немає помилок
-пов'язаних із неправильними шляхами до CSS і JS файлів проєкту (**404**). Швидше 
-за все у тебе неправильне значення властивості `homepage` у файлі `package.json`.
-
-### Маршрутизація
-
-Якщо додаток використовує бібліотеку `react-router-dom` для маршрутизації,
-необхідно додатково налаштувати компонент `<BrowserRouter>`, передавши у пропе
-`basename` точну назву твого репозиторію. Слеш на початку рядка обов'язковий.
-
-```jsx
-<BrowserRouter basename="/your_repo_name">
-  <App />
-</BrowserRouter>
-```
-
-## Як це працює
-
-![How it works](./assets/how-it-works.png)
-
-1. Після кожного пушу в гілку `main` GitHub-репозиторія, запускається спеціальний
-   скрипт (GitHub Action) з файла `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується і
-   проходить лінтинг і збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн-версія файлів проєкту
-   відправляється в гілку `gh-pages`. В іншому випадку, в лозі виконання
-   скрипта буде вказано в чому проблема.
+ 
