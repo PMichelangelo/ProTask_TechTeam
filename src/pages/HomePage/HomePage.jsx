@@ -6,13 +6,15 @@ import ScreensPage from 'components/ScreensPage';
 
 const HomePage = () => {
   return (
-    <div style={{ display: 'flex', height: '100%' }}>
-      <Header />
+ <div style={{ display: 'flex', height: '100%' }}>
       <Sidebar />
-      <Routes>
-        <Route path="/" element={<ScreensPage />} />
-        <Route path="/:boardName" element={<ScreensPage />} />
-      </Routes>
+      <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ScreensPage />} />
+          <Route path="/:boardName" element={<ScreensPage />} />
+        </Routes>
+      </div>
     </div>
   );
 };
