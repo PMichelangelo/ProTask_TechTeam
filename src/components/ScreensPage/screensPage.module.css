@@ -4,7 +4,7 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: #e5e5e5;
+  background-color: var(--light-background-color);
 }
 
 .noDashboardText {
@@ -23,9 +23,6 @@
   opacity: 1;
 }
 
-@media screen and (min-width: 375px) {
-}
-
 @media screen and (min-width: 768px) {
   .noDashboardText {
     font-size: 14px;
@@ -42,12 +39,3 @@
     padding-left: 24px;
   }
 }
-
-/* @media screen and (min-width: 375px) {
-}
-
-@media screen and (min-width: 768px) {
-}
-
-@media screen and (min-width: 1440px) {
-} */

@@ -1,18 +1,21 @@
 .addCardBtn {
   border-radius: 8px;
-  padding: 0;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: var(--light-text-color);
   background-color: var(--button-light-color);
-  max-width: 335px;
-  width: calc(100vw - 20px * 2);
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.addCardBtn:hover,
+.addCardBtn:focus {
+  background-color: var(--button-light-alt-color);
 }
 
 .plus {
