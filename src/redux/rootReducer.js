@@ -8,7 +8,7 @@ import columnsReducer from './columns/columns-slice';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['token', 'quote'],
+  whitelist: ['token'],
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);

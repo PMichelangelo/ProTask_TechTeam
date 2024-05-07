@@ -28,7 +28,7 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
 
   return (
     <div
-      style={{ display: 'none' }}
+
       className={isMenuOpen ? css.openSidebar : css.sidebar}
       ref={menuRef}
     >

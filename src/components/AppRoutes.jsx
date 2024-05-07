@@ -3,7 +3,7 @@ import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
 
-//import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
 
 
@@ -19,12 +19,12 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
           <Route element={<PublicRoute />}>
-            <Route path="auth/:id" element={<AuthPage />} />
+          <Route path="auth/:id" element={<AuthPage />} />
+          <Route path="*" element={<NotFoundPage/> } />
           </Route>
-          {/* <Route element={<PrivateRoute />}> */}
+         <Route element={<PrivateRoute />}>
             <Route path="/home/*" element={<HomePage />} />
-          {/* </Route> */}
-        <Route path="*" element={<NotFoundPage/> } />
+          </Route>
         </Routes>
     </Suspense>
 
