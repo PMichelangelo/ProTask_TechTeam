@@ -4,4 +4,22 @@
   gap: 14px;
   max-width: 335px;
   width: calc(100vw - 20px * 2);
+  height: 100%;
+}
+
+.itemCardPresent {
+  justify-content: space-between;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: calc(100% - 14px - 56px);
+}
+
+@media screen and (min-width: 768px) {
+  .item {
+    max-width: 334px;
+  }
 }
