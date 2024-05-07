@@ -1,0 +1,42 @@
+.btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #bedbb0;
+
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #161616;
+  transition: scale 250ms ease-in 0s;
+
+}
+
+.btn:focus,
+.btn:hover {
+    scale: 1.05;
+}
+
+.item {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background-color: #161616;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+.item_svg {   
+   width: 14px;
+   height: 14px;
+}
+
+.item_use {
+    stroke: white;
+    fill: transparent;
+}
