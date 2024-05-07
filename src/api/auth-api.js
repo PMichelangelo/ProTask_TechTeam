@@ -14,7 +14,6 @@ export const setToken = async token => {
 
 export const registerRequest = async body => {
   const { data } = await authInstance.post('/users/register', body);
-  setToken(data.token);
   return data;
 };
 
