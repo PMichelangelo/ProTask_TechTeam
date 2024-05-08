@@ -7,14 +7,11 @@
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .button {
   margin-left: 20px;
-}
-
-.select {
-  margin-left: 150px;
 }
 
 .customSelect {
@@ -22,4 +19,10 @@
   height: 16px;
   border: none;
   margin-left: 4px;
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
