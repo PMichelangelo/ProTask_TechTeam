@@ -24,7 +24,7 @@ const UserInfo = ({ user }) => {
     <div>
       {user && (
         <div className={styles.userInfo}>
-          <p>{user.name}</p>
+          <p className={styles.userName}>{user.name}</p>
           <img
             className={styles.avatar}
             src={user.avatar || defaultAvatar}

@@ -9,7 +9,9 @@ const ThemeSelector = ({ setTheme }) => {
 
   return (
     <div className={styles.select}>
-      <label htmlFor="themeSelect">Theme</label>
+      <label htmlFor="themeSelect" className={styles.themeText}>
+        Theme
+      </label>
       <select
         id="themeSelect"
         onChange={handleThemeChange}
