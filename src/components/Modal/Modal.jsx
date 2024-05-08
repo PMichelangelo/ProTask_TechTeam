@@ -1,5 +1,5 @@
 import css from "./modal.module.css"
-import { ReactComponent as CloseBtn } from "./Icon_Close.svg"
+import  sprite  from "../../images/icons.svg"
 import { createPortal } from 'react-dom';
 import React, { useEffect } from 'react';
 
@@ -23,7 +23,9 @@ const Modal = ({ isOpen, onClose, titel, children }) => {
           <div className={css.modal_content}>
             <h2 className={css.titel}>{titel}</h2>
             <button className={css.btn_close} onClick={() => onClose(false)}>
-              <CloseBtn />
+            <svg  className={css.item_svg}>
+             <use className={css.item_use}  href={`${sprite}#x-close-icon`}></use>
+        </svg>
             </button>
             {children}
           </div>

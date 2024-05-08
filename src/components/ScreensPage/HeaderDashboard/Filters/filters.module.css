@@ -1,20 +1,53 @@
+.filterButtonWrap {
+  padding-top: 14px;
+  padding-bottom: 40px;
+  padding-right: 20px;
+}
+
 .filterButton {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  cursor: pointer;
-  background-color: transparent;
   font-weight: 500;
   letter-spacing: -0.02em;
-  color: rgba(22, 22, 22, 0.8);
+  color: var(--light-text-color);
+  opacity: 0.8;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filterButton:hover,
+.filterButton:focus {
+  opacity: 1;
 }
 
 .filterIcon {
   stroke-width: 1.5px;
-  stroke: rgba(22, 22, 22, 0.8);
+  stroke: var(--light-text-color);
+  opacity: 0.8;
   width: 16px;
   height: 14px;
   fill: none;
+}
+
+@media screen and (min-width: 768px) {
+  .filterButtonWrap {
+    padding-top: 20px;
+    padding-right: 32px;
+  }
+  .filterIcon {
+    height: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .filterButtonWrap {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: 24px;
+  }
+  .filterIcon {
+    height: 14px;
+  }
 }

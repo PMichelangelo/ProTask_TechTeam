@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 import { register, login, current, logout } from './auth-operation';
+
 
 import { pending, rejected } from '../../shared/functions/redux';
 
@@ -47,6 +47,7 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.token = "";
             })
+
             .addCase(logout.pending, pending)
             .addCase(logout.fulfilled, state => {
                 state.isLoading = false;

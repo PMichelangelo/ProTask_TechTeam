@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 
 import { useDispatch } from "react-redux";
@@ -5,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { current } from "../redux/auth/auth-operation";
 
 import AppRoutes from "./AppRoutes";
+
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -17,3 +19,4 @@ export const App = () => {
       <AppRoutes />
   );
 };
+

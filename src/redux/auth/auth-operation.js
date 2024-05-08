@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import { Notify } from 'notiflix';
 
 import {
@@ -12,10 +11,21 @@ import {
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (body, { rejectWithValue }) => {
+  async (body, { rejectWithValue,dispatch }) => {
+
     try {
       const data = await registerRequest(body);
       Notify.success('Registration has been successful!');
+
+      try {
+        await dispatch(login({email:body.email, password:body.password}))
+      } catch (loginError) {
+        Notify.failure(
+          'Login after registration failed. Try again.'
+        );
+        console.error(loginError);
+      }
+
       return data;
     } catch (error) {
       Notify.failure(
@@ -59,6 +69,9 @@ export const current = createAsyncThunk(
               return false
           };
       }
+
+  })
+
   }
 );
 
@@ -67,9 +80,11 @@ export const logout = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const data = await logoutRequest();
+
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.message);
+      // return rejectWithValue(error.message);
     }
   }
 );

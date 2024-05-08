@@ -2,10 +2,10 @@
   position: relative;
   padding: 14px 14px 14px 24px;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: var(--light-main-color);
 }
 
-.cardPriorityHigh::before {
+.card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -13,47 +13,30 @@
   height: 100%;
   width: 4px;
   border-radius: 8px 0 0 8px;
+}
+
+.cardPriorityHigh::before {
   background-color: var(--radio-green);
 }
 
 .cardPriorityMedium::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 4px;
-  border-radius: 8px 0 0 8px;
   background-color: var(--radio-pink);
 }
 
 .cardPriorityLow::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 4px;
-  border-radius: 8px 0 0 8px;
   background-color: var(--radio-blue);
 }
 
 .cardPriorityWithout::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 4px;
-  border-radius: 8px 0 0 8px;
   background-color: var(--radio-grey);
+  opacity: 0.3;
 }
 
 .cardTitle {
   font-weight: 600;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #161616;
+  color: var(--light-text-color);
   padding-bottom: 8px;
 }
 
@@ -61,7 +44,8 @@
   font-size: 12px;
   line-height: 133%;
   letter-spacing: -0.02em;
-  color: rgba(22, 22, 22, 0.7);
+  color: var(--light-text-color);
+  opacity: 0.7;
   max-width: 290px;
   width: 100%;
   display: -webkit-box;
@@ -77,7 +61,8 @@
   content: '';
   height: 1px;
   width: calc(100% - 24px - 20px);
-  background-color: rgba(22, 22, 22, 0.1);
+  background-color: var(--light-text-color);
+  opacity: 0.1;
   top: 85px;
   left: 24px;
   transform: translateY(-50%);
@@ -94,19 +79,6 @@
   gap: 4px;
 }
 
-.cardBtnList {
-  display: flex;
-  gap: 8px;
-}
-
-.cardBtn {
-  height: 16px;
-}
-
-.cardBtnItem {
-  height: 16px;
-}
-
 .wrapCardInfo {
   display: flex;
   align-items: flex-end;
@@ -118,21 +90,14 @@
   font-weight: normal;
   font-size: 8px;
   letter-spacing: -0.02em;
-  color: rgba(22, 22, 22, 0.5);
+  color: var(--light-text-color);
+  opacity: 0.5;
 }
 
 .info {
   font-size: 10px;
   letter-spacing: -0.02em;
-  color: #161616;
-}
-
-.cardIcon {
-  width: 16px;
-  height: 16px;
-  stroke: #161616;
-  opacity: 50%;
-  fill: none;
+  color: var(--light-text-color);
 }
 
 .prioritySpanText {
@@ -144,7 +109,6 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: black;
 }
 
 .priorityHigh {
@@ -161,4 +125,5 @@
 
 .priorityWithout {
   background-color: var(--radio-grey);
+  opacity: 0.3;
 }

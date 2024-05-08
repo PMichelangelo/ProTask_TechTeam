@@ -1,0 +1,25 @@
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  margin-left: 20px;
+}
+
+.select {
+  margin-left: 150px;
+}
+
+.customSelect {
+  width: 16px;
+  height: 16px;
+  border: none;
+  margin-left: 4px;
+}
