@@ -61,7 +61,6 @@ export const current = createAsyncThunk(
           return rejectWithValue(error.response.data.message)
       }
   },
-  
   {
       condition: (_, {getState}) => {
           const {auth} = getState();
@@ -72,8 +71,6 @@ export const current = createAsyncThunk(
 
   })
 
-  }
-);
 
 export const logout = createAsyncThunk(
   'auth/logout',
