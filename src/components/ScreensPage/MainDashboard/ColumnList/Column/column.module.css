@@ -1,7 +1,6 @@
 .item {
   display: flex;
   flex-direction: column;
-  gap: 14px;
   max-width: 335px;
   width: calc(100vw - 20px * 2);
   height: 100%;
@@ -9,6 +8,7 @@
 
 .itemCardPresent {
   justify-content: space-between;
+  gap: 14px;
 }
 
 .wrap {

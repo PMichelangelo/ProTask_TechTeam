@@ -6,6 +6,7 @@ const ColumnList = () => {
   const columnArr = [
     { id: '123', title: 'To Do' },
     { id: '234', title: 'Done' },
+    { id: '345', title: 'In progress' },
   ];
 
   return (

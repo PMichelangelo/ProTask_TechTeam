@@ -3,11 +3,11 @@
   gap: 8px;
 }
 
-.cardBtn {
+.cardBtnItem {
   height: 16px;
 }
 
-.cardBtnItem {
+.cardBtn {
   height: 16px;
 }
 
@@ -17,8 +17,19 @@
   stroke: var(--light-text-color);
   opacity: 0.5;
   fill: none;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardBtn:hover .cardIcon,
+.cardBtn:focus .cardIcon {
+  opacity: 1;
+}
+
+.cardBtn:active .cardIcon {
+  stroke: var(--button-light-color);
 }
 
 .bellIcon {
-  stroke: var(--button-color);
+  stroke: var(--button-light-color);
 }

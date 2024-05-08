@@ -15,6 +15,10 @@ const CardBtnList = ({ deadline }) => {
 
   const icons = ['arrow-circle-icon', 'pencil-icon', 'trash-icon'];
 
+  const handleClick = event => {
+    event.target.blur();
+  };
+
   return (
     <ul className={css.cardBtnList}>
       {isDeadlineToday && (
@@ -26,7 +30,7 @@ const CardBtnList = ({ deadline }) => {
       )}
       {icons.map((icon, i) => (
         <li key={i} className={css.cardBtnItem}>
-          <button className={css.cardBtn}>
+          <button className={css.cardBtn} onClick={handleClick}>
             <svg className={css.cardIcon}>
               <use href={`${sprite}#${icon}`} />
             </svg>
