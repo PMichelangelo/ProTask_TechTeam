@@ -31,9 +31,13 @@
   .sidebar {
     width: 260px;
   }
-  .myBoards {
-    margin-top: 70px;
+  .myBoardsTitle {
+    margin-left: 24px;
   }
+  /* .myBoards {
+    margin-top: 70px;
+    margin-left: 24px;
+  } */
   .openSidebar {
     width: 260px;
   }

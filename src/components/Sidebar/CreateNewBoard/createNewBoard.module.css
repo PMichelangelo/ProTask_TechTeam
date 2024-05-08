@@ -1,12 +1,41 @@
-.sideBar {
-  width: 260px;
-}
 .createNewBoardTitle {
+  font-family: 'Poppins';
+  color: #ffffff;
   font-weight: 500;
   font-size: 14px;
-  color: #ffffff;
-  margin-left: 14px;
+  text-align: left;
 }
 
-/* @media screen and (min-width: 768px) {
-} */
+.createNewBoardBtn {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 197px;
+  height: 70px;
+  display: flex;
+  margin-left: 14px;
+  margin-top: 8px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.createNewBoardIcon {
+  width: 40px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: #bedbb0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createNewBoardIconItem {
+  stroke: #121212;
+  fill: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .createNewBoardBtn {
+    margin-left: 24px;
+    width: 212px;
+  }
+}
