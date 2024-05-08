@@ -1,15 +1,16 @@
 import React from 'react';
 import MenuIcon from './MenuIcon';
-//import ThemeSelector from './ThemeSelector';
+import ThemeSelector from './ThemeSelector';
+
+import styles from './header.module.css';
 
 const Header = () => {
   return (
-    <header>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, dolor voluptatem eaque illo rem explicabo tenetur, distinctio magni ratione id ipsum dicta consequuntur eveniet voluptatum amet cupiditate nihil necessitatibus. Quasi!</p>
-      <button>
+    <header className={styles.header}>
+      <button type="buttom" className={styles.button}>
         <MenuIcon />
       </button>
-      {/* <ThemeSelector /> */}
+      <ThemeSelector />
     </header>
   );
 };
