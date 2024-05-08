@@ -24,6 +24,17 @@ export const loginRequest = async body => {
   return data;
 };
 
+export const currentRequest = async (token) => {
+  setToken(token);
+  try{
+      const {data} = await authInstance.get("/users/current")
+      return data;
+  }
+  catch(error) {
+      setToken();
+      throw error;
+  }
+};
 
 export const logoutRequest = async () => {
   const { data } = await authInstance.post('/users/logout');
