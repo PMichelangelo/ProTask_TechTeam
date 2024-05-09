@@ -28,14 +28,18 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
 
   return (
     <div className={isMenuOpen ? css.openSidebar : css.sidebar} ref={menuRef}>
-      <LogoComponent />
-      <div className={css.myBoards}>
-        <h3 className={css.myBoardsTitle}>My boards</h3>
-        <CreateNewBoard />
-        <BoardList />
+      <div>
+        <LogoComponent />
+        <div className={css.myBoards}>
+          <h3 className={css.myBoardsTitle}>My boards</h3>
+          <CreateNewBoard />
+          <BoardList />
+        </div>
       </div>
-      <NeedHelp />
-      <Logout />
+      <div className={css.needHelpLogout}>
+        <NeedHelp />
+        <Logout />
+      </div>
     </div>
   );
 };
