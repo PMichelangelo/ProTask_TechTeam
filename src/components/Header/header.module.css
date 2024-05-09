@@ -11,6 +11,18 @@
   justify-content: space-between;
 }
 
+.theme_dark {
+  background-color: #000;
+}
+
+.theme_light {
+  background-color: lightblue;
+}
+
+.theme_violet {
+  background-color: palevioletred;
+}
+
 .button {
   margin-left: 20px;
 }

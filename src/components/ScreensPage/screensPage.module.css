@@ -7,6 +7,18 @@
   background-color: var(--light-background-color);
 }
 
+.theme_dark {
+  background-color: #000;
+}
+
+.theme_light {
+  background-color: lightblue;
+}
+
+.theme_violet {
+  background-color: palevioletred;
+}
+
 .noDashboardText {
   font-size: 12px;
   line-height: 1.33;
