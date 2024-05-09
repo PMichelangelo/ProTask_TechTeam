@@ -1,3 +1,21 @@
+.theme_dark {
+  .userName {
+    color: #ffffff;
+  }
+}
+
+.theme_light {
+  .userName {
+    color: #161616;
+  }
+}
+
+.theme_violet {
+  .userName {
+    color: #161616;
+  }
+}
+
 .avatar {
   width: 32px;
   height: 32px;

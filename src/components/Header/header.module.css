@@ -12,15 +12,24 @@
 }
 
 .theme_dark {
-  background-color: #000;
+  background-color: #161616;
+  .icon path {
+    stroke: #ffffff;
+  }
 }
 
 .theme_light {
-  background-color: lightblue;
+  background-color: #fcfcfc;
+  .icon path {
+    stroke: #161616;
+  }
 }
 
 .theme_violet {
-  background-color: palevioletred;
+  background-color: #ffffff;
+  .icon path {
+    stroke: #161616;
+  }
 }
 
 .button {
