@@ -22,7 +22,7 @@ const CreateNewBoard = () => {
           </svg>
         </div>
       </button>
-      <Modal isOpen={modalActive} onClose={setModalActive} titel={'AddColum'}>
+      <Modal isOpen={modalActive} onClose={setModalActive} title={'AddColum'}>
         {/* <AddColum onClose={setModalActive} onSubmit={forSubmid} /> */}
       </Modal>
     </div>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import Modal from './Modal';
+
+import Modal from '../../Modal/Modal';
+import UserAvatar from '../UserAvatar';
+import UserForm from '../UserForm';
 
 import styles from './userInfo.module.css';
-import defaultAvatar from '../UserInfo/avatar.png';
 
 const UserInfo = ({ user }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,34 +17,36 @@ const UserInfo = ({ user }) => {
     setIsModalOpen(false);
   };
 
-  const handleEditProfile = formData => {
-    console.log(formData);
-    closeModal();
+  const handleEditProfile = async formData => {
+    try {
+      console.log(formData);
+      // closeModal();
+    } catch (error) {
+      console.error('Failed to update user profile', error);
+    }
   };
 
   return (
     <div>
       {user && (
-        <div className={styles.userInfo}>
-          <p className={styles.userName}>{user.name}</p>
-          <img
-            className={styles.avatar}
-            src={user.avatar || defaultAvatar}
-            alt={user.name}
-            onClick={openModal}
-            style={{ cursor: 'pointer' }}
-          />
-        </div>
+        <button type="button" className={styles.userInfo} onClick={openModal}>
+          <span>{user?.name}</span>
+
+          <span
+            style={{
+              width: '32px',
+              height: '32px',
+            }}
+          >
+            <UserAvatar user={user} />
+          </span>
+        </button>
       )}
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <h2>Edit Profile</h2>
-        <form onSubmit={handleEditProfile}>
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" defaultValue={user.name} required />
 
-          <button type="submit">Save Changes</button>
-        </form>
+        <UserForm user={user} onSubmit={handleEditProfile} />
       </Modal>
     </div>
   );
