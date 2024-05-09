@@ -16,10 +16,8 @@ const themeSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(setThemeAsync.fulfilled, (state, action) => {
-        // Обработка успешного завершения асинхронной операции установки темы
       })
       .addCase(setThemeAsync.rejected, (state, action) => {
-        // Обработка ошибки при установке темы
       });
   },
 });
