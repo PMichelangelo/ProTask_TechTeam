@@ -7,15 +7,15 @@ const INITIAL_STATE = {
   distription: '',
 };
 
-const NeadeHelpForm = ({ onClose, onSubmit }) => {
+const NeedHelpModal = ({ onClose, onSubmit }) => {
   const [modalState, setModalState] = useState({ ...INITIAL_STATE });
 
-  const handelChange = ({ target }) => {
+  const handleChange = ({ target }) => {
     const { name, value } = target;
     setModalState({ ...modalState, [name]: value });
   };
 
-  const handelSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     onClose(false);
     onSubmit({ ...modalState });
@@ -24,7 +24,7 @@ const NeadeHelpForm = ({ onClose, onSubmit }) => {
 
   const { email, distription } = modalState;
   return (
-    <form className={css.form} onSubmit={handelSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <input
         value={email}
         className={css.input}
@@ -32,7 +32,7 @@ const NeadeHelpForm = ({ onClose, onSubmit }) => {
         name="email"
         required
         placeholder="Enter you email "
-        onChange={handelChange}
+        onChange={handleChange}
       ></input>
 
       <textarea
@@ -42,7 +42,7 @@ const NeadeHelpForm = ({ onClose, onSubmit }) => {
         rows="7"
         required
         placeholder="Comment"
-        onChange={handelChange}
+        onChange={handleChange}
       ></textarea>
 
       <button className={css.btn} type="submit">
@@ -52,9 +52,6 @@ const NeadeHelpForm = ({ onClose, onSubmit }) => {
   );
 };
 
-export default NeadeHelpForm;
+export default NeedHelpModal;
 
-//
-// <Modal isOpen={modalActive} onClose={setModalActive} titel={'Edit board'}> визов модального вікна
-//         <Form onClose={setModalActive} onSubmit={forSubmidNeedHelp} />     передач форми до мотального вікна
-//       </Modal>
+

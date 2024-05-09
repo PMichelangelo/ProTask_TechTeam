@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom';
 import React, { useEffect } from 'react';
 
 const modalRoot = document.getElementById('modal-root');
-const Modal = ({ isOpen, onClose, titel, children }) => {
+const Modal = ({ isOpen, onClose, title, children }) => {
   const closeModal = ({ target, currentTarget, code }) => {
     if (target === currentTarget || code === 'Escape') {
       onClose(false);
@@ -21,7 +21,7 @@ const Modal = ({ isOpen, onClose, titel, children }) => {
       {isOpen && (
         <div onClick={closeModal} className={css.modal_wraper}>
           <div className={css.modal_content}>
-            <h2 className={css.titel}>{titel}</h2>
+            <h2 className={css.titel}>{title}</h2>
             <button className={css.btn_close} onClick={() => onClose(false)}>
             <svg  className={css.item_svg}>
              <use className={css.item_use}  href={`${sprite}#x-close-icon`}></use>

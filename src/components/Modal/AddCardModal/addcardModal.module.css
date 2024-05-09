@@ -1,0 +1,149 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  padding: 14px;
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #161616;
+}
+
+.textarea {
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  padding: 14px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  color: #161616;
+  resize: none;
+}
+.sub_title {
+  margin-bottom: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: rgba(22, 22, 22, 0.5);
+}
+
+:root {
+  --Low: #8fa1d0;
+  --Medium: #e09cb5;
+  --High: #bedbb0;
+  --Without: rgba(22, 22, 22, 0.3);
+}
+.label_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.label_icon::before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--High);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  opacity: 0;
+}
+
+input[value='Low'] + label svg use {
+  fill: var(--Low);
+  stroke: transparent;
+}
+
+input[value='Medium'] + label svg use {
+  fill: var(--Medium);
+  stroke: transparent;
+}
+
+input[value='High'] + label svg use {
+  fill: var(--High);
+  stroke: transparent;
+}
+
+input[value='Without'] + label svg use {
+  fill: var(--Without);
+  stroke: transparent;
+}
+
+[value='Low']:checked + label svg use {
+  fill: transparent;
+  stroke: var(--Low);
+}
+
+[value='Low']:checked + .label_icon::before {
+  opacity: 1;
+  background-color: var(--Low);
+}
+
+[value='Medium']:checked + label svg use {
+  fill: transparent;
+  stroke: var(--Medium);
+}
+
+[value='Medium']:checked + .label_icon::before {
+  opacity: 1;
+  background-color: var(--Medium);
+}
+
+[value='High']:checked + label svg use {
+  fill: transparent;
+  stroke: var(--High);
+}
+[value='High']:checked + .label_icon::before {
+  opacity: 1;
+  background-color: var(--High);
+}
+
+[value='Without']:checked + label svg use {
+  fill: transparent;
+  stroke: var(--Without);
+}
+
+[value='Without']:checked + .label_icon::before {
+  opacity: 1;
+  background-color: var(--Without);
+}
+
+.radio_container {
+  margin-bottom: 14px;
+}
+.radio_container_item {
+  display: flex;
+  gap: 8px;
+}
+.icon {
+  height: 14px;
+  width: 14px;
+}
+.radio_input {
+  position: absolute;
+  opacity: 0;
+}
+
+@media (min-width: 375px) {
+  .form {
+    width: 287px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .form {
+    width: 302px;
+  }
+}
+
+@media (min-width: 1440px) {
+}
