@@ -8,16 +8,32 @@ import css from './screensPage.module.css';
 
 const ScreensPage = () => {
   const { boardName } = useParams();
-  const currentTheme = useSelector(selectTheme)
+  const currentTheme = useSelector(selectTheme);
+
+  //   const Board = {
+  //   "title": "",
+  //   "icon": "",
+  //   "background": ""
+  // }
+
+  //   const Column = {
+  //   "title": ""
+  //  }
+
+  // const Task = {
+  // "title": "",
+  // "description": "",
+  // "color": "",
+  // "deadline": ""
+  // }
 
   const themeClassMap = {
-    'theme_dark': css.theme_dark,
-    'theme_light': css.theme_light,
-    'theme_violet': css.theme_violet,
+    theme_dark: css.theme_dark,
+    theme_light: css.theme_light,
+    theme_violet: css.theme_violet,
   };
 
   const screensPageTheme = themeClassMap[currentTheme] || '';
-
 
   return (
     <div className={`${css.screensPage} ${screensPageTheme}`}>
