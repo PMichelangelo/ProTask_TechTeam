@@ -16,11 +16,11 @@ const INITIAL_STATE = {
   const NewDashboard = ({ onClose, onSubmit }) => {
     const [newBoardState, setNewBoardState] = useState({ ...INITIAL_STATE });
   
-    const handelChange = ({ target }) => {
+    const handleChange = ({ target }) => {
       const { name, value } = target;
       setNewBoardState({ ...newBoardState, [name]: value });
     };
-    const handelSubmit = e => {
+    const handleSubmit = e => {
       e.preventDefault();
       onClose(false);
       console.log(({ ...newBoardState }));;
@@ -47,7 +47,7 @@ const INITIAL_STATE = {
           type="radio"
           value={icon}
           checked={newBoardState.icon === icon}
-          onChange={handelChange}
+          onChange={handleChange}
         />
         <svg className={css.icon}>
           <use className={css.icon_use} href={`${IconsSprite}#${icon}`} />
@@ -82,7 +82,7 @@ const INITIAL_STATE = {
           type="radio"
           value={backgroundOption}
           checked={newBoardState.background === backgroundOption}
-          onChange={handelChange}
+          onChange={handleChange}
         />
         <img className={css.backgraund_img} src={BackImg} alt="" />
       </label>
@@ -90,14 +90,14 @@ const INITIAL_STATE = {
   
     const { title } = newBoardState;
     return (
-      <form className={css.form} onSubmit={handelSubmit}>
+      <form className={css.form} onSubmit={handleSubmit}>
         <input
           value={title}
           className={css.input}
           type="text"
           name="title"
           required
-          onChange={handelChange}
+          onChange={handleChange}
           placeholder="Title "
         ></input>   
         <p className={css.radio_titel}>Icon:</p>   

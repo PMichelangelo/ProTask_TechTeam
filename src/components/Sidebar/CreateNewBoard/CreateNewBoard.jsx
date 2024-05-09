@@ -2,8 +2,7 @@ import css from './createNewBoard.module.css';
 import Modal from '../../Modal/Modal';
 import { useState } from 'react';
 import sprite from '../../../images/icons.svg';
-import AddCardModal from "../../Modal/AddCardModal/AddCardModal"
-
+import AddColumnModal from "../../Modal/AddColumnModal/AddColumnModal";
 const CreateNewBoard = () => {
   const [modalActive, setModalActive] = useState(false);
 
@@ -24,8 +23,7 @@ const CreateNewBoard = () => {
         </div>
       </button>
       <Modal isOpen={modalActive} onClose={setModalActive} titel={'AddColum'}>
-        <AddCardModal/>
-        {/* <AddColum onClose={setModalActive} onSubmit={forSubmid} /> */}
+        <AddColumnModal onClose={setModalActive} /> /
       </Modal>
     </div>
   );
