@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectTheme } from '../../redux/theme/theme-selectors';
+
 import HeaderDashboard from './HeaderDashboard';
 import MainDashboard from './MainDashboard';
 
@@ -8,35 +7,9 @@ import css from './screensPage.module.css';
 
 const ScreensPage = () => {
   const { boardName } = useParams();
-  const currentTheme = useSelector(selectTheme);
-
-  //   const Board = {
-  //   "title": "",
-  //   "icon": "",
-  //   "background": ""
-  // }
-
-  //   const Column = {
-  //   "title": ""
-  //  }
-
-  // const Task = {
-  // "title": "",
-  // "description": "",
-  // "color": "",
-  // "deadline": ""
-  // }
-
-  const themeClassMap = {
-    dark: css.theme_dark,
-    light: css.theme_light,
-    violet: css.theme_violet,
-  };
-
-  const screensPageTheme = themeClassMap[currentTheme] || '';
 
   return (
-    <div className={`${css.screensPage} ${screensPageTheme}`}>
+    <div className={css.screensPage}>
       <HeaderDashboard boardName={boardName} />
       {boardName ? (
         <MainDashboard />

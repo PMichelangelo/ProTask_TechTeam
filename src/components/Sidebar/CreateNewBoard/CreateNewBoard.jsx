@@ -1,20 +1,12 @@
 import css from './createNewBoard.module.css';
 import Modal from '../../Modal/Modal';
-import NewDashboardModal from 'components/Modal/NewDashboardModal/NewDashboardModal';
 import { useState } from 'react';
 import sprite from '../../../images/icons.svg';
-import { useDispatch } from 'react-redux';
-import { addDashboard } from '../../../redux/dashboards/dashboards-operations';
 
 const CreateNewBoard = () => {
-  const dispatch = useDispatch();
-
   const [modalActive, setModalActive] = useState(false);
 
-  const onSubmit = data => {
-    dispatch(addDashboard(data));
-  };
-
+  // const forSubmit = data => console.log(data);
   return (
     <div>
       <button
@@ -30,11 +22,26 @@ const CreateNewBoard = () => {
           </svg>
         </div>
       </button>
-      <Modal isOpen={modalActive} onClose={setModalActive} title={'New board'}>
-        <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />
+      <Modal isOpen={modalActive} onClose={setModalActive} title={'AddColum'}>
+        {/* <AddColum onClose={setModalActive} onSubmit={forSubmid} /> */}
       </Modal>
     </div>
   );
+
+  // <p className={css.createNewBoardTitle}>Create a new board</p>;
 };
 
 export default CreateNewBoard;
+
+// import Modal from '../../Modal/Modal';
+// import AddColum from '../../Modal/AddColum/AddColum';
+// import { useState } from 'react';
+// const CreateNewBoard = () => {
+//   const [modalActive, setModalActive] = useState(false);   - стан модалки
+//   const forSubmid = data => console.log(data); данні с форми по сабміту
+//   return <>
+//      <button onClick={() => setModalActive(true)}>Open</button>
+// <Modal isOpen={modalActive} onClose={setModalActive} titel={'AddColum'}> - виклик модалки
+//   <AddColum onClose={setModalActive} onSubmit={forSubmid} />             - виклик компонента модалки
+// </Modal>
+//   </>

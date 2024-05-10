@@ -5,13 +5,9 @@ import Logout from './Logout/Logout';
 import NeedHelp from './NeedHelp/NeedHelp';
 import css from './sidebar.module.css';
 import { useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { fetchAllDashboards } from '../../redux/dashboards/dashboards-operations';
 
 const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
   const menuRef = useRef(null);
-  const dispatch = useDispatch();
 
   const handleClickOutside = event => {
     if (
@@ -24,10 +20,6 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
   };
 
   useEffect(() => {
-    dispatch(fetchAllDashboards());
-  }, [dispatch]);
-
-  useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -36,18 +28,14 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
 
   return (
     <div className={isMenuOpen ? css.openSidebar : css.sidebar} ref={menuRef}>
-      <div>
-        <LogoComponent />
-        <div className={css.myBoards}>
-          <h3 className={css.myBoardsTitle}>My boards</h3>
-          <CreateNewBoard />
-          <BoardList />
-        </div>
+      <LogoComponent />
+      <div className={css.myBoards}>
+        <h3 className={css.myBoardsTitle}>My boards</h3>
+        <CreateNewBoard />
+        <BoardList />
       </div>
-      <div className={css.needHelpLogout}>
-        <NeedHelp />
-        <Logout />
-      </div>
+      <NeedHelp />
+      <Logout />
     </div>
   );
 };

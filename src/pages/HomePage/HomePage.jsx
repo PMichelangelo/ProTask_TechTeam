@@ -9,16 +9,9 @@ const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div style={{ display: 'flex', width: '100%', height: '100%' }}>
+    <div style={{ display: 'flex', height: '100%' }}>
       <Sidebar setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
-          width: '100%',
-        }}
-      >
+      <div style={{ flex: '1', display: 'flex', flexDirection: 'column' }}>
         <Header />
         <Routes>
           <Route path="/" element={<ScreensPage />} />
