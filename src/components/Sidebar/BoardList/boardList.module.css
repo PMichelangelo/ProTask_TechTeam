@@ -1,8 +1,5 @@
 .boardList {
   display: flex;
   flex-direction: column;
-}
-
-.boardBtn {
-  color: var(--light-main-color);
+  width: 100%;
 }
