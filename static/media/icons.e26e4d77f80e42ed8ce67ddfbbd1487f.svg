@@ -76,5 +76,6 @@
     <symbol id="filter-icon" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" d="M29.334 4H2.667l10.667 12.613v8.72L18.667 28V16.613L29.334 4z"/>
     </symbol>
+    
   </defs>
 </svg>
