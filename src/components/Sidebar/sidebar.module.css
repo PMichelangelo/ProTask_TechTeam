@@ -14,11 +14,16 @@
 
 .openSidebar {
   min-height: 768px;
-  z-index: 2;
+  z-index: 1;
   position: absolute;
   transition: 500ms;
   transform: translateX(0);
   background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 225px;
+  height: 100vh;
 }
 
 .myBoardsTitle {

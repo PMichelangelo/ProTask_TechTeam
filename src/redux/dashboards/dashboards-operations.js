@@ -6,8 +6,10 @@ export const fetchAllDashboards = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();
-      const { data } = await dashboardsApi.getAllDashboardsRequest(auth.token);
-      return data;
+      const {
+        data: { boards },
+      } = await dashboardsApi.getAllDashboardsRequest(auth.token);
+      return boards;
     } catch (error) {
       return rejectWithValue(error.message);
     }

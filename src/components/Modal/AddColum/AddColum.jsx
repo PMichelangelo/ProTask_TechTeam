@@ -1,4 +1,4 @@
-import css from './addColum.module.css';
+//import css from './addColum.module.css';
 
 import FormBtn from '../FormBtn/FormBtn';
 
@@ -32,16 +32,18 @@ const AddColum = ({ isOpen, onClose, onSubmit }) => {
   const { title } = columState;
   return (
     <Modal isOpen={isOpen} onClose={onClose} titel={'Add Column'}>
-      <form className={css.form} onSubmit={handelSubmit}>
+      <form onSubmit={handelSubmit}>
+        {/* className={css.form} */}
         <input
           value={title}
-          className={css.input}
+
           type="text"
           name="title"
           required
           onChange={handelChange}
           placeholder="Title "
         ></input>
+        {/* className={css.input} */}
         <div>
           <CustomRadio
             name="example"

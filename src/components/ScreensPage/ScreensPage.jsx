@@ -28,9 +28,9 @@ const ScreensPage = () => {
   // }
 
   const themeClassMap = {
-    theme_dark: css.theme_dark,
-    theme_light: css.theme_light,
-    theme_violet: css.theme_violet,
+    dark: css.theme_dark,
+    light: css.theme_light,
+    violet: css.theme_violet,
   };
 
   const screensPageTheme = themeClassMap[currentTheme] || '';

@@ -5,9 +5,13 @@ import Logout from './Logout/Logout';
 import NeedHelp from './NeedHelp/NeedHelp';
 import css from './sidebar.module.css';
 import { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { fetchAllDashboards } from '../../redux/dashboards/dashboards-operations';
 
 const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
   const menuRef = useRef(null);
+  const dispatch = useDispatch();
 
   const handleClickOutside = event => {
     if (
@@ -18,6 +22,10 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
       setIsMenuOpen(false);
     }
   };
+
+  useEffect(() => {
+    dispatch(fetchAllDashboards());
+  }, [dispatch]);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
