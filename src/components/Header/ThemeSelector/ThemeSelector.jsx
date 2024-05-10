@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/theme/theme-selectors';
-import { setTheme } from '../../../redux/theme/theme-slice';
+import { setThemeAsync } from '../../../redux/theme/theme-operations';
+//import { setTheme } from '../../../redux/theme/theme-slice';
 import styles from './themeSelector.module.css';
 
 const ThemeSelector = () => {
@@ -12,17 +13,21 @@ const ThemeSelector = () => {
   const currentTheme = useSelector(selectTheme);
 
   const themeClassMap = {
-    theme_dark: styles.theme_dark,
-    theme_light: styles.theme_light,
-    theme_violet: styles.theme_violet,
+    dark: styles.theme_dark,
+    light: styles.theme_light,
+    violet: styles.theme_violet,
   };
 
-  const handleClick = theme => {
+    const handleClick = theme => {
     setColorTheme(theme);
     setShowOptions(false);
-    dispatch(setTheme(theme));
+    console.log('Отправка запроса на изменение темы:', theme);
+    dispatch(setThemeAsync( theme )).then(response => {
+      console.log('Ответ сервера:', response);
+    }).catch(error => {
+      console.error('Ошибка при изменении темы:', error);
+    });
   };
-
   const selectClassName = themeClassMap[currentTheme] || '';
 
   return (
@@ -52,19 +57,19 @@ const ThemeSelector = () => {
           )}
           <button
             className={styles.optionTheme}
-            onClick={() => handleClick('theme_dark')}
+            onClick={() => handleClick('dark')}
           >
             Dark
           </button>
           <button
             className={styles.optionTheme}
-            onClick={() => handleClick('theme_light')}
+            onClick={() => handleClick('light')}
           >
             Light
           </button>
           <button
             className={styles.optionTheme}
-            onClick={() => handleClick('theme_violet')}
+            onClick={() => handleClick('violet')}
           >
             Violet
           </button>

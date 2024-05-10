@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { setThemeAsync } from './theme-operations';
 
 const initialState = {
-  theme: localStorage.getItem('theme-color') || 'theme_light',
+  theme:'',
 };
 
 const themeSlice = createSlice({

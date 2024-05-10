@@ -3,23 +3,14 @@ import { setTheme } from "./theme-slice";
 import { Notify } from "notiflix";
 import { updateTheme } from "../../api/theme-api";
 
-//mok api //waiting for real api
-const setThemeRequest = async (theme) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({ theme });
-    }, 1000);
-  });
-};
-
 
 export const setThemeAsync = createAsyncThunk(
   'theme/setTheme',
   async (theme, { rejectWithValue, dispatch }) => {
     try {
-      const data = await setThemeRequest(theme);
+      const responseData = await updateTheme(theme);
       dispatch(setTheme(theme));
-      return data;
+      return responseData;
     } catch (error) {
       Notify.failure('Failed to set theme');
       return rejectWithValue(error);

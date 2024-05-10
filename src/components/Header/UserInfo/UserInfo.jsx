@@ -12,9 +12,9 @@ const UserInfo = ({ user }) => {
   const currentTheme = useSelector(selectTheme);
 
   const themeClassMap = {
-    theme_dark: styles.theme_dark,
-    theme_light: styles.theme_light,
-    theme_violet: styles.theme_violet,
+    dark: styles.theme_dark,
+    light: styles.theme_light,
+    violet: styles.theme_violet,
   };
 
   const userClassName = themeClassMap[currentTheme] || '';
