@@ -1,15 +1,13 @@
-// import { useSelector } from 'react-redux';
-// import { selectColumns } from '../../../../redux/columns/columns-selectors';
-
-// import { fetchBoard } from '../../../../redux/columns/columns-operations';
 import Column from './Column/Column';
 
 import css from './columnList.module.css';
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
 
 const ColumnList = () => {
-  const columnArr = [];
+  const columnArr = [
+    { id: '123', title: 'To Do' },
+    { id: '234', title: 'Done' },
+    { id: '345', title: 'In progress' },
+  ];
 
   return (
     <ul className={css.list}>

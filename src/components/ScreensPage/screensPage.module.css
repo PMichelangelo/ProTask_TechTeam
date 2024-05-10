@@ -2,29 +2,9 @@
   padding-left: 20px;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 60px);
-  flex: 1;
-  background-color: var(--light-background-color);
-}
-
-.theme_dark {
-  background-color: #1f1f1f;
-}
-
-.theme_light {
-  background-color: #f6f6f7;
-}
-
-.theme_violet {
-  background-color: #ecedfd;
-}
-
-.noDashboardWrap {
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 60px;
+  width: 100%;
+  background-color: var(--light-background-color);
 }
 
 .noDashboardText {
@@ -51,12 +31,11 @@
   }
   .screensPage {
     padding-left: 32px;
-    height: calc(100% - 60px);
   }
 }
 
 @media screen and (min-width: 1440px) {
   .screensPage {
-    padding-left: 284px;
+    padding-left: 24px;
   }
 }
