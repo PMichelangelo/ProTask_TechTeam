@@ -1,4 +1,4 @@
-import css from './needHelpForm.module.css';
+import css from './needHelpModal.module.css';
 
 import { useState } from 'react';
 

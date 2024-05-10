@@ -1,8 +1,7 @@
 import css from './needHelp.module.css';
 import sprite from '../../../images/icons.svg';
 import Modal from '../../Modal/Modal';
-import Form from '../../Modal/NeedHelpForm/NeedHelpForm';
-
+import NeedHelpModal from '../../Modal/NeedHelpModal/NeedHelpModal';
 import { useState } from 'react';
 
 const NeedHelp = () => {
@@ -33,7 +32,7 @@ const NeedHelp = () => {
         <p className={css.helpBtnText}>Need help?</p>
       </button>
       <Modal isOpen={modalActive} onClose={setModalActive} titel={'Edit board'}>
-        <Form onClose={setModalActive} onSubmit={forSubmitNeedHelp} />
+        <NeedHelpModal onClose={setModalActive} onSubmit={forSubmitNeedHelp} />
       </Modal>
     </div>
   );

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { setTheme } from "./theme-slice";
 import { Notify } from "notiflix";
-
+import { updateTheme } from "../../api/theme-api";
 
 //mok api //waiting for real api
 const setThemeRequest = async (theme) => {
