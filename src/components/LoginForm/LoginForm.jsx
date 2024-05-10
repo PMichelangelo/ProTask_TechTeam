@@ -1,4 +1,4 @@
-import { useState, useId, useEffect, useCallback } from "react";
+import { useState, useId } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -26,23 +26,10 @@ const LoginForm = ({ onSubmit }) => {
     setShowPassword(!showPassword);
   };
 
-  const submitForm = useCallback(async (data) => {
+  const submitForm = async (data) => {
     await trigger();
     onSubmit(data);
-}, [onSubmit, trigger]);
-
-   useEffect(() => {
-        const handleKeyPress = (e) => {
-            if (e.key === "Enter") {
-                e.preventDefault();
-                handleSubmit(submitForm)();
-            }
-        };
-        document.addEventListener("keypress", handleKeyPress);
-        return () => {
-            document.removeEventListener("keypress", handleKeyPress);
-        };
-    }, [handleSubmit, submitForm]);
+  };
 
   return (
     <div className={styles.wrap}>

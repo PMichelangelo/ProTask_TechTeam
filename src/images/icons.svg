@@ -76,10 +76,5 @@
     <symbol id="filter-icon" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" d="M29.334 4H2.667l10.667 12.613v8.72L18.667 28V16.613L29.334 4z"/>
     </symbol>
-    <svg width="10" height="10" class="hidden">
-  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 7" id="Vector">
-    <path d="M1 1.5L5 5.5L9 1.5" stroke="black" stroke-opacity="0.8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-  </symbol>
-</svg>
   </defs>
 </svg>
