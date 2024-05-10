@@ -1,13 +1,20 @@
 import css from './createNewBoard.module.css';
 import Modal from '../../Modal/Modal';
-import AddColum from '../../Modal/AddColum/AddColum';
+import NewDashboardModal from 'components/Modal/NewDashboardModal/NewDashboardModal';
 import { useState } from 'react';
 import sprite from '../../../images/icons.svg';
-//import AddColumnModal from "../../Modal/AddColumnModal/AddColumnModal";
+import { useDispatch } from 'react-redux';
+import { addDashboard } from '../../../redux/dashboards/dashboards-operations';
+
 const CreateNewBoard = () => {
+  const dispatch = useDispatch();
+
   const [modalActive, setModalActive] = useState(false);
 
-  const forSubmit = data => console.log(data);
+  const onSubmit = data => {
+    dispatch(addDashboard(data));
+  };
+
   return (
     <div>
       <button
@@ -23,8 +30,8 @@ const CreateNewBoard = () => {
           </svg>
         </div>
       </button>
-      <Modal isOpen={modalActive} onClose={setModalActive} titel={'AddColum'}>
-        <AddColum onClose={setModalActive} onSubmit={forSubmit} />
+      <Modal isOpen={modalActive} onClose={setModalActive} title={'New board'}>
+        <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />
       </Modal>
     </div>
   );
