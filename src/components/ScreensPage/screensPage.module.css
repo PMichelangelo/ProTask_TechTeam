@@ -2,9 +2,29 @@
   padding-left: 20px;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
+  height: calc(100% - 60px);
+  flex: 1;
   background-color: var(--light-background-color);
+}
+
+.theme_dark {
+  background-color: #000;
+}
+
+.theme_light {
+  background-color: lightblue;
+}
+
+.theme_violet {
+  background-color: palevioletred;
+}
+
+.noDashboardWrap {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
 }
 
 .noDashboardText {
@@ -31,11 +51,12 @@
   }
   .screensPage {
     padding-left: 32px;
+    height: calc(100% - 60px);
   }
 }
 
 @media screen and (min-width: 1440px) {
   .screensPage {
-    padding-left: 24px;
+    padding-left: 284px;
   }
 }

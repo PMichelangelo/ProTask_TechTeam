@@ -18,6 +18,7 @@
   position: absolute;
   transition: 500ms;
   transform: translateX(0);
+  background-color: #121212;
 }
 
 .myBoardsTitle {
@@ -25,15 +26,20 @@
   font-weight: 400;
   font-size: 12px;
   margin-left: 14px;
+  margin-top: 70px;
 }
 
 @media screen and (min-width: 768px) {
   .sidebar {
     width: 260px;
   }
-  .myBoards {
-    margin-top: 70px;
+  .myBoardsTitle {
+    margin-left: 24px;
   }
+  /* .myBoards {
+    margin-top: 70px;
+    margin-left: 24px;
+  } */
   .openSidebar {
     width: 260px;
   }
