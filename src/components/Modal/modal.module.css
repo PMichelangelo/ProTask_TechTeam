@@ -21,6 +21,18 @@
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
   padding: 24px;
 }
+  .theme_dark {
+    background:#151515
+  }
+  
+  .theme_light {
+    background: #fcfcfc;
+  }
+  
+  .theme_violet {
+    background: #fcfcfc;
+  }
+
 .btn_close {
   border: none;
   position: absolute;

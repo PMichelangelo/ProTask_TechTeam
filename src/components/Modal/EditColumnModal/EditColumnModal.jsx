@@ -6,33 +6,33 @@ import { useState } from 'react';
 
 
 
-const AddColum = ({ onClose, onSubmit ,columnTitle }) => {
+const  EditColumnModal = ({ onClose, onSubmit ,columnTitle }) => {
   const INITIAL_STATE = {
     title:columnTitle,
   }
-  const [columState, setColumState] = useState(INITIAL_STATE);
+  const [columnState, setColumnState] = useState(INITIAL_STATE);
 
-  const handelChange = ({ target }) => {
+  const handleChange = ({ target }) => {
     const { name, value } = target;
-    setColumState({ [name]: value });
+    setColumnState({ [name]: value });
   };
 
-  const handelSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     onClose(false);
-    onSubmit(columState);
-    setColumState(INITIAL_STATE);
+    onSubmit(columnState);
+    setColumnState(INITIAL_STATE);
   };
-  const {title}=columState
+  const {title}=columnState
   return (
-    <form className={css.form} onSubmit={handelSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <input
         value={title}
         className={css.input}
         type="text"
         name="title"
         required
-        onChange={handelChange}
+        onChange={handleChange}
         placeholder="Title "
       ></input>
 
@@ -41,4 +41,4 @@ const AddColum = ({ onClose, onSubmit ,columnTitle }) => {
   );
 };
 
-export default AddColum;
+export default  EditColumnModal;
