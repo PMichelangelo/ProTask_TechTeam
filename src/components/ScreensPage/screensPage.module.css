@@ -8,15 +8,15 @@
 }
 
 .theme_dark {
-  background-color: #000;
+  background-color: #1f1f1f;
 }
 
 .theme_light {
-  background-color: lightblue;
+  background-color: #f6f6f7;
 }
 
 .theme_violet {
-  background-color: palevioletred;
+  background-color: #ecedfd;
 }
 
 .noDashboardWrap {

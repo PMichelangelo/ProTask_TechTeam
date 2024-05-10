@@ -11,7 +11,8 @@ import styles from './header.module.css';
 const Header = () => {
   const user = useSelector(selectUser);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const currentTheme = useSelector(selectTheme)
+  const currentTheme = useSelector(selectTheme);
+
 
     const themeClassMap = {
     'dark': styles.theme_dark,
@@ -23,9 +24,7 @@ const Header = () => {
     setIsSidebarOpen(prevState => !prevState);
   };
 
-
   const headerClassName = themeClassMap[currentTheme] || '';
-
 
   return (
     <>
@@ -37,8 +36,9 @@ const Header = () => {
         >
           <MenuIcon />
         </button>
-        <ThemeSelector />
+
         <div className={styles.headerContainer}>
+          <ThemeSelector />
           {user && (
             <div className={styles.userInfo}>
               <UserInfo user={user} />

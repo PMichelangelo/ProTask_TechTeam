@@ -1,7 +1,11 @@
 .select {
   display: flex;
   position: relative;
-  gap: 4px;
+  gap: 2px;
+}
+
+.arrowIconSvg {
+  width: 300px;
 }
 
 .options {
@@ -13,17 +17,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: red;
   gap: 4px;
 }
 
 .theme_dark {
   .themeTitle {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.8);
   }
 
   .arrowIcon {
-    color: #ffffff;
+    color: rgba(255, 255, 255, 0.8);
   }
 
   .options {
@@ -34,10 +37,12 @@
 
   .optionTheme {
     color: rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
   .optionTheme:hover {
     color: #bedbb0;
+    transform: scale(1.1);
   }
 }
 
@@ -48,8 +53,21 @@
     border-radius: 8px;
   }
 
+  .optionTheme {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
   .optionTheme:hover {
     color: #bedbb0;
+    transform: scale(1.1);
+  }
+
+  .themeTitle {
+    color: rgba(22, 22, 22, 0.8);
+  }
+
+  .arrowIcon {
+    color: rgba(22, 22, 22, 0.8);
   }
 }
 
@@ -60,7 +78,20 @@
     border-radius: 8px;
   }
 
+  .optionTheme {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
   .optionTheme:hover {
     color: #5255bc;
+    transform: scale(1.1);
+  }
+
+  .themeTitle {
+    color: rgba(22, 22, 22, 0.8);
+  }
+
+  .arrowIcon {
+    color: rgba(22, 22, 22, 0.8);
   }
 }

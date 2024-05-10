@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/theme/theme-selectors';
@@ -11,6 +11,7 @@ const ThemeSelector = () => {
   const [showOptions, setShowOptions] = useState(false);
   const [colorTheme, setColorTheme] = useState('');
   const currentTheme = useSelector(selectTheme);
+  const selectRef = useRef(null);
 
   const themeClassMap = {
     dark: styles.theme_dark,
@@ -30,8 +31,22 @@ const ThemeSelector = () => {
   };
   const selectClassName = themeClassMap[currentTheme] || '';
 
+  useEffect(() => {
+    const handleOutsideClick = event => {
+      if (showOptions && !selectRef.current.contains(event.target)) {
+        setShowOptions(false);
+      }
+    };
+
+    window.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+    };
+  }, [showOptions, selectClassName]);
+
   return (
-    <div className={`${styles.select} ${selectClassName}`}>
+    <div className={`${styles.select} ${selectClassName}`} ref={selectRef}>
       <p className={styles.themeTitle}>Theme</p>
       <div
         className={styles.themeText}
