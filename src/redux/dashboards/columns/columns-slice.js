@@ -1,13 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-import {
-  fetchColumns,
-  addColumn,
-  editColumn,
-  deleteColumn,
-} from './columns-operations';
-import { pending, rejected } from '../../shared/functions/redux';
 import Notiflix from 'notiflix';
+
+import { addColumn, editColumn, deleteColumn } from './columns-operations';
+import { fetchOneDashboard } from '../dashboards-operations';
+
+import { pending, rejected } from '../../../shared/functions/redux';
 
 const initialState = {
   items: [],
@@ -15,17 +12,21 @@ const initialState = {
   error: null,
 };
 
-const columnSlice = createSlice({
+const ColumnSlice = createSlice({
   name: 'column',
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(fetchColumns.pending, pending)
-      .addCase(fetchColumns.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.items = payload;
+      .addCase(fetchOneDashboard.pending, pending)
+      .addCase(fetchOneDashboard.fulfilled, (state, { payload }) => {
+        payload.columns.forEach(column => {
+          state.items.push({
+            _id: column._id,
+            title: column.title,
+          });
+        });
       })
-      .addCase(fetchColumns.rejected, rejected)
+      .addCase(fetchOneDashboard.rejected, rejected)
 
       .addCase(addColumn.pending, pending)
       .addCase(addColumn.fulfilled, (state, { payload }) => {
@@ -41,7 +42,7 @@ const columnSlice = createSlice({
       .addCase(editColumn.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         const oldItemIdx = state.items.findIndex(
-          item => item.id === payload.id
+          item => item._id === payload._id
         );
         if (oldItemIdx !== -1) {
           const updatedItem = { ...state.items[oldItemIdx], ...payload };
@@ -57,13 +58,13 @@ const columnSlice = createSlice({
       .addCase(deleteColumn.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         const indexToDelete = state.items.findIndex(
-          item => item.id === payload
+          item => item._id === payload
         );
         if (indexToDelete !== -1) {
-          const deletedColumn = state.items[indexToDelete];
+          const deletedItem = state.items[indexToDelete];
           state.items.splice(indexToDelete, 1);
           Notiflix.Notify.success(
-            `Column with title ${deletedColumn.title} has been deleted`
+            `Column with title ${deletedItem.title} has been deleted`
           );
         }
       })
@@ -71,4 +72,4 @@ const columnSlice = createSlice({
   },
 });
 
-export default columnSlice.reducer;
+export default ColumnSlice.reducer;

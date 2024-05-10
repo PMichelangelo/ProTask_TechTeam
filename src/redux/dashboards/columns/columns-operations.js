@@ -1,18 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as columnsApi from '../../api/columns-api';
-
-export const fetchColumns = createAsyncThunk(
-  'columns/fetchAll',
-  async (boardId, { rejectWithValue, getState }) => {
-    try {
-      const { auth } = getState();
-      const { data } = await columnsApi.getColumnsRequest(boardId, auth.token);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
+import * as columnsApi from '../../../api/columns-api';
 
 export const addColumn = createAsyncThunk(
   'columns/add',

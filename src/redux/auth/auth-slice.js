@@ -11,6 +11,7 @@ const initialState = {
   isLogin: false,
   isLoading: false,
   error: null,
+  theme: "light"
 };
 
 const authSlice = createSlice({
@@ -41,7 +42,8 @@ const authSlice = createSlice({
                 state.user = payload;
                 state.isLogin = true;
                 state.isLoading = false;
-                state.error = null;
+              state.error = null;
+              state.theme = payload.theme || "light";
             })
             .addCase(current.rejected, (state) => {
                 state.isLoading = false;
@@ -56,10 +58,8 @@ const authSlice = createSlice({
                 state.token = '';
              })
             .addCase(logout.rejected, rejected);
-            
+
     }
-
-
 });
 
 export default authSlice.reducer;

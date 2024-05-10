@@ -9,6 +9,16 @@ import styles from './userInfo.module.css';
 const UserInfo = ({ user }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const currentTheme = useSelector(selectTheme);
+
+  const themeClassMap = {
+    dark: styles.theme_dark,
+    light: styles.theme_light,
+    violet: styles.theme_violet,
+  };
+
+  const userClassName = themeClassMap[currentTheme] || '';
+
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -27,7 +37,7 @@ const UserInfo = ({ user }) => {
   };
 
   return (
-    <div>
+    <div className={`${styles.userContainer} ${userClassName}`}>
       {user && (
         <button type="button" className={styles.userInfo} onClick={openModal}>
           <span>{user?.name}</span>

@@ -23,6 +23,18 @@
   max-width: 400px;
   width: 100%;
 }
+  .theme_dark {
+    background:#151515
+  }
+  
+  .theme_light {
+    background: #fcfcfc;
+  }
+  
+  .theme_violet {
+    background: #fcfcfc;
+  }
+
 .btn_close {
   border: none;
   position: absolute;
