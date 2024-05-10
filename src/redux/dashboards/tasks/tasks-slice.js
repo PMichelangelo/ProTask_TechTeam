@@ -18,9 +18,17 @@ const TaskSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchOneDashboard.pending, pending)
-      .addCase(fetchOneDashboard.fulfilled, (state, { payload: { tasks } }) => {
-        state.isLoading = false;
-        state.items = tasks;
+      .addCase(fetchOneDashboard.fulfilled, (state, { payload }) => {
+        payload.columns.forEach(column => {
+          column.tasks.forEach(task => {
+            state.items.push({
+              _id: task._id,
+              title: task.title,
+              description: task.description,
+              deadline: task.deadline,
+            });
+          });
+        });
       })
       .addCase(fetchOneDashboard.rejected, rejected)
 
