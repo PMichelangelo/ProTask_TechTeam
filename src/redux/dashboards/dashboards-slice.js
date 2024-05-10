@@ -17,7 +17,7 @@ const initialState = {
 };
 
 const DashboardSlice = createSlice({
-  name: 'dashboard',
+  name: 'dashboards',
   initialState,
   extraReducers: builder => {
     builder

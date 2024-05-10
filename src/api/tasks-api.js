@@ -1,7 +1,7 @@
 import authInstance from './auth-api';
 
 export const addTaskRequest = async (columnId, body) => {
-  return await authInstance.post(`/columns/current-column/${columnId}`, body);
+  return await authInstance.post(`/boards/current-column/${columnId}`, body);
 };
 
 export const editTaskRequest = async (columnId, taskId, body) => {

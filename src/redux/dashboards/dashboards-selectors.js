@@ -1,5 +1,5 @@
-export const selectColumns = state => state.columns.items;
+export const selectDashboards = state => state.dashboards.items;
 
-export const selectColumnsLoading = state => state.columns.isLoading;
+export const selectDashboardsLoading = state => state.dashboards.isLoading;
 
-export const selectColumnsError = state => state.columns.error;
+export const selectDashboardsError = state => state.dashboards.error;

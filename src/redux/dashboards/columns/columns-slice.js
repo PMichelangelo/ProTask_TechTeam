@@ -12,40 +12,20 @@ const initialState = {
   error: null,
 };
 
-// {
-// 		path: "columns",
-// 		select: {
-// 			_id: 1,
-// 			updatedAt: 1,
-// 			title: 1,
-// 			tasks: 1,
-// 		},
-// 		populate: {
-// 			path: "tasks",
-// 			select: {
-// 				_id: 1,
-// 				updatedAt: 1,
-// 				title: 1,
-// 				description: 1,
-// 				priority: 1,
-// 				deadline: 1,
-// 			},
-// 		},
-// 	}
-
 const ColumnSlice = createSlice({
   name: 'column',
   initialState,
   extraReducers: builder => {
     builder
       .addCase(fetchOneDashboard.pending, pending)
-      .addCase(
-        fetchOneDashboard.fulfilled,
-        (state, { payload: { columns } }) => {
-          state.isLoading = false;
-          state.items = columns;
-        }
-      )
+      .addCase(fetchOneDashboard.fulfilled, (state, { payload }) => {
+        payload.columns.forEach(column => {
+          state.items.push({
+            _id: column._id,
+            title: column.title,
+          });
+        });
+      })
       .addCase(fetchOneDashboard.rejected, rejected)
 
       .addCase(addColumn.pending, pending)
