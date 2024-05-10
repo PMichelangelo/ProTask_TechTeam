@@ -26,13 +26,13 @@ export const loginRequest = async body => {
 
 export const currentRequest = async (token) => {
   setToken(token);
-  try{
-      const {data} = await authInstance.get("/users/current")
-      return data;
-  }
-  catch(error) {
-      setToken();
-      throw error;
+  try {
+    const { data } = await authInstance.get("/users/current");
+    return data;
+  } 
+  catch (error) {
+    setToken();
+    throw error;
   }
 };
 

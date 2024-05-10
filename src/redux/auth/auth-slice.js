@@ -11,6 +11,7 @@ const initialState = {
   isLogin: false,
   isLoading: false,
   error: null,
+  theme: "light"
 };
 
 const authSlice = createSlice({
@@ -58,8 +59,6 @@ const authSlice = createSlice({
             .addCase(logout.rejected, rejected);
             
     }
-
-
 });
 
 export default authSlice.reducer;
