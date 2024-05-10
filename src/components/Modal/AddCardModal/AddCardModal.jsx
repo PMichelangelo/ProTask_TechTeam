@@ -1,6 +1,6 @@
 import css from "./addcardModal.module.css";
 
-import sprite from "./../../Icons/icons.svg"
+import sprite from "../../../images/icons.svg"
 import FormBtn from "./../FormBtn/FormBtn"
 
 import React, { useState } from "react";
