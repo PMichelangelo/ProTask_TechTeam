@@ -133,6 +133,10 @@ input[value='Without'] + label svg use {
   opacity: 0;
 }
 
+.datapicer_conteinet {
+  margin-bottom: 40px;
+}
+
 @media (min-width: 375px) {
   .form {
     width: 287px;

@@ -1,24 +1,33 @@
 import css from "./addcardModal.module.css";
-import { useState } from 'react';
+
 import sprite from "./../../Icons/icons.svg"
 import FormBtn from "./../FormBtn/FormBtn"
+
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const INITIAL_STATE = {
   title: '',
   description: '',
   color: 'Low',
-  deadline: '',
 };
 
 const AddCardModal = ({ onClose, onSubmit }) => {
   const [addCardModalState, setAddCardModal] = useState({ ...INITIAL_STATE });
-
+  const [selectedDate, setSelectedDate] = useState(new Date());
+ 
+ 
   const handleChange = ({ target }) => {
     const { name, value } = target;
     setAddCardModal({ ...addCardModalState, [name]: value });
   };
 
+  const handleChangeData= date => {
+    setSelectedDate(date);
+  }
   const handleSubmit = e => {
     e.preventDefault();
     onClose(false);
@@ -26,7 +35,7 @@ const AddCardModal = ({ onClose, onSubmit }) => {
     setAddCardModal({ ...INITIAL_STATE });
   };
 
-  const { title, description, color, deadline } = addCardModalState;
+  const { title, description, color } = addCardModalState;
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <input
@@ -137,6 +146,15 @@ const AddCardModal = ({ onClose, onSubmit }) => {
         </div>
       </div>
 
+       <div className={css.datapicer_conteinet}>
+      <p className={css.sub_title} >Deadline</p>
+      <DatePicker
+        
+        selected={selectedDate}
+        onChange={handleChangeData}
+        dateFormat="dd/MM/yyyy"
+      />    
+    </div>
       <FormBtn textBtn={"Add"} />
     </form>
   );

@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   };
 
   
-  const NewDashboard = ({ onClose, onSubmit }) => {
+  const NewDashboardModal = ({ onClose, onSubmit }) => {
     const [newBoardState, setNewBoardState] = useState({ ...INITIAL_STATE });
   
     const handleChange = ({ target }) => {
@@ -113,5 +113,5 @@ const INITIAL_STATE = {
     );
   };
   
-  export default NewDashboard;
+  export default NewDashboardModal;
   
