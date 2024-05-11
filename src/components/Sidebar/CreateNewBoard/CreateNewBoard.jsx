@@ -6,6 +6,8 @@ import sprite from '../../../images/icons.svg';
 import { useDispatch } from 'react-redux';
 import { addDashboard } from '../../../redux/dashboards/dashboards-operations';
 
+import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
+
 const CreateNewBoard = () => {
   const dispatch = useDispatch();
 
@@ -21,14 +23,16 @@ const CreateNewBoard = () => {
         onClick={() => setModalActive(true)}
         className={css.createNewBoardBtn}
       >
-        <p className={css.createNewBoardTitle}>
-          Create a <br /> new board
-        </p>
-        <div className={css.createNewBoardIcon}>
-          <svg className={css.createNewBoardIconItem} width="20" height="20">
-            <use href={`${sprite}#plus-icon`}></use>
-          </svg>
-        </div>
+        <CurrentTheme>
+          <p className={css.createNewBoardTitle}>Create a new board</p>
+        </CurrentTheme>
+        <CurrentTheme>
+          <div className={css.createNewBoardIcon}>
+            <svg className={css.createNewBoardIconItem} width="20" height="20">
+              <use href={`${sprite}#plus-icon`}></use>
+            </svg>
+          </div>
+        </CurrentTheme>
       </button>
       <Modal isOpen={modalActive} onClose={setModalActive} title={'New board'}>
         <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />

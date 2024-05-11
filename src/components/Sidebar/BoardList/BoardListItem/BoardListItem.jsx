@@ -6,6 +6,8 @@ import BtnList from 'shared/components/BtnList';
 import Modal from 'components/Modal/Modal';
 import NewDashboardModal from 'components/Modal/NewDashboardModal/NewDashboardModal';
 
+import CurrentTheme from '../../../../shared/components/CurrentTheme/CurrentTheme';
+
 import {
   deleteDashboard,
   editDashboard,
@@ -37,14 +39,16 @@ const BoardListItem = ({ board: { _id, title } }) => {
 
   return (
     <li className={css.listItem}>
-      <NavLink to={`/home/${title}`} className={css.boardLink}>
-        {title}
-        <BtnList
-          spriteArr={spriteArr}
-          idArr={idArr}
-          handleClick={handleClick}
-        />
-      </NavLink>
+      <CurrentTheme>
+        <NavLink to={`/home/${title}`} className={css.boardLink}>
+          {title}
+          <BtnList
+            spriteArr={spriteArr}
+            idArr={idArr}
+            handleClick={handleClick}
+          />
+        </NavLink>
+      </CurrentTheme>
       <Modal isOpen={modalActive} onClose={setModalActive} title={'Edit board'}>
         <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />
       </Modal>

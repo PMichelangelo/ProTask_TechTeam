@@ -8,17 +8,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--light-main-color);
+  color: inherit;
+  font-weight: 500;
   text-decoration: none;
 }
 
 .boardLink:hover {
-  background-color: lightgray;
+  background-color: #ffffff80;
 }
 
-.boardLink:global(.active) {
-  background-color: lightblue;
-}
+/* .boardLink:global(.active) {
+  background-color: #1f1f1f;
+} */
 
 .boardLink:global(.active)::before {
   content: '';

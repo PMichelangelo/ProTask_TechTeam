@@ -12,6 +12,21 @@
   transition: 500ms transform;
 }
 
+.theme_dark {
+  background-color: #121212;
+  color: #fff;
+}
+
+.theme_light {
+  background-color: #fff;
+  color: #161616;
+}
+
+.theme_violet {
+  background-color: #5255bc;
+  color: #fff;
+}
+
 .openSidebar {
   min-height: 768px;
   z-index: 1;

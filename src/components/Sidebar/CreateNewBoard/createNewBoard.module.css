@@ -1,14 +1,17 @@
 .createNewBoardTitle {
   font-family: 'Poppins';
-  color: #ffffff;
+  color: inherit;
   font-weight: 500;
   font-size: 14px;
+  line-height: 150%; /* 21/14 */
+  max-width: 76px;
   text-align: left;
 }
 
 .createNewBoardBtn {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  /* border-color: inherit; */
   width: 197px;
   height: 70px;
   display: flex;
