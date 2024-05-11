@@ -16,7 +16,7 @@ const BtnList = ({ spriteArr = [], idArr = [], handleClick, isDeadline }) => {
   };
   const sidebarTheme = themeClassMap[currentTheme] || '';
   return (
-    <ul className={css.btnList}>
+    <ul className={`${css.btnList} ${sidebarTheme}`}>
       {isDeadline && (
         <li key={idArr[3]} className={css.btnListItem}>
           <svg className={css.icon + ' ' + css.bellIcon}>
