@@ -4,7 +4,7 @@ import AddCard from './AddCard';
 import CardList from './CardList';
 import ColumnHeader from './ColumnHeader';
 
-import { selectTasks } from '../../../../../redux/tasks/tasks-selectors';
+import { selectTasks } from '../../../../../redux/dashboards/tasks/tasks-selectors';
 
 import css from './column.module.css';
 

@@ -8,7 +8,7 @@ import AddCardModal from 'components/Modal/AddCardModal/AddCardModal';
 import {
   deleteTask,
   editTask,
-} from '../../../../../../../redux/tasks/tasks-operations';
+} from '../../../../../../../redux/dashboards/tasks/tasks-operations';
 
 import css from './card.module.css';
 

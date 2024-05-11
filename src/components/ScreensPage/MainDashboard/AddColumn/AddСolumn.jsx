@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Modal from 'components/Modal/Modal';
 import AddColumnModal from 'components/Modal/AddColumnModal/AddColumnModal';
 
-import { addColumn } from '../../../../redux/columns/columns-operations';
+import { addColumn } from '../../../../redux/dashboards/columns/columns-operations';
 
 import sprite from '../../../../images/icons.svg';
 

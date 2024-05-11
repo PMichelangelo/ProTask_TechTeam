@@ -1,7 +1,6 @@
 import authInstance from './auth-api';
 
 export const addColumnRequest = async (boardId, body) => {
-  console.log(boardId, body);
   return await authInstance.post(`/boards/current/${boardId}`, body);
 };
 

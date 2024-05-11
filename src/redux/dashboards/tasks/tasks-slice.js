@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
 import { addTask, editTask, deleteTask } from './tasks-operations';
-import { fetchOneDashboard } from '../dashboards/dashboards-operations';
+import { fetchOneDashboard } from '../dashboards-operations';
 
-import { pending, rejected } from '../../shared/functions/redux';
+import { pending, rejected } from '../../../shared/functions/redux';
 
 const initialState = {
   items: [],

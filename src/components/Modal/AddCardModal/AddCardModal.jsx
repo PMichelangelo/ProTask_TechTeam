@@ -29,8 +29,8 @@ const AddCardModal = ({ onClose, onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     onClose(false);
-    onSubmit(addCardModalState);
-    console.log({ ...addCardModalState });
+    onSubmit({ ...addCardModalState, deadline: selectedDate });
+    console.log({ ...addCardModalState, deadline: selectedDate });
     setAddCardModal({ ...INITIAL_STATE });
   };
 

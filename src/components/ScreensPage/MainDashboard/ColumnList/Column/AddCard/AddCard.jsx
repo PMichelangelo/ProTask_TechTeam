@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
 import AddCardModal from 'components/Modal/AddCardModal/AddCardModal';
 
-import { addTask } from '../../../../../../redux/tasks/tasks-operations';
+import { addTask } from '../../../../../../redux/dashboards/tasks/tasks-operations';
 
 import sprite from '../../../../../../images/icons.svg';
 

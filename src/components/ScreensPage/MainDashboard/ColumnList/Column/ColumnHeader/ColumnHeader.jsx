@@ -3,12 +3,12 @@ import { useState } from 'react';
 
 import BtnList from 'shared/components/BtnList';
 import Modal from 'components/Modal/Modal';
-
 import EditColumnModal from 'components/Modal/EditColumnModal/EditColumnModal';
+
 import {
   deleteColumn,
   editColumn,
-} from '../../../../../../redux/columns/columns-operations';
+} from '../../../../../../redux/dashboards/columns/columns-operations';
 
 import css from './columnHeader.module.css';
 
