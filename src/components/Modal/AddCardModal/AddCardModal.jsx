@@ -20,6 +20,7 @@ const AddCardModal = ({ onClose, onSubmit }) => {
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
+
     setAddCardModal({ ...addCardModalState, [name]: value });
   };
 
@@ -33,6 +34,19 @@ const AddCardModal = ({ onClose, onSubmit }) => {
     console.log({ ...addCardModalState, deadline: selectedDate });
     setAddCardModal({ ...INITIAL_STATE });
   };
+
+  const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => (
+    <div className={css.customHeader}>
+      <button onClick={decreaseMonth}>-</button>
+      <span>{date.toLocaleDateString()}</span>
+        <button onClick={increaseMonth}>+</button>
+        <div className={css.calendar_divider}></div>
+    </div>
+  );
+
+  const dayClassName = (date) => {
+    return date ? css.customDay : null;
+  }
 
   const { title, description, color } = addCardModalState;
   return (
@@ -151,6 +165,10 @@ const AddCardModal = ({ onClose, onSubmit }) => {
           selected={selectedDate}
           onChange={handleChangeData}
           dateFormat="dd/MM/yyyy"
+          renderCustomHeader={renderCustomHeader}
+          calendarClassName={css.customCalendar}
+          dayClassName={dayClassName}
+          className={css.my_datepicker}
         />
       </div>
       <FormBtn textBtn={'Add'} />
