@@ -37,7 +37,7 @@ const BoardListItem = ({ board: { _id, title } }) => {
 
   return (
     <li className={css.listItem}>
-      <NavLink to={`/home/${_id}`} className={css.boardLink}>
+      <NavLink to={`/home/${title}`} className={css.boardLink}>
         {title}
         <BtnList
           spriteArr={spriteArr}
@@ -45,7 +45,7 @@ const BoardListItem = ({ board: { _id, title } }) => {
           handleClick={handleClick}
         />
       </NavLink>
-      <Modal isOpen={modalActive} onClose={setModalActive} title={'New board'}>
+      <Modal isOpen={modalActive} onClose={setModalActive} title={'Edit board'}>
         <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />
       </Modal>
     </li>

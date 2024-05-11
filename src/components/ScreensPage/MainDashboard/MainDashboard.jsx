@@ -3,11 +3,11 @@ import ColumnList from './ColumnList';
 
 import css from './mainDashboard.module.css';
 
-const MainDashboard = () => {
+const MainDashboard = ({ boardId }) => {
   return (
     <section className={css.mainDashboardSection}>
       <ColumnList />
-      <AddColumn />
+      <AddColumn boardId={boardId} />
     </section>
   );
 };

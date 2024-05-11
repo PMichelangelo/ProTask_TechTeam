@@ -4,8 +4,8 @@ import storage from 'redux-persist/lib/storage';
 
 import authReducer from './auth/auth-slice';
 import dashboardsReducer from './dashboards/dashboards-slice';
-import columnsReducer from './dashboards/columns/columns-slice';
-import tasksReducer from './dashboards/tasks/tasks-slice';
+import columnsReducer from './columns/columns-slice';
+import tasksReducer from './tasks/tasks-slice';
 import themeReducer from './theme/theme-slice';
 
 const persistConfig = {

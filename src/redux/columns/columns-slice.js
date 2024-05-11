@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
-import { addTask, editTask, deleteTask } from './tasks-operations';
-import { fetchOneDashboard } from '../dashboards-operations';
+import { addColumn, editColumn, deleteColumn } from './columns-operations';
+import { fetchOneDashboard } from '../dashboards/dashboards-operations';
 
-import { pending, rejected } from '../../../shared/functions/redux';
+import { pending, rejected } from '../../shared/functions/redux';
 
 const initialState = {
   items: [],
@@ -12,38 +12,36 @@ const initialState = {
   error: null,
 };
 
-const TaskSlice = createSlice({
-  name: 'task',
+const ColumnSlice = createSlice({
+  name: 'column',
   initialState,
   extraReducers: builder => {
     builder
       .addCase(fetchOneDashboard.pending, pending)
       .addCase(fetchOneDashboard.fulfilled, (state, { payload }) => {
+        state.items = [];
         payload.columns.forEach(column => {
-          column.tasks.forEach(task => {
-            state.items.push({
-              _id: task._id,
-              title: task.title,
-              description: task.description,
-              deadline: task.deadline,
-            });
+          state.items.push({
+            boardId: payload._id,
+            _id: column._id,
+            title: column.title,
           });
         });
       })
       .addCase(fetchOneDashboard.rejected, rejected)
 
-      .addCase(addTask.pending, pending)
-      .addCase(addTask.fulfilled, (state, { payload }) => {
+      .addCase(addColumn.pending, pending)
+      .addCase(addColumn.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.items.push(payload);
         Notiflix.Notify.success(
-          `Task with title ${payload.title} has been added`
+          `Column with title ${payload.title} has been added`
         );
       })
-      .addCase(addTask.rejected, rejected)
+      .addCase(addColumn.rejected, rejected)
 
-      .addCase(editTask.pending, pending)
-      .addCase(editTask.fulfilled, (state, { payload }) => {
+      .addCase(editColumn.pending, pending)
+      .addCase(editColumn.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         const oldItemIdx = state.items.findIndex(
           item => item._id === payload._id
@@ -52,14 +50,14 @@ const TaskSlice = createSlice({
           const updatedItem = { ...state.items[oldItemIdx], ...payload };
           state.items.splice(oldItemIdx, 1, updatedItem);
           Notiflix.Notify.success(
-            `Task with title ${payload.title} has been updated`
+            `Column with title ${payload.title} has been updated`
           );
         }
       })
-      .addCase(editTask.rejected, rejected)
+      .addCase(editColumn.rejected, rejected)
 
-      .addCase(deleteTask.pending, pending)
-      .addCase(deleteTask.fulfilled, (state, { payload }) => {
+      .addCase(deleteColumn.pending, pending)
+      .addCase(deleteColumn.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         const indexToDelete = state.items.findIndex(
           item => item._id === payload
@@ -68,12 +66,12 @@ const TaskSlice = createSlice({
           const deletedItem = state.items[indexToDelete];
           state.items.splice(indexToDelete, 1);
           Notiflix.Notify.success(
-            `Task with title ${deletedItem.title} has been deleted`
+            `Column with title ${deletedItem.title} has been deleted`
           );
         }
       })
-      .addCase(deleteTask.rejected, rejected);
+      .addCase(deleteColumn.rejected, rejected);
   },
 });
 
-export default TaskSlice.reducer;
+export default ColumnSlice.reducer;
