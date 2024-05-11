@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import AddColum from 'components/Modal/AddColum/AddColum';
+import Modal from 'components/Modal/Modal';
+import AddColumnModal from 'components/Modal/AddColumnModal/AddColumnModal';
+
+import { addColumn } from '../../../../redux/dashboards/columns/columns-operations';
 
 import sprite from '../../../../images/icons.svg';
 
 import css from './addColumn.module.css';
 
-const AddColumn = () => {
+const AddColumn = ({ boardId }) => {
+  const dispatch = useDispatch();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => {
+  const handleClick = () => {
     setIsModalOpen(true);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleModalSubmit = data => {
-    console.log('Data from modal:', data);
-    handleCloseModal();
+  const handleSubmit = body => {
+    dispatch(addColumn({ boardId, body }));
   };
 
   return (
     <>
-      <button className={css.addColumnBtn} onClick={handleOpenModal}>
+      <button className={css.addColumnBtn} onClick={handleClick}>
         <span className={css.plus}>
           <svg className={css.plusIcon}>
             <use href={`${sprite}#plus-icon`} />
@@ -32,11 +33,9 @@ const AddColumn = () => {
         </span>
         Add another column
       </button>
-      <AddColum
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onSubmit={handleModalSubmit}
-      />
+      <Modal isOpen={isModalOpen} onClose={setIsModalOpen} title={'Add column'}>
+        <AddColumnModal onClose={setIsModalOpen} onSubmit={handleSubmit} />
+      </Modal>
     </>
   );
 };

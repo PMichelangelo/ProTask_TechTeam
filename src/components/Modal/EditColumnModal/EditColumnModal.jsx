@@ -1,15 +1,14 @@
-import css from './editColum.module.css';
+import css from './editColumnModal.module.css';
 
 import FormBtn from '../FormBtn/FormBtn';
 
 import { useState } from 'react';
 
-
-
-const  EditColumnModal = ({ onClose, onSubmit ,columnTitle }) => {
+const EditColumnModal = ({ onClose, onSubmit, columnTitle }) => {
   const INITIAL_STATE = {
-    title:columnTitle,
-  }
+    title: columnTitle,
+  };
+
   const [columnState, setColumnState] = useState(INITIAL_STATE);
 
   const handleChange = ({ target }) => {
@@ -23,7 +22,7 @@ const  EditColumnModal = ({ onClose, onSubmit ,columnTitle }) => {
     onSubmit(columnState);
     setColumnState(INITIAL_STATE);
   };
-  const {title}=columnState
+  const { title } = columnState;
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <input
@@ -41,4 +40,4 @@ const  EditColumnModal = ({ onClose, onSubmit ,columnTitle }) => {
   );
 };
 
-export default  EditColumnModal;
+export default EditColumnModal;

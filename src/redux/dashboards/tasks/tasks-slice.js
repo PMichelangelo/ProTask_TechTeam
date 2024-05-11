@@ -19,9 +19,11 @@ const TaskSlice = createSlice({
     builder
       .addCase(fetchOneDashboard.pending, pending)
       .addCase(fetchOneDashboard.fulfilled, (state, { payload }) => {
+        state.items = [];
         payload.columns.forEach(column => {
           column.tasks.forEach(task => {
             state.items.push({
+              columnId: column._id,
               _id: task._id,
               title: task.title,
               description: task.description,

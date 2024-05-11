@@ -19,8 +19,10 @@ const ColumnSlice = createSlice({
     builder
       .addCase(fetchOneDashboard.pending, pending)
       .addCase(fetchOneDashboard.fulfilled, (state, { payload }) => {
+        state.items = [];
         payload.columns.forEach(column => {
           state.items.push({
+            boardId: payload._id,
             _id: column._id,
             title: column.title,
           });

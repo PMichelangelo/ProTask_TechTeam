@@ -1,14 +1,41 @@
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectTheme } from '../../redux/theme/theme-selectors';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+
 import HeaderDashboard from './HeaderDashboard';
 import MainDashboard from './MainDashboard';
+
+import {
+  fetchAllDashboards,
+  fetchOneDashboard,
+} from '../../redux/dashboards/dashboards-operations';
+import { selectDashboards } from '../../redux/dashboards/dashboards-selectors';
+import { selectTheme } from '../../redux/theme/theme-selectors';
 
 import css from './screensPage.module.css';
 
 const ScreensPage = () => {
+  const dispatch = useDispatch();
+
+  const [boardId, setBoardId] = useState('');
+
   const { boardName } = useParams();
+
   const currentTheme = useSelector(selectTheme);
+  const boards = useSelector(selectDashboards);
+
+  useEffect(() => {
+    const currentBoard = boards.find(({ title }) => title === boardName);
+    if (currentBoard) {
+      const id = currentBoard._id;
+      setBoardId(id);
+      dispatch(fetchOneDashboard(id));
+    }
+  }, [dispatch, boardName, boards]);
+
+  useEffect(() => {
+    dispatch(fetchAllDashboards());
+  }, [dispatch]);
 
   //   const Board = {
   //   "title": "",
@@ -39,7 +66,7 @@ const ScreensPage = () => {
     <div className={`${css.screensPage} ${screensPageTheme}`}>
       <HeaderDashboard boardName={boardName} />
       {boardName ? (
-        <MainDashboard />
+        <MainDashboard boardId={boardId} />
       ) : (
         <div className={css.noDashboardWrap}>
           <p className={css.noDashboardText}>

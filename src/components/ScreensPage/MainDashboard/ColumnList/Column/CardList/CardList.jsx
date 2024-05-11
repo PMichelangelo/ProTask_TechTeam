@@ -2,15 +2,11 @@ import Card from './Card/Card';
 
 import css from './cardList.module.css';
 
-const CardList = ({ columnId, cardArr }) => {
-  const cards = cardArr.filter(
-    ({ fatherColumnId }) => fatherColumnId === columnId
-  );
-
+const CardList = ({ cards }) => {
   return (
     <ul className={css.list}>
-      {cards.map(item => {
-        return <Card key={item.id} item={item} />;
+      {cards.map(card => {
+        return <Card key={card._id} card={card} />;
       })}
     </ul>
   );

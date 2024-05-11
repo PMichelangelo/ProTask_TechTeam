@@ -4,8 +4,6 @@ import FormBtn from '../FormBtn/FormBtn';
 
 import { useState } from 'react';
 
-
-
 const INITIAL_STATE = {
   title: '',
 };
@@ -24,7 +22,9 @@ const AddColumnModal = ({ onClose, onSubmit }) => {
     onSubmit(columnState);
     setColumnState(INITIAL_STATE);
   };
-  const {title}=columnState
+
+  const { title } = columnState;
+
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <input
