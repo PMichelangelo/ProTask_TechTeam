@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
-import { addColumn, editColumn, deleteColumn } from './columns-operations';
+import {
+  addColumn,
+  editColumn,
+  deleteColumn,
+  filterColumns,
+} from './columns-operations';
 import { fetchOneDashboard } from '../dashboards-operations';
 
 import { pending, rejected } from '../../../shared/functions/redux';
@@ -10,6 +15,7 @@ const initialState = {
   items: [],
   isLoading: false,
   error: null,
+  filter: '',
 };
 
 const ColumnSlice = createSlice({
@@ -70,7 +76,14 @@ const ColumnSlice = createSlice({
           );
         }
       })
-      .addCase(deleteColumn.rejected, rejected);
+      .addCase(deleteColumn.rejected, rejected)
+
+      .addCase(filterColumns.pending, pending)
+      .addCase(filterColumns.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.filter = payload;
+      })
+      .addCase(filterColumns.rejected, rejected);
   },
 });
 

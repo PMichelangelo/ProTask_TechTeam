@@ -40,3 +40,14 @@ export const deleteColumn = createAsyncThunk(
     }
   }
 );
+
+export const filterColumns = createAsyncThunk(
+  'columns/filter',
+  async (filter, { rejectWithValue }) => {
+    try {
+      return filter;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

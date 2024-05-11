@@ -1,22 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useCurrentTheme } from '../../helpers/useCurrentTheme';
 import styles from './header.module.css';
 
-import { selectTheme } from '../../redux/theme/theme-selectors';
-
 const MenuIcon = () => {
-    const currentTheme = useSelector(selectTheme);
+  const { themeClassName } = useCurrentTheme();
 
-  const themeClassMap = {
-    dark: styles.theme_dark,
-    light: styles.theme_light,
-    violet: styles.theme_violet,
-  };
-
-  const iconClassName = themeClassMap[currentTheme] || '';
   return (
     <svg
-      className={`${styles.icon} ${iconClassName}`}
+      className={`${styles.icon} ${themeClassName}`}
       width="24"
       height="24"
       viewBox="0 0 24 24"

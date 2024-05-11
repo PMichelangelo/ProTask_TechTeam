@@ -1,4 +1,5 @@
 .filterButtonWrap {
+  position: relative;
   padding-top: 14px;
   padding-bottom: 40px;
   padding-right: 20px;
@@ -29,6 +30,66 @@
   width: 16px;
   height: 14px;
   fill: none;
+}
+
+.filterModal {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  max-width: 300px;
+  background-color: var(--light-header-color);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.filterModalTitle {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--light-text-color);
+  margin-bottom: 16px;
+}
+
+.filterInput {
+  width: 100%;
+  padding: 4px;
+
+  border: none;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+
+  background: transparent;
+}
+
+.filterPriority {
+  margin-top: 14px;
+}
+
+.filterPriorityLabel {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--light-text-color);
+  margin-bottom: 8px;
+}
+
+.filterPriorityLabel {
+  display: inline-flex;
+  justify-content: start;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;
+  cursor: pointer;
+}
+
+.filterPriorityLabel:last-child {
+  margin-bottom: 0;
+}
+
+.filterPriorityInput {
 }
 
 @media screen and (min-width: 768px) {

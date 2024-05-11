@@ -34,25 +34,6 @@
 .theme_violet {
   background: #fcfcfc;
 }
-.btn_close {
-  border: none;
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 0;
-  background: none;
-  stroke: black;
-  cursor: pointer;
-}
-
-.item_svg {
-  width: 18px;
-  height: 18px;
-}
-.item_use {
-  stroke: black;
-  fill: transparent;
-}
 
 .titel {
   margin-bottom: 24px;

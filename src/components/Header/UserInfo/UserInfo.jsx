@@ -1,25 +1,14 @@
 import React, { useState } from 'react';
+import { useCurrentTheme } from '../../../helpers/useCurrentTheme';
 import Modal from '../../Modal/Modal';
 import UserAvatar from '../UserAvatar';
 import UserForm from '../UserForm';
-
-import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
 
 import styles from './userInfo.module.css';
 
 const UserInfo = ({ user }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const currentTheme = useSelector(selectTheme);
-
-  const themeClassMap = {
-    dark: styles.theme_dark,
-    light: styles.theme_light,
-    violet: styles.theme_violet,
-  };
-
-  const userClassName = themeClassMap[currentTheme] || '';
+  const { themeClassName } = useCurrentTheme();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -30,12 +19,16 @@ const UserInfo = ({ user }) => {
   };
 
   const handleEditProfile = formData => {
-    console.log(formData);
-    closeModal();
+    try {
+      console.log(formData);
+      closeModal();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <div className={`${styles.userContainer} ${userClassName}`}>
+    <div className={`${styles.userContainer} ${themeClassName}`}>
       {user && (
         <button onClick={openModal} className={styles.userInfo}>
           {user?.name && <span>{user?.name}</span>}
