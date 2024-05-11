@@ -1,7 +1,7 @@
 .help {
   display: flex;
   flex-direction: column;
-  background-color: #1f1f1f;
+  /* background-color: #1f1f1f; */
   width: 197px;
   height: 238px;
   margin-left: 14px;

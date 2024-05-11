@@ -37,3 +37,11 @@
 .btn:active .icon {
   stroke: var(--button-light-color);
 }
+
+.theme_dark {
+  stroke: #ffffff80;
+}
+
+.theme_light {
+  stroke: #16161680;
+}
