@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { useCurrentTheme } from '../../../helpers/useCurrentTheme';
 import { setThemeAsync } from '../../../redux/theme/theme-operations';
 //import { setTheme } from '../../../redux/theme/theme-slice';
 import styles from './themeSelector.module.css';
@@ -10,26 +9,24 @@ const ThemeSelector = () => {
   const dispatch = useDispatch();
   const [showOptions, setShowOptions] = useState(false);
   const [colorTheme, setColorTheme] = useState('');
-  const currentTheme = useSelector(selectTheme);
+
   const selectRef = useRef(null);
 
-  const themeClassMap = {
-    dark: styles.theme_dark,
-    light: styles.theme_light,
-    violet: styles.theme_violet,
-  };
+  const { themeClassName } = useCurrentTheme();
 
-    const handleClick = theme => {
+  const handleClick = theme => {
     setColorTheme(theme);
     setShowOptions(false);
     console.log('Отправка запроса на изменение темы:', theme);
-    dispatch(setThemeAsync( theme )).then(response => {
-      console.log('Ответ сервера:', response);
-    }).catch(error => {
-      console.error('Ошибка при изменении темы:', error);
-    });
+
+    dispatch(setThemeAsync(theme))
+      .then(response => {
+        console.log('Ответ сервера:', response);
+      })
+      .catch(error => {
+        console.error('Ошибка при изменении темы:', error);
+      });
   };
-  const selectClassName = themeClassMap[currentTheme] || '';
 
   useEffect(() => {
     const handleOutsideClick = event => {
@@ -43,10 +40,10 @@ const ThemeSelector = () => {
     return () => {
       window.removeEventListener('click', handleOutsideClick);
     };
-  }, [showOptions, selectClassName]);
+  }, [showOptions, themeClassName]);
 
   return (
-    <div className={`${styles.select} ${selectClassName}`} ref={selectRef}>
+    <div className={`${styles.select} ${themeClassName}`} ref={selectRef}>
       <p className={styles.themeTitle}>Theme</p>
       <div
         className={styles.themeText}

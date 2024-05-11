@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useCurrentTheme } from '../../helpers/useCurrentTheme';
 import { selectUser } from '../../redux/auth/auth-selectors';
-import { selectTheme } from '../../redux/theme/theme-selectors';
 import MenuIcon from './MenuIcon';
 import UserInfo from './UserInfo/UserInfo';
 import Sidebar from '../Sidebar/Sidebar';
@@ -11,24 +11,15 @@ import styles from './header.module.css';
 const Header = () => {
   const user = useSelector(selectUser);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const currentTheme = useSelector(selectTheme);
-
-
-    const themeClassMap = {
-    'dark': styles.theme_dark,
-    'light': styles.theme_light,
-    'violet': styles.theme_violet,
-  };
+  const { themeClassName } = useCurrentTheme();
 
   const handleToggleSidebar = () => {
     setIsSidebarOpen(prevState => !prevState);
   };
 
-  const headerClassName = themeClassMap[currentTheme] || '';
-
   return (
     <>
-      <header className={`${styles.header} ${headerClassName}`}>
+      <header className={`${styles.header} ${themeClassName}`}>
         <button
           type="button"
           className={styles.button}
@@ -39,13 +30,15 @@ const Header = () => {
 
         <div className={styles.headerContainer}>
           <ThemeSelector />
+
           {user && (
             <div className={styles.userInfo}>
-              <UserInfo user={user} />
+              <UserInfo user={user.message} />
             </div>
           )}
         </div>
       </header>
+
       {isSidebarOpen && (
         <Sidebar setIsMenuOpen={setIsSidebarOpen} isMenuOpen={isSidebarOpen} />
       )}
@@ -53,4 +46,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;

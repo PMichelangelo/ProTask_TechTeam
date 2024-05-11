@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
-
-import Modal from './Modal';
-import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { useCurrentTheme } from '../../../helpers/useCurrentTheme';
+import Modal from '../../Modal/Modal';
+import UserAvatar from '../UserAvatar';
+import UserForm from '../UserForm';
 
 import styles from './userInfo.module.css';
-import defaultAvatar from '../UserInfo/avatar.png';
 
 const UserInfo = ({ user }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const currentTheme = useSelector(selectTheme);
-
-  const themeClassMap = {
-    dark: styles.theme_dark,
-    light: styles.theme_light,
-    violet: styles.theme_violet,
-  };
-
-  const userClassName = themeClassMap[currentTheme] || '';
+  const { themeClassName } = useCurrentTheme();
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -29,33 +19,35 @@ const UserInfo = ({ user }) => {
   };
 
   const handleEditProfile = formData => {
-    console.log(formData);
-    closeModal();
-  }
+    try {
+      console.log(formData);
+      closeModal();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <div className={`${styles.userContainer} ${userClassName}`}>
+    <div className={`${styles.userContainer} ${themeClassName}`}>
       {user && (
-        <div className={styles.userInfo}>
-          <p className={styles.userName}>{user.name}</p>
-          <img
-            className={styles.avatar}
-            src={user.avatar || defaultAvatar}
-            alt={user.name}
-            onClick={openModal}
-            style={{ cursor: 'pointer' }}
-          />
-        </div>
+        <button onClick={openModal} className={styles.userInfo}>
+          {user?.name && <span>{user?.name}</span>}
+
+          <span
+            style={{
+              width: '32px',
+              height: '32px',
+            }}
+          >
+            <UserAvatar user={user} />
+          </span>
+        </button>
       )}
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <h2>Edit Profile</h2>
-        <form onSubmit={handleEditProfile}>
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" defaultValue={user.name} required />
 
-          <button type="submit">Save Changes</button>
-        </form>
+        <UserForm user={user} onSubmit={handleEditProfile} />
       </Modal>
     </div>
   );

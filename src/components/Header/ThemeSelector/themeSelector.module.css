@@ -18,6 +18,8 @@
   align-items: center;
   justify-content: center;
   gap: 4px;
+  z-index: 10;
+  background: white;
 }
 
 .theme_dark {
