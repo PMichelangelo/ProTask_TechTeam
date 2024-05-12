@@ -3,6 +3,15 @@
   height: 24px;
 }
 
+.iconSelector {
+  width: 8px;
+  height: 4px;
+}
+
+.icons {
+  color: #fcfcfc;
+}
+
 .header {
   height: 100%;
   max-height: 60px;
@@ -16,6 +25,9 @@
   .icon path {
     stroke: #ffffff;
   }
+  .iconSelector path {
+    stroke: #ffffff;
+  }
 }
 
 .theme_light {
@@ -23,12 +35,18 @@
   .icon path {
     stroke: #161616;
   }
+  .iconSelector path {
+    stroke: rgba(22, 22, 22, 0.8);
+  }
 }
 
 .theme_violet {
   background-color: #ffffff;
   .icon path {
     stroke: #161616;
+  }
+  .iconSelector path {
+    stroke: rgba(22, 22, 22, 0.8);
   }
 }
 

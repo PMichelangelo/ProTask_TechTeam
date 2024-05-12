@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { useCurrentTheme } from '../../../helpers/useCurrentTheme';
+import { useSelector } from 'react-redux';
+// import { useCurrentTheme } from '../../../helpers/useCurrentTheme';
 import { setThemeAsync } from '../../../redux/theme/theme-operations';
 //import { setTheme } from '../../../redux/theme/theme-slice';
+import { selectTheme } from '../../../redux/theme/theme-selectors';
+// import sprite from '../../../images/icons.svg';
+import ThemeSelectorIcon from '../ThemeSelectorIcon';
+
 import styles from './themeSelector.module.css';
 
 const ThemeSelector = () => {
   const dispatch = useDispatch();
   const [showOptions, setShowOptions] = useState(false);
   const [colorTheme, setColorTheme] = useState('');
-
+  const currentTheme = useSelector(selectTheme);
   const selectRef = useRef(null);
-
-  const { themeClassName } = useCurrentTheme();
 
   const handleClick = theme => {
     setColorTheme(theme);
@@ -28,6 +31,14 @@ const ThemeSelector = () => {
       });
   };
 
+  const themeClassMap = {
+    dark: styles.theme_dark,
+    light: styles.theme_light,
+    violet: styles.theme_violet,
+  };
+
+  const selectorPageTheme = themeClassMap[currentTheme] || '';
+
   useEffect(() => {
     const handleOutsideClick = event => {
       if (showOptions && !selectRef.current.contains(event.target)) {
@@ -40,10 +51,10 @@ const ThemeSelector = () => {
     return () => {
       window.removeEventListener('click', handleOutsideClick);
     };
-  }, [showOptions, themeClassName]);
+  }, [showOptions, selectorPageTheme]);
 
   return (
-    <div className={`${styles.select} ${themeClassName}`} ref={selectRef}>
+    <div className={`${styles.select} ${selectorPageTheme}`} ref={selectRef}>
       <p className={styles.themeTitle}>Theme</p>
       <div
         className={styles.themeText}
@@ -53,10 +64,11 @@ const ThemeSelector = () => {
       </div>
 
       <button
+        type="button"
         className={styles.arrowIcon}
         onClick={() => setShowOptions(!showOptions)}
       >
-        &#9660;
+        <ThemeSelectorIcon />
       </button>
       {showOptions && (
         <div className={styles.options}>
