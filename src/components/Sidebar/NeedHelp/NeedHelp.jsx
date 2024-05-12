@@ -4,6 +4,7 @@ import Modal from '../../Modal/Modal';
 import NeedHelpModal from '../../Modal/NeedHelpModal/NeedHelpModal';
 import { useState } from 'react';
 import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
+import image from "../../../images/Cactus.png"
 
 const NeedHelp = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -19,9 +20,7 @@ const NeedHelp = () => {
   return (
     <CurrentTheme>
       <div className={css.help}>
-        <svg className={css.helpCactusIcon} width="54" height="78">
-          <use href={`${sprite}#hexagon-icon`}></use>
-        </svg>
+        <img className={css.helpCactusIcon} src={image} alt="Cactus"/>
         <p className={css.helpText}>
           If you need help with
           <span className={css.taskProSpan}> TaskPro</span>, check out our

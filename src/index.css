@@ -123,3 +123,7 @@ button {
   border: none;
   font-family: inherit;
 }
+
+.react-datepicker__header {
+  background-color: transparent !important;
+}

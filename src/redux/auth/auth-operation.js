@@ -11,21 +11,11 @@ import {
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (body, { rejectWithValue,dispatch }) => {
+  async (body, { rejectWithValue }) => {
 
     try {
       const data = await registerRequest(body);
       Notify.success('Registration has been successful!');
-
-      try {
-        await dispatch(login({email:body.email, password:body.password}))
-      } catch (loginError) {
-        Notify.failure(
-          'Login after registration failed. Try again.'
-        );
-        console.error(loginError);
-      }
-
       return data;
     } catch (error) {
       Notify.failure(

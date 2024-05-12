@@ -137,6 +137,35 @@ input[value='Without'] + label svg use {
   margin-bottom: 40px;
 }
 
+/*DatePicker*/
+
+.customCalendar {
+  color: white;
+  background-color: black;
+  border-radius: 8px;
+}
+
+.customDay {
+  color: var(--dark-text-color);
+}
+
+.react-datepicker__header {
+  background-color: blue;
+}
+
+.react-datepicker__header {
+  background-color: #333;
+}
+
+.calendar_divider {
+  border-top: 1px solid #000;
+  margin-bottom: 10px;
+}
+
+.customCalendar .react-datepicker__day-name {
+  color: white;
+}
+
 @media (min-width: 375px) {
   .form {
     width: 287px;
