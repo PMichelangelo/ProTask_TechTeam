@@ -11,15 +11,17 @@ import styles from './header.module.css';
 const Header = () => {
   const user = useSelector(selectUser);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { themeClassName } = useCurrentTheme();
+  const currentTheme = useCurrentTheme();
 
   const handleToggleSidebar = () => {
     setIsSidebarOpen(prevState => !prevState);
   };
 
+  const themePageTheme = currentTheme.themeClassName || '';
+
   return (
     <>
-      <header className={`${styles.header} ${themeClassName}`}>
+      <header className={`${styles.header} ${themePageTheme}`}>
         <button
           type="button"
           className={styles.button}
