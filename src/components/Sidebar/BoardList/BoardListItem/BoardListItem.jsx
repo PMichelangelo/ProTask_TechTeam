@@ -49,6 +49,7 @@ const BoardListItem = ({ board: { _id, title } }) => {
           />
         </NavLink>
       </CurrentTheme>
+
       <Modal isOpen={modalActive} onClose={setModalActive} title={'Edit board'}>
         <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />
       </Modal>

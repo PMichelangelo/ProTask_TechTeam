@@ -17,6 +17,9 @@
 .theme_dark [class*='boardLink']:global(.active) {
   background-color: #1f1f1f;
 }
+.theme_dark [class*='boardLink']:global(.active)::after {
+  display: block;
+}
 
 .theme_dark [class*='help'] {
   background-color: #1f1f1f;
@@ -31,8 +34,12 @@
   color: rgba(22, 22, 22, 0.5);
   border-color: #1616161a;
 }
+
 .theme_light [class*='boardLink']:global(.active) {
   background-color: none;
+}
+.theme_light [class*='boardLink']:global(.active)::after {
+  display: block;
 }
 .theme_light [class*='help'] {
   background-color: #f6f6f7;
@@ -46,6 +53,13 @@
   background-color: #5255bc;
   color: #fff;
 }
+.theme_violet [class*='logoBg'] {
+  background-color: #ecedfd;
+}
+.theme_violet [class*='logo'] {
+  fill: #5255bc;
+}
+
 .theme_violet [class*='createNewBoardBtn'] {
   border-color: #ffffff1a;
 }
@@ -58,6 +72,11 @@
 }
 .theme_violet [class*='boardLink']:global(.active) {
   background-color: #ffffff80;
+}
+
+.theme_violet [class*='boardLink']:global(.active)::after {
+  display: block;
+  background-color: #fff;
 }
 .theme_violet > [class^='needHelp'] {
   background-color: #ecedfd66;
