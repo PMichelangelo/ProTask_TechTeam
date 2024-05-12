@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ProTask_TechTeam/static/css/main.62cd0a68.css",
-    "main.js": "/ProTask_TechTeam/static/js/main.e838ddf6.js",
+    "main.js": "/ProTask_TechTeam/static/js/main.501aedd8.js",
     "static/css/930.98d81239.chunk.css": "/ProTask_TechTeam/static/css/930.98d81239.chunk.css",
-    "static/js/930.9c656f25.chunk.js": "/ProTask_TechTeam/static/js/930.9c656f25.chunk.js",
-    "static/css/727.3c0ea0b2.chunk.css": "/ProTask_TechTeam/static/css/727.3c0ea0b2.chunk.css",
-    "static/js/727.2589b9ed.chunk.js": "/ProTask_TechTeam/static/js/727.2589b9ed.chunk.js",
+    "static/js/930.1e5b793e.chunk.js": "/ProTask_TechTeam/static/js/930.1e5b793e.chunk.js",
+    "static/css/719.98fc2810.chunk.css": "/ProTask_TechTeam/static/css/719.98fc2810.chunk.css",
+    "static/js/719.a94d4c24.chunk.js": "/ProTask_TechTeam/static/js/719.a94d4c24.chunk.js",
     "static/css/589.1def9359.chunk.css": "/ProTask_TechTeam/static/css/589.1def9359.chunk.css",
-    "static/js/589.9b8cfcc1.chunk.js": "/ProTask_TechTeam/static/js/589.9b8cfcc1.chunk.js",
+    "static/js/589.476b4498.chunk.js": "/ProTask_TechTeam/static/js/589.476b4498.chunk.js",
     "static/css/29.92b5ad5b.chunk.css": "/ProTask_TechTeam/static/css/29.92b5ad5b.chunk.css",
     "static/js/29.14ffcb9d.chunk.js": "/ProTask_TechTeam/static/js/29.14ffcb9d.chunk.js",
     "static/js/143.ff96b51d.chunk.js": "/ProTask_TechTeam/static/js/143.ff96b51d.chunk.js",
@@ -15,16 +15,16 @@
     "static/js/44.7b2d6859.chunk.js": "/ProTask_TechTeam/static/js/44.7b2d6859.chunk.js",
     "static/media/cat.jpg": "/ProTask_TechTeam/static/media/cat.4301b48b21d88d9415bb.jpg",
     "static/media/avatar.png": "/ProTask_TechTeam/static/media/avatar.e51576304a934bafb248.png",
-    "static/media/icons.svg": "/ProTask_TechTeam/static/media/icons.4cc36313b3fdca6c089cc7d1057fae05.svg",
+    "static/media/icons.svg": "/ProTask_TechTeam/static/media/icons.f1bb77ed62e69738854553452f6a51f9.svg",
     "index.html": "/ProTask_TechTeam/index.html",
     "main.62cd0a68.css.map": "/ProTask_TechTeam/static/css/main.62cd0a68.css.map",
-    "main.e838ddf6.js.map": "/ProTask_TechTeam/static/js/main.e838ddf6.js.map",
+    "main.501aedd8.js.map": "/ProTask_TechTeam/static/js/main.501aedd8.js.map",
     "930.98d81239.chunk.css.map": "/ProTask_TechTeam/static/css/930.98d81239.chunk.css.map",
-    "930.9c656f25.chunk.js.map": "/ProTask_TechTeam/static/js/930.9c656f25.chunk.js.map",
-    "727.3c0ea0b2.chunk.css.map": "/ProTask_TechTeam/static/css/727.3c0ea0b2.chunk.css.map",
-    "727.2589b9ed.chunk.js.map": "/ProTask_TechTeam/static/js/727.2589b9ed.chunk.js.map",
+    "930.1e5b793e.chunk.js.map": "/ProTask_TechTeam/static/js/930.1e5b793e.chunk.js.map",
+    "719.98fc2810.chunk.css.map": "/ProTask_TechTeam/static/css/719.98fc2810.chunk.css.map",
+    "719.a94d4c24.chunk.js.map": "/ProTask_TechTeam/static/js/719.a94d4c24.chunk.js.map",
     "589.1def9359.chunk.css.map": "/ProTask_TechTeam/static/css/589.1def9359.chunk.css.map",
-    "589.9b8cfcc1.chunk.js.map": "/ProTask_TechTeam/static/js/589.9b8cfcc1.chunk.js.map",
+    "589.476b4498.chunk.js.map": "/ProTask_TechTeam/static/js/589.476b4498.chunk.js.map",
     "29.92b5ad5b.chunk.css.map": "/ProTask_TechTeam/static/css/29.92b5ad5b.chunk.css.map",
     "29.14ffcb9d.chunk.js.map": "/ProTask_TechTeam/static/js/29.14ffcb9d.chunk.js.map",
     "143.ff96b51d.chunk.js.map": "/ProTask_TechTeam/static/js/143.ff96b51d.chunk.js.map",
@@ -33,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.62cd0a68.css",
-    "static/js/main.e838ddf6.js"
+    "static/js/main.501aedd8.js"
   ]
 }
