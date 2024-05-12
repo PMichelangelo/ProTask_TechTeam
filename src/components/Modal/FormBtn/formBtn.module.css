@@ -18,7 +18,7 @@
 
 .btn:focus,
 .btn:hover {
-  scale: 1.05;
+  background:  #9dc888;
 }
 
 .item {
