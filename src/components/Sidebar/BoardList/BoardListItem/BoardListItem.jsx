@@ -61,6 +61,7 @@ const BoardListItem = ({ board: { _id, title }, isActive, onClick }) => {
           <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />
         </Modal>
       )}
+
     </li>
   );
 };

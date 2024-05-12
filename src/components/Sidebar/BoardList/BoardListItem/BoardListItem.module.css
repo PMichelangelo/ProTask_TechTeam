@@ -1,10 +1,11 @@
 .listItem {
   width: 100%;
-  height: 61px;
+  min-height: 61px;
 }
 
 .boardLink {
-  padding: 20px 14px;
+  position: relative;
+  padding: 20px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,6 +13,18 @@
   font-weight: 500;
   text-decoration: none;
   padding-left: 24px;
+}
+
+.boardLink::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 4px;
+  border-radius: 4px 0 0 4px;
+  background-color: #bedbb0;
+  display: none;
 }
 
 .boardLink:hover {
