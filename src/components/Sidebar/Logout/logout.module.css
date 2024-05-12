@@ -33,3 +33,11 @@
 .logoutBtn:focus {
   transform: translateX(5px);
 }
+
+.theme_light .logoutText {
+  color: var(--logout-text-color-light);
+}
+
+.theme_dark .logoutText {
+  color: var(--logout-text-color-dark);
+}

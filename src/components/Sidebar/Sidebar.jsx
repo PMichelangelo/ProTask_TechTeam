@@ -44,7 +44,9 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
   return (
     <div
       className={
-        isMenuOpen ? css.openSidebar : `${css.sidebar} ${sidebarTheme}`
+        isMenuOpen
+          ? `${css.openSidebar} ${sidebarTheme}`
+          : `${css.sidebar} ${sidebarTheme}`
       }
       ref={menuRef}
     >
