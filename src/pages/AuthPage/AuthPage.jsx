@@ -13,8 +13,9 @@ const AuthPage = () => {
     const authError = useSelector(selectAuthError);
     const dispatch = useDispatch();
 
-    const handleRegister = data => {
-        dispatch(register(data));
+    const handleRegister = async (data) => {
+        await dispatch(register(data));
+        dispatch(login({ email: data.email, password: data.password }));
     }
 
     const handleLogin = data => {
