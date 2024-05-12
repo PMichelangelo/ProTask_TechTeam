@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -15,7 +16,7 @@ import {
 
 import css from './BoardListItem.module.css';
 
-const BoardListItem = ({ board: { _id, title } }) => {
+const BoardListItem = ({ board: { _id, title }, isActive, onClick }) => {
   const dispatch = useDispatch();
   const [modalActive, setModalActive] = useState(false);
 
@@ -38,22 +39,29 @@ const BoardListItem = ({ board: { _id, title } }) => {
   };
 
   return (
-    <li className={css.listItem}>
+    <li className={css.listItem} onClick={onClick}>
       <CurrentTheme>
         <NavLink to={`/home/${title}`} className={css.boardLink}>
           {title}
-          <BtnList
-            spriteArr={spriteArr}
-            idArr={idArr}
-            handleClick={handleClick}
-          />
+          {isActive && (
+            <BtnList
+              spriteArr={spriteArr}
+              idArr={idArr}
+              handleClick={handleClick}
+            />
+          )}
         </NavLink>
       </CurrentTheme>
-      <Modal isOpen={modalActive} onClose={setModalActive} title={'Edit board'}>
-        <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />
-      </Modal>
+      {isActive && (
+        <Modal
+          isOpen={modalActive}
+          onClose={setModalActive}
+          title={'Edit board'}
+        >
+          <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />
+        </Modal>
+      )}
     </li>
   );
 };
-
 export default BoardListItem;
