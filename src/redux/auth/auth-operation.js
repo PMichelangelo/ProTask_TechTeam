@@ -11,7 +11,7 @@ import {
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (body, { rejectWithValue,dispatch }) => {
+  async (body, { rejectWithValue }) => {
 
     try {
       const data = await registerRequest(body);
