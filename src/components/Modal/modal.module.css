@@ -11,7 +11,8 @@
   z-index: 2;
 }
 .modal_content {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto;
   flex-direction: column;
   margin: 0;
   position: relative;
@@ -19,8 +20,6 @@
   background: #fcfcfc;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
   padding: 24px;
-  max-width: 400px;
-  width: 100%;
 }
 
 .theme_dark {
@@ -48,6 +47,7 @@
 
 @media (min-width: 768px) and (max-width: 1439px) {
 }
+
 
 @media (min-width: 1440px) {
 }
