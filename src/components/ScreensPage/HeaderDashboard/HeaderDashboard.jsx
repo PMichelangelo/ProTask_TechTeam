@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import Filters from './Filters';
 
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../redux/auth/auth-selectors';
 import createStyle from 'shared/functions/style';
 
 import css from './headerDashboard.module.css';

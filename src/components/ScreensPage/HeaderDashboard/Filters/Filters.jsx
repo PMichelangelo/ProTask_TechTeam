@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { selectTheme } from '../../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../../redux/auth/auth-selectors';
 import { useCurrentTheme } from '../../../../helpers/useCurrentTheme';
 import { filterColumns } from '../../../../redux/dashboards/columns/columns-operations';
 import { filterDashboardSchemas } from '../../../../schemas/filterDashboardSchemas';

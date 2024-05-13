@@ -11,7 +11,7 @@ import sprite from '../../../../../../images/icons.svg';
 import css from './addCard.module.css';
 
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../../../../redux/auth/auth-selectors';
 import createStyle from 'shared/functions/style';
 
 const AddCard = ({ boardId, columnId }) => {

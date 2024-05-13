@@ -82,6 +82,7 @@ export const updateTheme = createAsyncThunk(
   async (theme, { rejectWithValue }) => {
     try {
       const response = await postUserTheme(theme);
+      console.log('theme:',response.data)
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
