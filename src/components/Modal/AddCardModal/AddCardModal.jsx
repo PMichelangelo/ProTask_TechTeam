@@ -7,15 +7,16 @@ import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import './calendar.css'
 
 
 
 const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
 
-  const options = { 
-    year: 'numeric', 
-    month: 'numeric', 
-    day: 'numeric' 
+  const options = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
 };
     const dat=new Date();
 
@@ -33,7 +34,7 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
   useEffect(() => {
     if (initialTaskState){ setSelectedDate(initialTaskState.deadline)}
      },[initialTaskState]);
-  
+
 
 
   const validateInput = () => {
@@ -63,14 +64,29 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
     setAddCardModal({ ...INITIAL_STATE });
   };
 
-  const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => (
-    <div className={css.customHeader}>
-      <button onClick={decreaseMonth}>-</button>
-      <span>{date}</span>
-      <button onClick={increaseMonth}>+</button>
-      <div className={css.calendar_divider}></div>
+  const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
+  const formattedDate = new Date(date).toLocaleString('en-US', {
+    month: 'long',
+    year: 'numeric',
+  });
+
+  return (
+    <div className={css.calendarHeader}>
+      <button onClick={decreaseMonth}>
+        <svg className='arrow' width="4" height="8">
+            <use href={`${sprite}#icon-arrow-left`}></use>
+        </svg>
+      </button>
+      <span className={css.date}>{formattedDate}</span>
+      <button onClick={increaseMonth}>
+        <svg className='arrow' width="4" height="8">
+            <use href={`${sprite}#icon-arrow-right`}></use>
+        </svg>
+      </button>
     </div>
   );
+};
+
 
   const dayClassName = date => {
     return date ? css.customDay : null;

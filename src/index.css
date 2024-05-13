@@ -124,6 +124,6 @@ button {
   font-family: inherit;
 }
 
-.react-datepicker__header {
-  background-color: transparent !important;
+.react-datepicker__month-container {
+  font-family: 'Poppins', sans-serif;
 }

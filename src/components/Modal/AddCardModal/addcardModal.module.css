@@ -140,9 +140,11 @@ input[value='Without'] + label svg use {
 /*DatePicker*/
 
 .customCalendar {
-  color: white;
-  background-color: black;
+  color: var(--dark-text-color);
+  background-color: var(--dark-input-focus-color);
   border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
 }
 
 .react-datepicker__day-name {
@@ -167,6 +169,25 @@ input[value='Without'] + label svg use {
 }
 
 .customCalendar .react-datepicker__day-name {
+  color: white;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 18px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.date {
+  color: var(--dark-text-color);
+}
+
+.arrow {
+  stroke: white;
+}
+
+.react-datepicker__day-name {
   color: white;
 }
 
