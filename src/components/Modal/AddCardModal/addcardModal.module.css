@@ -95,9 +95,9 @@
   letter-spacing: -0.02em;
   color: rgba(22, 22, 22, 0.5);
 }
-.sub_title .theme_dark {color: rgba(255, 255, 255, 0.5);}
-.sub_title .theme_violet{color: rgba(22, 22, 22, 0.5);}
-.sub_title .theme_light {color: rgba(22, 22, 22, 0.5);}
+.sub_title.theme_dark {color: rgba(255, 255, 255, 0.5);}
+.sub_title.theme_violet{color: rgba(22, 22, 22, 0.5);}
+.sub_title.theme_light {color: rgba(22, 22, 22, 0.5);}
 
 
 :root {
@@ -105,6 +105,7 @@
   --Medium: #e09cb5;
   --High: #bedbb0;
   --Without: rgba(22, 22, 22, 0.3);
+  --WithoutBlackThema :rgba(255, 255, 255, 0.5);
 }
 .label_icon {
   display: flex;
@@ -144,6 +145,7 @@ input[value='Without'] + label svg use {
   fill: var(--Without);
   stroke: transparent;
 }
+
 
 [value='Low']:checked + label svg use {
   fill: transparent;

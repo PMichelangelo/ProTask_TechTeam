@@ -72,15 +72,6 @@ input[type='radio']:checked + svg use {
   opacity: 0.5;
 }
 
-.icon_use.theme_dark :checked {
-  opacity: 1;
-}
-.icon_use.theme_light :checked {
-  opacity: 1;
-}
-.icon_use.theme_violet :checked {
-  opacity: 1;
-}
 
 .icon {
   cursor: pointer;
