@@ -5,7 +5,7 @@ import Notiflix from 'notiflix';
 import { useState } from 'react';
 
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 
 const AddColumnModal = ({ onClose, onSubmit , initialColumnState }) => {
