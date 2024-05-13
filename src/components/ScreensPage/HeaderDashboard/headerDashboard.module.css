@@ -7,7 +7,6 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: var(--light-text-color);
   padding-top: 14px;
   padding-bottom: 40px;
 }
@@ -25,4 +24,13 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
+}
+
+.theme_dark_title {
+  color: var(--dark-text-color);
+}
+
+.theme_light_title,
+.theme_violet_title {
+  color: var(--light-text-color);
 }

@@ -19,7 +19,6 @@
 }
 
 .plus {
-  color: var(--light-main-color);
   background-color: var(--light-text-color);
   height: 28px;
   width: 28px;
@@ -33,4 +32,39 @@
   width: 14px;
   height: 14px;
   stroke: var(--light-main-color);
+}
+
+/* theme btn */
+
+.theme_dark_btn,
+.theme_light_btn {
+  background-color: var(--button-light-color);
+  color: var(--dark-button-color);
+}
+
+.theme_violet_btn {
+  background-color: var(--button-violet-wrap-color);
+  color: var(--dark-text-color);
+}
+
+/* theme plus */
+
+.theme_dark_plus,
+.theme_light_plus {
+  background-color: var(--dark-button-color);
+}
+
+.theme_violet_plus {
+  background-color: var(--dark-text-color);
+}
+
+/* theme plus_icon */
+
+.theme_dark_plus_icon,
+.theme_light_plus_icon {
+  stroke: var(--dark-text-color);
+}
+
+.theme_violet_plus_icon {
+  stroke: var(--dark-button-color);
 }

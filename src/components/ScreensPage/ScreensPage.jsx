@@ -13,6 +13,7 @@ import { selectDashboards } from '../../redux/dashboards/dashboards-selectors';
 import { selectTheme } from '../../redux/auth/auth-selectors';
 
 import css from './screensPage.module.css';
+import createStyle from 'shared/functions/style';
 
 const ScreensPage = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const ScreensPage = () => {
 
   const { boardName } = useParams();
 
-  const currentTheme = useSelector(selectTheme);
+  const theme = useSelector(selectTheme);
   const boards = useSelector(selectDashboards);
 
   useEffect(() => {
@@ -54,24 +55,22 @@ const ScreensPage = () => {
   // "deadline": ""
   // }
 
-  const themeClassMap = {
-    dark: css.theme_dark,
-    light: css.theme_light,
-    violet: css.theme_violet,
-  };
-
-  const screensPageTheme = themeClassMap[currentTheme] || '';
-
   return (
-    <div className={`${css.screensPage} ${screensPageTheme}`}>
+    <div className={`${css.screensPage} ${css[createStyle(theme, 'page')]}`}>
       <HeaderDashboard boardName={boardName} />
       {boardName ? (
         <MainDashboard boardId={boardId} />
       ) : (
         <div className={css.noDashboardWrap}>
-          <p className={css.noDashboardText}>
+          <p
+            className={`${css.noDashboardText} ${
+              css[createStyle(theme, 'text')]
+            }`}
+          >
             Before starting your project, it is essential{' '}
-            <span className={css.createDashboardText}>to create a board</span>{' '}
+            <span className={`${css[createStyle(theme, 'span')]}`}>
+              to create a board
+            </span>{' '}
             to visualize and track all the necessary tasks and milestones. This
             board serves as a powerful tool to organize the workflow and ensure
             effective collaboration among team members.

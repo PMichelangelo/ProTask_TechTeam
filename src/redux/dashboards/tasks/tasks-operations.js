@@ -3,9 +3,9 @@ import * as tasksApi from '../../../api/tasks-api';
 
 export const addTask = createAsyncThunk(
   'tasks/add',
-  async ({ columnId, body }, { rejectWithValue }) => {
+  async ({ boardId, columnId, body }, { rejectWithValue }) => {
     try {
-      const { data } = await tasksApi.addTaskRequest(columnId, body);
+      const { data } = await tasksApi.addTaskRequest(boardId, columnId, body);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

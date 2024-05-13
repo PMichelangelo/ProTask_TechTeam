@@ -5,7 +5,9 @@ html {
 
 :root {
   /*Dark theme*/
+
   --dark-main-color: #232323;
+  --dark-background-color: #1f1f1f;
 
   --dark-input-color: #212121;
   --dark-input-focus-color: #1f1f1f;
@@ -15,9 +17,11 @@ html {
   --dark-text-color: #ffffff;
 
   --dark-plus-color: #121212;
+
   /* Light theme */
+
   --light-main-color: #fdfdfd;
-  --light-background-color: #e5e5e5;
+  --light-background-color: #f6f6f7;
 
   --button-light-color: #bedbb0;
   --button-light-alt-color: #9dc888;
@@ -27,8 +31,11 @@ html {
   --light-header-color: #fcfcfc;
 
   --light-plus-color: #ffffff;
+
   /* Violet theme */
+
   --violet-main-color: #d6d8ff;
+  --violet-background-color: #ecedfd;
 
   --button-violet-color: #b8bcfd;
   --button-violet-alt-color: #979cea;
@@ -36,7 +43,10 @@ html {
   --button-violet-wrap-color: #5255bc;
   --button-violet-wrap-alt-color: #7b7ede;
 
+  --violet-text-color: #5255bc;
+
   /*Radio buttons color*/
+
   --radio-grey: #656565;
   --radio-blue: #8fa1d0;
   --radio-pink: #e09cb5;

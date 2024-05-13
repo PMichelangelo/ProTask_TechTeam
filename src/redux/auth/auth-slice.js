@@ -30,31 +30,31 @@ const authSlice = createSlice({
                 state.token = payload.token;
                 state.isLogin = true;
                 state.isLoading = false;
-                state.error = null;
+              state.error = null;
+              state.theme = payload.theme
+              console.log(payload)
             })
             .addCase(current.pending, pending)
-            .addCase(current.fulfilled, (state, {payload}) => {
-                state.user = payload;
+          .addCase(current.fulfilled, (state, { payload }) => {
+              const { name, email, avatarURL, theme } = payload.message
+            state.user = { name, email, avatarURL, theme};
                 state.isLogin = true;
                 state.isLoading = false;
               state.error = null;
-              state.theme = payload.theme || "dark";
             })
             .addCase(current.rejected, (state) => {
                 state.isLoading = false;
                 state.token = "";
             })
-          .addCase(updateTheme.pending, state => {
+            .addCase(updateTheme.pending, state => {
                 state.isLoading = true;
                 state.error = null;
             })
-            .addCase(updateTheme.fulfilled, (state, action) => {
-                state.isLoading = false;
-                state.theme = action.payload.theme;
-            })
+          .addCase(updateTheme.fulfilled, (state, action) => {
+              state.isLoading = false;
+              state.user.theme = action.meta.arg;
+          })
             .addCase(updateTheme.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.error.message;
             })
             .addCase(logout.pending, pending)
             .addCase(logout.fulfilled, state => {
