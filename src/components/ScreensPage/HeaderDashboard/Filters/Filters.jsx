@@ -55,6 +55,7 @@ const Filters = () => {
 
     dispatch(filterColumns(filter));
     dispatch(filterPriority(priority));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, getValues()]);
 
   const handleFilterReset = () => {
