@@ -2,7 +2,6 @@
   position: relative;
   padding: 14px 14px 14px 24px;
   border-radius: 8px;
-  background-color: var(--light-main-color);
 }
 
 .card::before {
@@ -126,4 +125,15 @@
 .priorityWithout {
   background-color: var(--radio-grey);
   opacity: 0.3;
+}
+
+/*  card theme  */
+
+.theme_dark_card {
+  background-color: var(--dark-plus-color);
+}
+
+.theme_light_card,
+.theme_violet_card {
+  background-color: var(--light-plus-color);
 }
