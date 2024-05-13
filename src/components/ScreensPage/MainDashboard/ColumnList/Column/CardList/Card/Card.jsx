@@ -51,7 +51,17 @@ const Card = ({
     const year = today.getFullYear();
     return `${day}/${month}/${year}`;
   }
-  const formattedDeadline = getFormattedDate(deadline);
+
+function formatDateString(dateString) {
+    const parts = dateString.split('/');
+    const month = parts[0];
+    const day = parts[1];
+    const year = parts[2];
+    return `${day}/${month}/${year}`;
+}
+
+const formattedDeadline = formatDateString(deadline);
+console.log("formated data", formattedDeadline);
   const isDeadline = formattedDeadline === getFormattedDate();
 
   function getPriorityClass(priority, prefix = '') {
