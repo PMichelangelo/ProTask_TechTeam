@@ -1,6 +1,8 @@
 import React, { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import CloseButton from './CloseButton/CloseButton';
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../redux/theme/theme-selectors';
 
 import css from './modal.module.css';
 
@@ -15,18 +17,31 @@ const Modal = ({ isOpen, onClose, title, children }) => {
     [onClose]
   );
 
+  const currentTheme = useSelector(selectTheme);
+
+  const themeClassMap = {
+    dark: css.theme_dark,
+    light: css.theme_light,
+    violet: css.theme_violet,
+  };
+
   useEffect(() => {
     document.addEventListener('keydown', closeModal);
 
     return () => document.removeEventListener('keydown', closeModal);
   }, [closeModal]);
 
+  const modalTheme = themeClassMap[currentTheme] || '';
+
   return createPortal(
     <>
       {isOpen && (
-        <div onClick={closeModal} className={css.modal_wrapper}>
+        <div
+          onClick={closeModal}
+          className={`${css.modal_wrapper} ${modalTheme}`}
+        >
           <div className={css.modal_content}>
-            {title && <h2 className={css.titel}>{title}</h2>}
+            <h2 className={css.modalTitle}>Edit Profile</h2>
 
             <CloseButton onClose={onClose} />
             {children}

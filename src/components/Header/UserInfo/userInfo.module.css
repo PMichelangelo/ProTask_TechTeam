@@ -1,5 +1,5 @@
 .theme_dark {
-  .userName {
+  .modalTitle {
     color: #ffffff;
   }
 
@@ -9,13 +9,17 @@
 }
 
 .theme_light {
-  .userName {
+  .userInfo {
+    color: #161616;
+  }
+
+  .modalTitle {
     color: #161616;
   }
 }
 
 .theme_violet {
-  .userName {
+  .userInfo {
     color: #161616;
   }
 }
@@ -36,6 +40,15 @@
   letter-spacing: -0.04em;
   color: #161616;
   font-weight: 500;
+}
+
+.modalTitle {
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  padding-top: 24px;
+  padding-left: 24px;
+  color: #ffffff;
 }
 
 @media screen and (min-width: 768px) {
