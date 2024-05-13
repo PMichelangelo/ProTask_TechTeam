@@ -3,7 +3,7 @@ import css from './btnList.module.css';
 // import CurrentTheme from '../CurrentTheme/CurrentTheme';
 
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 import sprite from '../../../images/icons.svg';
 

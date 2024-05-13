@@ -1,8 +1,8 @@
 import authInstance from "./auth-api";
 
-export const updateTheme = async (theme) => {
+export const postUserTheme = async (theme) => {
   try {
-    const response = await authInstance.post('/users/edit/theme', { theme })
+    const response = await authInstance.patch('/users/edit/theme', { theme })
     return response.data
   } catch (error) {
     console.error("Failed to update user theme:", error)

@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import CloseButton from './CloseButton/CloseButton';
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../redux/theme/theme-selectors';
+import { selectTheme } from '../../redux/auth/auth-selectors';
 
 import css from './modal.module.css';
 

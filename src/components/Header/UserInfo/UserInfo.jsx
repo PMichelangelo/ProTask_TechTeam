@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import UserAvatar from '../UserAvatar';
 import UserForm from '../UserForm';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 import styles from './userInfo.module.css';
 

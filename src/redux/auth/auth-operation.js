@@ -8,6 +8,7 @@ import {
   logoutRequest,
 } from 'api/auth-api';
 
+import { postUserTheme } from 'api/theme-api';
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -76,3 +77,14 @@ export const logout = createAsyncThunk(
   }
 );
 
+export const updateTheme = createAsyncThunk(
+  'auth/updateTheme',
+  async (theme, { rejectWithValue }) => {
+    try {
+      const response = await postUserTheme(theme);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
