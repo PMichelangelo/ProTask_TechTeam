@@ -19,10 +19,8 @@
   border-radius: 8px;
   background: #fcfcfc;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
-  padding: 24px;
   max-width: 335px;
   width: 100%;
-  
 }
 
 .modalTitle {
@@ -34,7 +32,6 @@
   color: #161616;
 
   padding: 24px;
-
 }
 
 .theme_dark {
@@ -53,14 +50,6 @@
 .theme_violet {
 }
 
-/* .titel {
-  margin-bottom: 24px;
-  font-weight: 500;
-  font-size: 18px;
-  letter-spacing: -0.02em;
-  color: #fcfcfc;
-} */
-
 @media (min-width: 375px) {
 }
 
@@ -69,7 +58,6 @@
     min-width: 400px;
   }
 }
-
 
 @media (min-width: 1440px) {
 }
