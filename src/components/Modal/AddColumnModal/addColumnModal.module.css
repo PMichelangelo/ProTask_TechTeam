@@ -15,6 +15,36 @@
     letter-spacing: -0.02em;
     color: #161616;
   }
+
+  .input.theme_dark {
+    border: 1px solid #bedbb0;
+    background-color: #1f1f1f;
+    color: #fff;
+  }
+  
+  .input:focus {
+    opacity: 1;
+    outline: none;
+  }
+  
+  .input.theme_dark::placeholder {
+    color: #fff;
+  }
+  .input.theme_dark:focus {
+    outline: none;
+  }
+  .input.theme_light {
+    border: 1px solid #bedbb0;
+  }
+  .input.theme_light:focus {
+    outline: none;
+  }
+  .input.theme_violet {
+    border: 1px solid #5255bc;
+  }
+  .input.theme_violet:focus {
+    outline: none;
+  }
    
  @media (min-width: 375px) {
     .form {

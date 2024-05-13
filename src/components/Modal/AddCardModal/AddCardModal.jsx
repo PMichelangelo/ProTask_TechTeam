@@ -6,7 +6,19 @@ import React, { useEffect, useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import './calendar.css';
+
+import './calendar.css'
+
+
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../../redux/auth/auth-selectors';
+
+
+
+
+
+const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
+
 
 const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   const options = {
@@ -28,10 +40,22 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   const [selectedDate, setSelectedDate] = useState(firstData);
 
   useEffect(() => {
-    if (initialTaskState) {
-      setSelectedDate(initialTaskState.deadline);
-    }
-  }, [initialTaskState]);
+
+    if (initialTaskState){ setSelectedDate(initialTaskState.deadline)}
+     },[initialTaskState]);
+
+     const currentTheme = useSelector(selectTheme);
+
+     const themeClassMap = {
+       dark: css.theme_dark,
+       light: css.theme_light,
+       violet: css.theme_violet,
+     };
+   
+     const cardTheme = themeClassMap[currentTheme] || '';   
+
+
+
 
   const validateInput = () => {
     return (
@@ -106,7 +130,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
 
   const { title, description, priority } = addCardModalState;
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
+    <form className={`${css.form} ${cardTheme}`} onSubmit={handleSubmit}>
       <input
         value={title}
         className={css.input}
@@ -127,7 +151,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
         onChange={handleChange}
       ></textarea>
       <div className={css.radio_container}>
-        <p className={css.sub_title}>Label color</p>
+        <p className={`${css.sub_title} ${cardTheme}`}>Label color</p>
         <div className={css.radio_container_item}>
           <div>
             <input
@@ -218,7 +242,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
       </div>
 
       <div className={css.datapicer_conteinet}>
-        <p className={css.sub_title}>Deadline</p>
+        <p className={`${css.sub_title} ${cardTheme}`}>Deadline</p>
         <DatePicker
           selected={selectedDate}
           onChange={handleChangeData}

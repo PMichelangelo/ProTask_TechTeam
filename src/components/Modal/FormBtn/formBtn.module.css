@@ -7,19 +7,50 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #bedbb0;
+  background-color: #bedbb0;
 
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #161616;
-  transition: scale 250ms ease-in 0s;
+  transition: background-color 250ms ease-in 0s;
 }
+
+.btn.theme_dark {
+  background-color: #bedbb0;
+  
+}
+.btn.theme_light {
+  background-color:#bedbb0;
+}
+.btn.theme_violet {  
+background-color:#7b7ede;
+color: #fff;
+} 
+
+
 
 .btn:focus,
 .btn:hover {
-  background:  #9dc888;
+  background-color:  #9dc888;
 }
+
+.btn.theme_dark:focus,
+.btn.theme_dark:hover {
+  background-color:  #9dc888;
+}
+
+.btn.theme_light:focus,
+.btn.theme_light:hover {
+  background-color:  #9dc888;
+}
+
+.btn.theme_violet:focus,
+.btn.theme_violet:hover {
+  background-color: #5255bc;
+}
+
+
 
 .item {
   width: 28px;
@@ -31,6 +62,19 @@
   align-items: center;
   margin-right: 8px;
 }
+
+.item .theme_dark {
+  background-color: #161616;
+  
+}
+.item .theme_light {
+  background-color: #161616;
+}
+.item .theme_violet {  
+  background-color: #fff;
+} 
+
+
 .item_svg {
   width: 14px;
   height: 14px;
@@ -40,3 +84,8 @@
   stroke: white;
   fill: transparent;
 }
+.item_use.theme_violet {  
+  stroke: black;
+  fill: transparent;
+} 
+
