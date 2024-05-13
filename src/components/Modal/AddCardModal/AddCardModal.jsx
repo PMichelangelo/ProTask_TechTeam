@@ -64,6 +64,11 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   const handleChangeData = date => {
     setSelectedDate(date.toLocaleDateString('en-US', options));
   };
+
+  const handleCalendarClick = e => {
+  e.stopPropagation();
+};
+
   const handleSubmit = e => {
     e.preventDefault();
     if (!validateInput()) {
@@ -73,6 +78,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
     onClose(false);
     onSubmit({ ...addCardModalState, deadline: selectedDate });
     setAddCardModal({ ...INITIAL_STATE });
+    console.log('button was pressed')
   };
 
   const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
@@ -102,7 +108,8 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
     return date ? css.customDay : null;
   };
 
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
+  const ExampleCustomInput = forwardRef(({ value, onClick, }, ref) => {
+
     const [day, month, year] = value.split('/');
     const currentDate = new Date();
     const selectedDate = new Date(year, month - 1, day);
@@ -113,7 +120,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
       : `${monthName} ${day}`;
 
     return (
-      <button className="example-custom-input" onClick={onClick} ref={ref}>
+      <button type="button" className="example-custom-input" onClick={onClick} ref={ref}>
         {formattedValue}
       </button>
     );
@@ -237,6 +244,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
         <DatePicker
           selected={selectedDate}
           onChange={handleChangeData}
+          onClick={handleCalendarClick}
           customInput={<ExampleCustomInput />}
           dateFormat="dd/MM/yyyy"
           renderCustomHeader={renderCustomHeader}
