@@ -19,20 +19,27 @@ const TaskSlice = createSlice({
     builder
       .addCase(fetchOneDashboard.pending, pending)
       .addCase(fetchOneDashboard.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
         state.items = [];
         payload.columns.forEach(column => {
-          column.tasks.forEach(task => {
-            state.items.push({
-              boardId: payload._id,
-              columnId: column._id,
-              _id: task._id,
-              title: task.title,
-              priority: task.priority,
-              description: task.description,
-              deadline: task.deadline,
-            });
-          });
+          column.tasks.forEach(
+            ({ _id, title, priority, description, deadline, updatedAt }) => {
+              state.items.push({
+                boardId: payload._id,
+                columnId: column._id,
+                _id,
+                title,
+                priority,
+                description,
+                deadline,
+                updatedAt,
+              });
+            }
+          );
         });
+        state.items.sort(
+          (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+        );
       })
       .addCase(fetchOneDashboard.rejected, rejected)
 
