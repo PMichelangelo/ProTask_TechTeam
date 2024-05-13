@@ -1,5 +1,5 @@
 import css from './needHelpModal.module.css';
-
+import Notiflix from 'notiflix';
 import { useState } from 'react';
 
 const INITIAL_STATE = {
@@ -15,8 +15,19 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
     setModalState({ ...modalState, [name]: value });
   };
 
+  const validateInput = () => {
+    return (modalState.distription.trim() !== '')
+  };
+
+
+
   const handleSubmit = e => {
     e.preventDefault();
+    if (!validateInput()) {
+      Notiflix.Notify.failure('Distription cannot be empty')
+      return;
+    }
+   
     onClose(false);
     onSubmit({ ...modalState });
     setModalState({ ...INITIAL_STATE });

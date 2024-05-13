@@ -43,7 +43,7 @@ const Modal = ({ isOpen, onClose, title, children }) => {
           <div className={css.modal_content}>
             <h2 className={css.modalTitle}>Edit Profile</h2>
 
-            <CloseButton onClick={() => onClose(false)} />
+            <CloseButton onClose={onClose} />
             {children}
           </div>
         </div>

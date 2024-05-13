@@ -11,13 +11,15 @@
   z-index: 2;
 }
 .modal_content {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto;
   flex-direction: column;
   margin: 0;
   position: relative;
   border-radius: 8px;
   background: #fcfcfc;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+
   max-width: 335px;
   width: 100%;
   max-height: 440px;
@@ -31,6 +33,9 @@
   padding-top: 24px;
   padding-left: 24px;
   color: #161616;
+
+  padding: 24px;
+
 }
 
 .theme_dark {
@@ -65,6 +70,7 @@
     min-width: 400px;
   }
 }
+
 
 @media (min-width: 1440px) {
 }

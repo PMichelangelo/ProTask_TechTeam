@@ -1,22 +1,47 @@
 import css from './addcardModal.module.css';
-
+import Notiflix from 'notiflix';
 import sprite from '../../../images/icons.svg';
 import FormBtn from './../FormBtn/FormBtn';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-const INITIAL_STATE = {
-  title: '',
-  description: '',
-  color: 'Low',
-};
 
-const AddCardModal = ({ onClose, onSubmit }) => {
+
+const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
+
+  const options = { 
+    year: 'numeric', 
+    month: 'numeric', 
+    day: 'numeric' 
+};
+    const dat=new Date();
+
+    const firstData=dat.toLocaleDateString('en-US', options);
+
+  const INITIAL_STATE = {
+    title: initialTaskState ? initialTaskState.title : '',
+    description: initialTaskState ? initialTaskState.description : '',
+    color: initialTaskState ? initialTaskState.description.priority :'Low',
+  };
+
   const [addCardModalState, setAddCardModal] = useState({ ...INITIAL_STATE });
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(firstData);
+
+  useEffect(() => {
+    if (initialTaskState){ setSelectedDate(initialTaskState.deadline)}
+     },[initialTaskState]);
+  
+
+
+  const validateInput = () => {
+    return (
+      addCardModalState.title.trim() !== '' &&
+      addCardModalState.description.trim() !== ''
+    );
+  };
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -25,28 +50,31 @@ const AddCardModal = ({ onClose, onSubmit }) => {
   };
 
   const handleChangeData = date => {
-    setSelectedDate(date);
+    setSelectedDate(date.toLocaleDateString('en-US', options));
   };
   const handleSubmit = e => {
     e.preventDefault();
+    if (!validateInput()) {
+      Notiflix.Notify.failure('Distription cannot be empty');
+      return;
+    }
     onClose(false);
     onSubmit({ ...addCardModalState, deadline: selectedDate });
-    console.log({ ...addCardModalState, deadline: selectedDate });
     setAddCardModal({ ...INITIAL_STATE });
   };
 
   const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => (
     <div className={css.customHeader}>
       <button onClick={decreaseMonth}>-</button>
-      <span>{date.toLocaleDateString()}</span>
-        <button onClick={increaseMonth}>+</button>
-        <div className={css.calendar_divider}></div>
+      <span>{date}</span>
+      <button onClick={increaseMonth}>+</button>
+      <div className={css.calendar_divider}></div>
     </div>
   );
 
-  const dayClassName = (date) => {
+  const dayClassName = date => {
     return date ? css.customDay : null;
-  }
+  };
 
   const { title, description, color } = addCardModalState;
   return (
@@ -171,7 +199,7 @@ const AddCardModal = ({ onClose, onSubmit }) => {
           className={css.my_datepicker}
         />
       </div>
-      <FormBtn textBtn={'Add'} />
+      <FormBtn textBtn={btnText} />
     </form>
   );
 };
