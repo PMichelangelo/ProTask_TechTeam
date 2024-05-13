@@ -7,12 +7,10 @@ import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
-import './calendar.css'
-
+import './calendar.css';
 
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/auth-selectors';
-
 
 const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   const options = {
@@ -34,19 +32,20 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   const [selectedDate, setSelectedDate] = useState(firstData);
 
   useEffect(() => {
+    if (initialTaskState) {
+      setSelectedDate(initialTaskState.deadline);
+    }
+  }, [initialTaskState]);
 
-    if (initialTaskState){ setSelectedDate(initialTaskState.deadline)}
-     },[initialTaskState]);
+  const currentTheme = useSelector(selectTheme);
 
-     const currentTheme = useSelector(selectTheme);
+  const themeClassMap = {
+    dark: css.theme_dark,
+    light: css.theme_light,
+    violet: css.theme_violet,
+  };
 
-     const themeClassMap = {
-       dark: css.theme_dark,
-       light: css.theme_light,
-       violet: css.theme_violet,
-     };
-
-     const cardTheme = themeClassMap[currentTheme] || '';
+  const cardTheme = themeClassMap[currentTheme] || '';
 
   const validateInput = () => {
     return (
@@ -128,10 +127,10 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
 
   const { title, description, priority } = addCardModalState;
   return (
-    <form className={`${css.form} ${cardTheme}`} onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <input
         value={title}
-        className={css.input}
+        className={`${css.input} ${cardTheme}`}
         type="text"
         name="title"
         required
@@ -140,7 +139,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
       ></input>
 
       <textarea
-        className={css.textarea}
+        className={`${css.textarea} ${cardTheme}`}
         value={description}
         name="description"
         rows="7"
@@ -224,7 +223,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
               id="Without"
               onChange={handleChange}
             />
-            <label className={css.label_icon} htmlFor="Without">
+            <label className={`${css.label_icon} ${cardTheme}`} htmlFor="Without">
               <svg className={css.icon}>
                 <use
                   href={`${sprite}${
@@ -258,5 +257,4 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   );
 };
 
-
-  export default AddCardModal;
+export default AddCardModal;

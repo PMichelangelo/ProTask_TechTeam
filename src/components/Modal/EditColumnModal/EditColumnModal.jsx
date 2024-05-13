@@ -4,6 +4,7 @@ import FormBtn from '../FormBtn/FormBtn';
 
 import { useState } from 'react';
 
+
 const EditColumnModal = ({ onClose, onSubmit, columnTitle }) => {
   const INITIAL_STATE = {
     title: columnTitle,

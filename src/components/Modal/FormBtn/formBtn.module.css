@@ -63,14 +63,14 @@ color: #fff;
   margin-right: 8px;
 }
 
-.item .theme_dark {
+.item.theme_dark {
   background-color: #161616;
   
 }
-.item .theme_light {
+.item.theme_light {
   background-color: #161616;
 }
-.item .theme_violet {  
+.item.theme_violet {  
   background-color: #fff;
 } 
 
