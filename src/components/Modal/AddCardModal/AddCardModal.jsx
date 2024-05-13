@@ -2,20 +2,20 @@ import css from './addcardModal.module.css';
 import Notiflix from 'notiflix';
 import sprite from '../../../images/icons.svg';
 import FormBtn from './../FormBtn/FormBtn';
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import './calendar.css'
 
 
 
 const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
 
-  const options = { 
-    year: 'numeric', 
-    month: 'numeric', 
-    day: 'numeric' 
+  const options = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
 };
     const dat=new Date();
 
@@ -33,7 +33,7 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
   useEffect(() => {
     if (initialTaskState){ setSelectedDate(initialTaskState.deadline)}
      },[initialTaskState]);
-  
+
 
 
   const validateInput = () => {
@@ -63,18 +63,50 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
     setAddCardModal({ ...INITIAL_STATE });
   };
 
-  const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => (
-    <div className={css.customHeader}>
-      <button onClick={decreaseMonth}>-</button>
-      <span>{date}</span>
-      <button onClick={increaseMonth}>+</button>
-      <div className={css.calendar_divider}></div>
+  const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
+  const formattedDate = new Date(date).toLocaleString('en-US', {
+    month: 'long',
+    year: 'numeric',
+  });
+
+
+  return (
+    <div className={css.calendarHeader}>
+      <button onClick={decreaseMonth}>
+        <svg className='arrow' width="4" height="8">
+            <use href={`${sprite}#icon-arrow-left`}></use>
+        </svg>
+      </button>
+      <span className={css.date}>{formattedDate}</span>
+      <button onClick={increaseMonth}>
+        <svg className='arrow' width="4" height="8">
+            <use href={`${sprite}#icon-arrow-right`}></use>
+        </svg>
+      </button>
     </div>
   );
+};
+
 
   const dayClassName = date => {
     return date ? css.customDay : null;
   };
+
+  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
+
+  const [day, month, year] = value.split("/");
+  const currentDate = new Date();
+  const selectedDate = new Date(year, month - 1, day);
+  const isToday = currentDate.toDateString() === selectedDate.toDateString();
+  const monthName = selectedDate.toLocaleString('en', { month: 'long' });
+  const formattedValue = isToday ? `Today, ${monthName} ${day}` : `${monthName} ${day}`;
+
+  return (
+    <button className="example-custom-input" onClick={onClick} ref={ref}>
+      {formattedValue}
+    </button>
+  );
+  });
 
   const { title, description, color } = addCardModalState;
   return (
@@ -192,6 +224,7 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
         <DatePicker
           selected={selectedDate}
           onChange={handleChangeData}
+          customInput={<ExampleCustomInput />}
           dateFormat="dd/MM/yyyy"
           renderCustomHeader={renderCustomHeader}
           calendarClassName={css.customCalendar}

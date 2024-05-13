@@ -20,7 +20,12 @@ export const registerRequest = async body => {
 export const loginRequest = async body => {
   const { data } = await authInstance.post('/users/login', body);
   setToken(data.token);
-  console.log('Данные после запроса на логин:', data);
+  console.log('Fetched data from server:', data);
+   const { email, name, avatarURL, theme } = data.user;
+    console.log('Email', email);
+    console.log('Name:', name);
+    console.log('avatar:', avatarURL);
+    console.log('theme:', theme);
   return data;
 };
 

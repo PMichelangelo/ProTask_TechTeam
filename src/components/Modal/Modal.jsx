@@ -1,9 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import CloseButton from './CloseButton/CloseButton';
-
 import { useSelector } from 'react-redux';
-import { selectTheme } from "../../redux/theme/theme-selectors";
+import { selectTheme } from '../../redux/theme/theme-selectors';
+
+
 
 import css from './modal.module.css';
 
@@ -31,11 +32,15 @@ const Modal = ({ isOpen, onClose, title, children }) => {
     [onClose]
   );
 
+
+
   useEffect(() => {
     document.addEventListener('keydown', closeModal);
 
     return () => document.removeEventListener('keydown', closeModal);
   }, [closeModal]);
+
+
 
   return createPortal(
     <>

@@ -55,8 +55,6 @@ const UserInfo = ({ user }) => {
       )}
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2>Edit Profile</h2>
-
         <UserForm user={user} onSubmit={handleEditProfile} />
       </Modal>
     </div>

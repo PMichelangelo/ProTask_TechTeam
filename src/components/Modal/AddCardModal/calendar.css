@@ -1,0 +1,25 @@
+.react-datepicker__day-name {
+  color: red;
+}
+
+.react-datepicker {
+  background-color: var(--dark-input-focus-color);
+}
+
+.react-datepicker__header {
+  background-color: var(--dark-input-focus-color);
+  border-bottom: none;
+}
+
+.react-datepicker__day {
+  color: var(--dark-text-color);
+}
+
+.arrow {
+  stroke: white;
+  fill: transparent;
+}
+
+.react-datepicker__day-name {
+  color: white;
+}
