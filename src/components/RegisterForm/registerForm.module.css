@@ -90,6 +90,10 @@
     padding: 15px;
     border-radius: 8px;
     margin-top: 10px;
+    transition: 0.5s;
+  }
+  .registerButton:hover{
+    background-color:#9bc785;
   }
 
   .passwordContainer {
@@ -134,12 +138,16 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    transition: 0.3s;
   }
   .logoIconOuterWrap{
     width: 22px;
     height: 18px;
     stroke: #fff;
     fill: #1f1f1f;
+  }
+  .logoIconOuterWrap:hover{
+    stroke: #a2ebc0;
   }
 }
 

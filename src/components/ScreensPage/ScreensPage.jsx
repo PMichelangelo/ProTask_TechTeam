@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { selectToken } from '../../redux/auth/auth-selectors';
 
 import HeaderDashboard from './HeaderDashboard';
 import MainDashboard from './MainDashboard';
@@ -24,6 +25,7 @@ const ScreensPage = () => {
 
   const theme = useSelector(selectTheme);
   const boards = useSelector(selectDashboards);
+  const isLogin = useSelector(selectToken);
 
   useEffect(() => {
     const currentBoard = boards.find(({ title }) => title === boardName);
@@ -35,8 +37,10 @@ const ScreensPage = () => {
   }, [dispatch, boardName, boards]);
 
   useEffect(() => {
-    dispatch(fetchAllDashboards());
-  }, [dispatch]);
+    if(isLogin){
+      dispatch(fetchAllDashboards());
+    }
+  }, [isLogin, dispatch]);
 
   //   const Board = {
   //   "title": "",

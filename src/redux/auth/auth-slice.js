@@ -7,7 +7,7 @@ const initialState = {
   isLogin: false,
   isLoading: false,
   error: null,
-  theme: ""
+  theme: "light"
 };
 
 const authSlice = createSlice({
@@ -23,7 +23,9 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.error = null;
             })
-            .addCase(register.rejected, rejected)
+            .addCase(register.rejected, (state) => {
+              state.isLoading = false;
+          })
             .addCase(login.pending, pending)
             .addCase(login.fulfilled, (state, {payload}) => {
                 state.user = payload.user;
@@ -34,6 +36,9 @@ const authSlice = createSlice({
               state.theme = payload.theme
               console.log(payload)
             })
+            .addCase(login.rejected , (state) => {
+              state.isLoading = false;
+          })
             .addCase(current.pending, pending)
           .addCase(current.fulfilled, (state, { payload }) => {
               const { name, email, avatarURL, theme } = payload.message

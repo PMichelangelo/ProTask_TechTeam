@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -46,7 +46,7 @@ const Filters = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const themeClassName = useCurrentTheme();
-
+  const selectRef = useRef(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -58,28 +58,42 @@ const Filters = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, getValues()]);
 
-  const handleFilterReset = () => {
+  const handleFilterReset = useCallback(() => {
     dispatch(filterColumns(''));
     dispatch(filterPriority(''));
 
     reset();
-  };
+  }, [dispatch, reset]);
 
   const handleFilterOpen = () => {
     setIsFilterOpen(true);
   };
 
-  const handleFilterClose = () => {
+  const handleFilterClose = useCallback(() => {
     setIsFilterOpen(false);
 
     handleFilterReset();
-  };
+  }, [setIsFilterOpen, handleFilterReset]);
 
   const handleClearPriority = () => {
     dispatch(filterPriority(''));
   };
 
   watch();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isFilterOpen && !selectRef.current.contains(event.target)) {
+        handleFilterClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [handleFilterClose, isFilterOpen]);
 
   return (
     <div className={css.filterButtonWrap}>
@@ -100,7 +114,7 @@ const Filters = () => {
       </button>
 
       {isFilterOpen && (
-        <div className={`${css.filterModal} ${themeClassName}`}>
+        <div className={`${css.filterModal} ${themeClassName}`} ref={selectRef}>
           <h2 className={css.filterTitle}>Filters</h2>
 
           <form

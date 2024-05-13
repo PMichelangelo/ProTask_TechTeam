@@ -91,6 +91,10 @@
         padding: 15px;
         border-radius: 8px;
         margin-top: 10px;
+        transition: 0.5s;
+    }
+    .loginButton:hover{
+        background-color:#9bc785;
     }
 
     .passwordContainer{
@@ -142,6 +146,9 @@
         stroke: #fff;
         fill: #1f1f1f;
     }
+    .logoIconOuterWrap:hover{
+        stroke: #a2ebc0;
+      }
 }
 @media (min-width:768px){
     .formWrapper{

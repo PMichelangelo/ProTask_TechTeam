@@ -14,10 +14,11 @@ const AuthPage = () => {
     const dispatch = useDispatch();
 
     const handleRegister = async (data) => {
-        await dispatch(register(data));
-        dispatch(login({ email: data.email, password: data.password }));
+        const registrationResult = await dispatch(register(data));
+        if (registrationResult.type === 'auth/register/fulfilled') {
+            dispatch(login({ email: data.email, password: data.password }));
+        }
     }
-
     const handleLogin = data => {
         dispatch(login(data));
     }
