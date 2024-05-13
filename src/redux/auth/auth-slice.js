@@ -7,7 +7,7 @@ const initialState = {
   isLogin: false,
   isLoading: false,
   error: null,
-  theme: "light"
+  theme: ""
 };
 
 const authSlice = createSlice({

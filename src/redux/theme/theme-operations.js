@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { setTheme } from "./theme-slice";
 import { Notify } from "notiflix";
 import { updateTheme } from "../../api/theme-api";
+import { currentRequest } from "../../api/auth-api";
 
 
 export const setThemeAsync = createAsyncThunk(
@@ -17,3 +18,16 @@ export const setThemeAsync = createAsyncThunk(
     }
   }
 );
+
+export const fecthUserTheme = createAsyncThunk(
+  "theme/getTheme",
+  async (token, { rejectWithValue }) => {
+    try {
+      const userTheme = await currentRequest(token)
+    return userTheme
+    } catch (error) {
+      return rejectWithValue(error)
+    }
+
+  }
+)

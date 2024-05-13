@@ -145,6 +145,10 @@ input[value='Without'] + label svg use {
   border-radius: 8px;
 }
 
+.react-datepicker__day-name {
+  color: var(--dark-text-color);
+}
+
 .customDay {
   color: var(--dark-text-color);
 }
