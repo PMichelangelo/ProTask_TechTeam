@@ -6,6 +6,9 @@ import Input from './Input';
 import UploadButton from './UploadButton';
 import { updateProfileSchemas } from '../../../schemas/udpadeProfileSchemas';
 
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../../redux/theme/theme-selectors';
+
 import styles from './UserForm.module.css';
 
 const UserForm = ({ user, onSubmit }) => {
@@ -24,8 +27,21 @@ const UserForm = ({ user, onSubmit }) => {
     resolver: yupResolver(updateProfileSchemas),
   });
 
+  const currentTheme = useSelector(selectTheme);
+
+  const themeClassMap = {
+    dark: styles.theme_dark,
+    light: styles.theme_light,
+    violet: styles.theme_violet,
+  };
+
+  const modalTheme = themeClassMap[currentTheme] || '';
+
   return (
-    <form className={styles.formWrapper} onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className={`${styles.formWrapper} ${modalTheme}`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Controller
         render={({ field }) => (
           <UploadButton
