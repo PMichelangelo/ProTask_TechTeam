@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import { useState } from 'react';
 
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 const INITIAL_STATE = {
   email: '',
@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 };
 
 const NeedHelpModal = ({ onClose, onSubmit }) => {
-  
+
   const currentTheme = useSelector(selectTheme);
 
   const themeClassMap = {
@@ -42,7 +42,7 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
       Notiflix.Notify.failure('Distription cannot be empty')
       return;
     }
-   
+
     onClose(false);
     onSubmit({ ...modalState });
     setModalState({ ...INITIAL_STATE });
