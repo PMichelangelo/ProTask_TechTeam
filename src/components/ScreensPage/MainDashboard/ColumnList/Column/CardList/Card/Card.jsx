@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 
 import BtnList from 'shared/components/BtnList';
@@ -12,10 +12,31 @@ import {
 
 import css from './card.module.css';
 
+import { selectTheme } from '../../../../../../../redux/auth/auth-selectors';
+import createStyle from 'shared/functions/style';
+
+function getFormattedDate() {
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+function formatDateString(dateString) {
+  const parts = dateString.split('/');
+  const month = parts[0];
+  const day = parts[1];
+  const year = parts[2];
+  return `${day}/${month}/${year}`;
+}
+
 const Card = ({
   card: { _id: taskId, columnId, title, description, priority, deadline },
 }) => {
   const dispatch = useDispatch();
+
+  const theme = useSelector(selectTheme);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -44,24 +65,8 @@ const Card = ({
     }
   };
 
-  function getFormattedDate() {
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = today.getFullYear();
-    return `${day}/${month}/${year}`;
-  }
+  const formattedDeadline = formatDateString(deadline);
 
-function formatDateString(dateString) {
-    const parts = dateString.split('/');
-    const month = parts[0];
-    const day = parts[1];
-    const year = parts[2];
-    return `${day}/${month}/${year}`;
-}
-
-const formattedDeadline = formatDateString(deadline);
-console.log("formated data", formattedDeadline);
   const isDeadline = formattedDeadline === getFormattedDate();
 
   function getPriorityClass(priority, prefix = '') {
@@ -80,7 +85,9 @@ console.log("formated data", formattedDeadline);
   return (
     <>
       <li
-        className={`${css.card} ${getPriorityClass(priority, 'cardPriority')}`}
+        className={`${css.card} ${getPriorityClass(priority, 'cardPriority')} ${
+          css[createStyle(theme, 'card')]
+        }`}
       >
         <h4 className={css.cardTitle}>{title}</h4>
         <p className={css.cardText}>{description}</p>
@@ -104,6 +111,7 @@ console.log("formated data", formattedDeadline);
             </div>
           </div>
           <BtnList
+            theme={theme}
             spriteArr={spriteArr}
             idArr={idArr}
             handleClick={handleClick}

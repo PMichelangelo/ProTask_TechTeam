@@ -35,7 +35,11 @@ const CreateNewBoard = () => {
         </CurrentTheme>
       </button>
       <Modal isOpen={modalActive} onClose={setModalActive} title={'New board'}>
-        <NewDashboardModal onClose={setModalActive} onSubmit={onSubmit} />
+        <NewDashboardModal
+          onClose={setModalActive}
+          onSubmit={onSubmit}
+          btnText={'Create'}
+        />
       </Modal>
     </div>
   );

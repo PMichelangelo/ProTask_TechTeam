@@ -1,25 +1,21 @@
 import css from './btnList.module.css';
 
-// import CurrentTheme from '../CurrentTheme/CurrentTheme';
-
-import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/auth/auth-selectors';
+import createStyle from 'shared/functions/style';
 
 import sprite from '../../../images/icons.svg';
 
-const BtnList = ({ spriteArr = [], idArr = [], handleClick, isDeadline }) => {
-  const currentTheme = useSelector(selectTheme);
-  const themeClassMap = {
-    dark: css.theme_dark,
-    light: css.theme_light,
-    violet: css.theme_violet,
-  };
-  const sidebarTheme = themeClassMap[currentTheme] || '';
+const BtnList = ({
+  theme,
+  spriteArr = [],
+  idArr = [],
+  handleClick,
+  isDeadline,
+}) => {
   return (
-    <ul className={`${css.btnList} ${sidebarTheme}`}>
+    <ul className={`${css.btnList}`}>
       {isDeadline && (
         <li key={idArr[3]} className={css.btnListItem}>
-          <svg className={css.icon + ' ' + css.bellIcon}>
+          <svg className={`${css.icon} ${css[createStyle(theme, 'bellIcon')]}`}>
             <use href={`${sprite}#bell-icon`} />
           </svg>
         </li>
@@ -27,8 +23,7 @@ const BtnList = ({ spriteArr = [], idArr = [], handleClick, isDeadline }) => {
       {spriteArr.map((item, i) => (
         <li key={idArr[i]} className={css.btnListItem}>
           <button id={idArr[i]} className={css.btn} onClick={handleClick}>
-            {/* //TODO додати  ${sidebarTheme} в className,  коли будуть налаштовані теми на ScreenPage, бо поки картки білі, а не чорні , то іконок редагування не видно, оскільки кольори збігіються*/}
-            <svg className={`${css.icon} `}>
+            <svg className={`${css.icon} ${css[createStyle(theme, 'icon')]}`}>
               <use href={`${sprite}#${item}`} />
             </svg>
           </button>
