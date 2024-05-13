@@ -28,6 +28,10 @@
   height: 4px;
 }
 
+.themeTitle {
+  margin-right: 4px;
+}
+
 .theme_dark {
   .themeTitle {
     color: rgba(255, 255, 255, 0.8);

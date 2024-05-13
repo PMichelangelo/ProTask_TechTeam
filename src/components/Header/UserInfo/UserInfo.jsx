@@ -52,7 +52,7 @@ const UserInfo = ({ user }) => {
         </span>
       </button>
 
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} title="Edit profile">
         <UserForm user={user} onSubmit={handleEditProfile} />
       </Modal>
     </div>

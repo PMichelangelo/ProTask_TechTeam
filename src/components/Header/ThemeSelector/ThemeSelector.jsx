@@ -55,7 +55,6 @@ const ThemeSelector = () => {
 
   return (
     <div className={`${styles.select} ${selectorPageTheme}`} ref={selectRef}>
-      <p className={styles.themeTitle}>Theme</p>
       <div
         className={styles.themeText}
         onClick={() => setShowOptions(!showOptions)}
@@ -68,6 +67,7 @@ const ThemeSelector = () => {
         className={styles.arrowIcon}
         onClick={() => setShowOptions(!showOptions)}
       >
+        <p className={styles.themeTitle}>Theme</p>
         <ThemeSelectorIcon />
       </button>
       {showOptions && (

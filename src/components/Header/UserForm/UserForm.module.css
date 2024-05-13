@@ -4,9 +4,8 @@
   gap: 14px;
   align-items: center;
   justify-content: center;
-
+  padding-bottom: 24px;
   width: 100%;
-  margin-top: 31px;
 }
 
 .label {
@@ -99,9 +98,6 @@
   .input:not(:focus) {
     color: rgba(255, 255, 255, 0.4);
   }
-}
-
-.theme_light {
 }
 
 .theme_violet {
