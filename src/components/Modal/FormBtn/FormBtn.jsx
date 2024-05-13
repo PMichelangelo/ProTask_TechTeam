@@ -16,9 +16,9 @@ const FormBtn = ({ textBtn }) => {
   const formBtnTheme = themeClassMap[currentTheme] || '';
   return (
     <button className={`${css.btn} ${formBtnTheme}`} type="submit">
-      <div className={css.item}>
+      <div className={`${css.item} ${formBtnTheme}`}>
         <svg  className={css.item_svg}>
-          <use className={css.item_use}  href={`${sprite}#plus-icon`}></use>
+          <use className={`${css.item_use} ${formBtnTheme}`}  href={`${sprite}#plus-icon`}></use>
         </svg>
       </div>
       {textBtn}

@@ -112,8 +112,6 @@ input[type='radio']:checked + svg use {
   color: #161616;
 }
 
-
-
 .radio_wrapper_icon {
   display: flex;
   flex-wrap: wrap;

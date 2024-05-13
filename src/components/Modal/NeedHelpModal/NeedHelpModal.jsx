@@ -2,12 +2,27 @@ import css from './needHelpModal.module.css';
 import Notiflix from 'notiflix';
 import { useState } from 'react';
 
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../../redux/theme/theme-selectors';
+
 const INITIAL_STATE = {
   email: '',
   distription: '',
 };
 
 const NeedHelpModal = ({ onClose, onSubmit }) => {
+  
+  const currentTheme = useSelector(selectTheme);
+
+  const themeClassMap = {
+    dark: css.theme_dark,
+    light: css.theme_light,
+    violet: css.theme_violet,
+  };
+
+  const helpTheme = themeClassMap[currentTheme] || '';
+
+
   const [modalState, setModalState] = useState({ ...INITIAL_STATE });
 
   const handleChange = ({ target }) => {
@@ -38,7 +53,7 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
     <form className={css.form} onSubmit={handleSubmit}>
       <input
         value={email}
-        className={css.input}
+        className={`${css.input} ${helpTheme}`}
         type="email"
         name="email"
         required
@@ -47,7 +62,7 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
       ></input>
 
       <textarea
-        className={css.textarea}
+        className={`${css.textarea} ${helpTheme}`}
         value={distription}
         name="distription"
         rows="7"
@@ -56,7 +71,7 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
         onChange={handleChange}
       ></textarea>
 
-      <button className={css.btn} type="submit">
+      <button className={`${css.btn} ${helpTheme}`} type="submit">
         Send
       </button>
     </form>
