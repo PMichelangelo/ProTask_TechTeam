@@ -1,21 +1,31 @@
 import css from './newDashboard.module.css';
 import IconsSprite from '../../../images/icons.svg';
-import BackImg from '../cat.jpg';
+import { selectToken } from '../../../redux/auth/auth-selectors';
 import FormBtn from '../FormBtn/FormBtn';
 import Notiflix from 'notiflix';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getBackgroundIcons } from '../../../api/dashboards-api';
+
 
 import { useSelector } from 'react-redux';
-import {selectTheme} from "../../../redux/auth/auth-selectors"
+import { selectTheme } from '../../../redux/auth/auth-selectors';
 
-const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) => {
+const NewDashboardModal = ({
+  onClose,
+  onSubmit,
+  initialBoardState,
+  btnText,
+}) => {
   const INITIAL_STATE = {
     title: initialBoardState ? initialBoardState.title : '',
     icon: initialBoardState ? initialBoardState.icon : 'project-icon',
-    background: initialBoardState ? initialBoardState.background : 'none-background',
+    background: initialBoardState
+      ? initialBoardState.background
+      : 'none-background',
   };
 
   const [newBoardState, setNewBoardState] = useState({ ...INITIAL_STATE });
+  const [beckImg, setBeckImg] = useState();
 
   const currentTheme = useSelector(selectTheme);
 
@@ -26,7 +36,26 @@ const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) =>
   };
 
   const dasbortTheme = themeClassMap[currentTheme] || '';
+  const token = useSelector(selectToken);
 
+  console.log(beckImg);
+
+  useEffect(() => {
+    const fetchQuery = async () => {
+      try {
+        const { data } = await getBackgroundIcons(token);
+        const newArray = data.iconsBackgroundURL.map(obj => {
+          const key = Object.keys(obj)[0];
+          const value = obj[key];
+          return { title: key, url: value };
+        });
+        setBeckImg(newArray);
+      } catch (error) {
+        Notiflix.Notify.failure(error.messager);
+      }
+    };
+    fetchQuery();
+  }, [token]);
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -40,13 +69,12 @@ const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) =>
   const handleSubmit = e => {
     e.preventDefault();
     if (!validateInput()) {
-      Notiflix.Notify.failure('Title cannot be empty')
+      Notiflix.Notify.failure('Title cannot be empty');
       return;
     }
     onClose(false);
     onSubmit(newBoardState);
     setNewBoardState({ ...INITIAL_STATE });
-
   };
 
   const iconsId = [
@@ -71,41 +99,26 @@ const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) =>
         onChange={handleChange}
       />
       <svg className={css.icon}>
-        <use className={`${css.icon_use} ${dasbortTheme}`} href={`${IconsSprite}#${icon}`} />
+        <use
+          className={`${css.icon_use} ${dasbortTheme}`}
+          href={`${IconsSprite}#${icon}`}
+        />
       </svg>
     </label>
   ));
 
-  const backgroundList = [
-    'none-background',
-    'magnolia',
-    'starry-sky',
-    'sakura',
-    'half-moon',
-    'palm-leaves',
-    'clouds',
-    'rocky-beach',
-    'violet-ball',
-    'full-moon',
-    'yacht',
-    'baloon',
-    'mountains',
-    'sea',
-    'baloon-sky',
-    'night-trailer',
-  ];
 
-  const elementsBackground = backgroundList.map(backgroundOption => (
-    <label key={backgroundOption}>
+  const elementsBackground = beckImg && beckImg.map(({ title, url }) => (
+    <label key={title}>
       <input
         className={css.radio_input}
         name="background"
         type="radio"
-        value={backgroundOption}
-        checked={newBoardState.background === backgroundOption}
+        value={title}
+        checked={newBoardState.background === title}
         onChange={handleChange}
       />
-      <img className={css.backgraund_img} src={BackImg} alt="" />
+      <img className={css.backgraund_img} src={url} alt="" />
     </label>
   ));
 
