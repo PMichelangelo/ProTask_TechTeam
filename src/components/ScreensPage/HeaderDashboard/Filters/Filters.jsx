@@ -5,10 +5,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { selectTheme } from '../../../../redux/auth/auth-selectors';
 import { useCurrentTheme } from '../../../../helpers/useCurrentTheme';
-import { filterColumns } from '../../../../redux/dashboards/columns/columns-operations';
+import {
+  filterColumns,
+  filterPriority,
+} from '../../../../redux/dashboards/columns/columns-operations';
 import { filterDashboardSchemas } from '../../../../schemas/filterDashboardSchemas';
 import CloseButton from '../../../Modal/CloseButton/CloseButton';
 import FilterInput from './FilterInput';
+import FilterRadioBtn from './FilterRadioBtn';
 
 import css from './filters.module.css';
 import sprite from '../../../../images/icons.svg';
@@ -16,10 +20,10 @@ import sprite from '../../../../images/icons.svg';
 import createStyle from 'shared/functions/style';
 
 const priorityOptions = [
-  { value: 'without', label: 'Without priority' },
-  { value: 'low', label: 'Low' },
-  { value: 'medium', label: 'Medium' },
-  { value: 'high', label: 'High' },
+  { value: 'without', label: 'Without priority', color: '#161616' },
+  { value: 'low', label: 'Low', color: '#8FA1D0' },
+  { value: 'medium', label: 'Medium', color: '#E09CB5' },
+  { value: 'high', label: 'High', color: '#BEDBB0' },
 ];
 
 const Filters = () => {
@@ -34,7 +38,7 @@ const Filters = () => {
   } = useForm({
     defaultValues: {
       filter: '',
-      priority: 'without',
+      priority: '',
     },
     mode: 'onChange',
     resolver: yupResolver(filterDashboardSchemas),
@@ -43,12 +47,22 @@ const Filters = () => {
 
   const themeClassName = useCurrentTheme();
 
-  const filter = getValues('filter').trim();
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const filter = getValues('filter').trim();
+    const priority = getValues('priority');
+
     dispatch(filterColumns(filter));
-  }, [filter, dispatch]);
+    dispatch(filterPriority(priority));
+  }, [dispatch, getValues()]);
+
+  const handleFilterReset = () => {
+    dispatch(filterColumns(''));
+    dispatch(filterPriority(''));
+
+    reset();
+  };
 
   const handleFilterOpen = () => {
     setIsFilterOpen(true);
@@ -56,12 +70,15 @@ const Filters = () => {
 
   const handleFilterClose = () => {
     setIsFilterOpen(false);
-    reset();
+
+    handleFilterReset();
+  };
+
+  const handleClearPriority = () => {
+    dispatch(filterPriority(''));
   };
 
   watch();
-
-  console.log(getValues());
 
   return (
     <div className={css.filterButtonWrap}>
@@ -97,19 +114,25 @@ const Filters = () => {
             />
 
             <div className={css.filterPriority}>
-              <p className={css.filterPriorityLabel}>Label color</p>
+              <div className={css.filterPriorityHeader}>
+                <p className={css.filterPriorityTitle}>Label color</p>
+                <button
+                  className={css.filterPriorityShowAll}
+                  type="button"
+                  onClick={handleClearPriority}
+                >
+                  Show all
+                </button>
+              </div>
 
-              {priorityOptions.map(({ value, label }) => (
-                <label key={value} className={css.filterPriorityLabel}>
-                  <input
-                    type="radio"
-                    {...register('priority')}
-                    value={value}
-                    className={css.filterPriorityInput}
-                  />
-
-                  {label}
-                </label>
+              {priorityOptions.map(({ value, label, color }) => (
+                <FilterRadioBtn
+                  key={value}
+                  {...register('priority')}
+                  value={value}
+                  label={label}
+                  color={color}
+                />
               ))}
             </div>
           </form>

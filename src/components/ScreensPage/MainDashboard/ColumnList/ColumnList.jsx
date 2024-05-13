@@ -7,11 +7,11 @@ import css from './columnList.module.css';
 
 const ColumnList = () => {
   const columnArr = useSelector(selectColumns);
-  const filters = useSelector(selectColumnsFilter);
+  const filter = useSelector(selectColumnsFilter);
 
-  const filteredColumns = columnArr.filter(column => {
-    return column.title.toLowerCase().includes(filters.toLowerCase());
-  });
+  const filteredColumns = columnArr.filter(column =>
+    column?.title.toLowerCase().includes(filter.toLowerCase())
+  );
 
   return (
     <ul className={css.list}>
