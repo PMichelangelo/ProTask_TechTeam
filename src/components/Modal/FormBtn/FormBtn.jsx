@@ -2,7 +2,7 @@ import css from './formBtn.module.css';
 import sprite from "../../../images/icons.svg"
 
 import { useSelector } from 'react-redux';
-import { selectTheme } from "..//../../redux/theme/theme-selectors";
+import { selectTheme } from "../../../redux/auth/auth-selectors";
 
 const FormBtn = ({ textBtn }) => {
   const currentTheme = useSelector(selectTheme);

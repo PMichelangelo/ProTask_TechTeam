@@ -2,7 +2,7 @@ import css from './closeButton.module.css';
 import sprite from '../../../images/icons.svg';
 
 import { useSelector } from 'react-redux';
-import { selectTheme } from "../../../redux/theme/theme-selectors"
+import { selectTheme } from "../../../redux/auth/auth-selectors"
 
 const CloseButton = ({ onClose }) => {
 
@@ -20,7 +20,7 @@ const CloseButton = ({ onClose }) => {
     const handleClick = () => {
       onClose();
     }
-  
+
   return (
     <button className={css.btn_close} onClick={handleClick} >
       <svg className={css.item_svg}>

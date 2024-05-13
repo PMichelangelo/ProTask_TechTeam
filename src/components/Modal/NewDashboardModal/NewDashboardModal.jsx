@@ -6,7 +6,7 @@ import Notiflix from 'notiflix';
 import { useState } from 'react';
 
 import { useSelector } from 'react-redux';
-import {selectTheme} from "../../../redux/theme/theme-selectors"
+import {selectTheme} from "../../../redux/auth/auth-selectors"
 
 const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) => {
   const INITIAL_STATE = {
@@ -26,7 +26,7 @@ const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) =>
   };
 
   const dasbortTheme = themeClassMap[currentTheme] || '';
- 
+
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -46,7 +46,7 @@ const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) =>
     onClose(false);
     onSubmit(newBoardState);
     setNewBoardState({ ...INITIAL_STATE });
-    
+
   };
 
   const iconsId = [

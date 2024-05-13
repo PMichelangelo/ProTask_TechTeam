@@ -14,12 +14,6 @@ import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 
-
-
-
-const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
-
-
 const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   const options = {
     year: 'numeric',
@@ -51,11 +45,8 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
        light: css.theme_light,
        violet: css.theme_violet,
      };
-   
-     const cardTheme = themeClassMap[currentTheme] || '';   
 
-
-
+     const cardTheme = themeClassMap[currentTheme] || '';
 
   const validateInput = () => {
     return (
@@ -259,4 +250,5 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   );
 };
 
-export default AddCardModal;
+
+  export default AddCardModal;
