@@ -47,7 +47,11 @@ const AddCard = ({ boardId, columnId }) => {
         Add another card
       </button>
       <Modal isOpen={isModalOpen} onClose={setIsModalOpen} title={'Add Card'}>
-        <AddCardModal onClose={setIsModalOpen} onSubmit={handleSubmit} />
+        <AddCardModal
+          onClose={setIsModalOpen}
+          onSubmit={handleSubmit}
+          btnText={'Add'}
+        />
       </Modal>
     </>
   );

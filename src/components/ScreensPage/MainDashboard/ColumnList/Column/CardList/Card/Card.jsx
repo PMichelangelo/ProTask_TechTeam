@@ -102,7 +102,12 @@ const Card = ({
         </div>
       </li>
       <Modal isOpen={isModalOpen} onClose={setIsModalOpen} title={'Edit Card'}>
-        <AddCardModal onClose={setIsModalOpen} onSubmit={handleSubmit} />
+        <AddCardModal
+          onClose={setIsModalOpen}
+          onSubmit={handleSubmit}
+          initialTaskState={{ title, description, priority, deadline }}
+          btnText={'Edit'}
+        />
       </Modal>
     </>
   );
