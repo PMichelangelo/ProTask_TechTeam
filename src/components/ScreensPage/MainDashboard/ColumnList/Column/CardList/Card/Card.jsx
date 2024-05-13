@@ -51,8 +51,8 @@ const Card = ({
     const year = today.getFullYear();
     return `${day}/${month}/${year}`;
   }
-
-  const isDeadline = deadline === getFormattedDate();
+  const formattedDeadline = getFormattedDate(deadline);
+  const isDeadline = formattedDeadline === getFormattedDate();
 
   function getPriorityClass(priority, prefix = '') {
     switch (priority) {
@@ -90,7 +90,7 @@ const Card = ({
             </div>
             <div className={css.wrapLeft}>
               <h6 className={css.infoText}>Deadline</h6>
-              <p className={css.info}>{deadline}</p>
+              <p className={css.info}>{formattedDeadline}</p>
             </div>
           </div>
           <BtnList
