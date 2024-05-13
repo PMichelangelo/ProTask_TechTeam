@@ -24,7 +24,7 @@ const TaskSlice = createSlice({
         payload.columns.forEach(column => {
           column.tasks.forEach(
             ({ _id, title, priority, description, deadline, updatedAt }) => {
-              state.items.push({
+              state.items.unshift({
                 boardId: payload._id,
                 columnId: column._id,
                 _id,
