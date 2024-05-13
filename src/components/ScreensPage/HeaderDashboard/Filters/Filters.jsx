@@ -82,7 +82,7 @@ const Filters = () => {
       </button>
 
       {isFilterOpen && (
-        <div className={`${css.filterModal} ${themeClassName()}`}>
+        <div className={`${css.filterModal} ${themeClassName}`}>
           <h2 className={css.filterTitle}>Filters</h2>
 
           <form
