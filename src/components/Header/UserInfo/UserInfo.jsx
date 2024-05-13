@@ -39,20 +39,18 @@ const UserInfo = ({ user }) => {
 
   return (
     <div className={`${styles.userContainer} ${userInfoPageTheme}`}>
-      {user && (
-        <button onClick={openModal} className={styles.userInfo}>
-          {user?.name && <span>{user?.name}</span>}
+      <button onClick={openModal} className={styles.userInfo}>
+        <span>{user?.name ?? 'N/A'}</span>
 
-          <span
-            style={{
-              width: '32px',
-              height: '32px',
-            }}
-          >
-            <UserAvatar user={user} />
-          </span>
-        </button>
-      )}
+        <span
+          style={{
+            width: '32px',
+            height: '32px',
+          }}
+        >
+          <UserAvatar user={user} />
+        </span>
+      </button>
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <UserForm user={user} onSubmit={handleEditProfile} />

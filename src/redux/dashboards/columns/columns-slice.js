@@ -6,6 +6,7 @@ import {
   editColumn,
   deleteColumn,
   filterColumns,
+  filterPriority,
 } from './columns-operations';
 import { fetchOneDashboard } from '../dashboards-operations';
 
@@ -16,6 +17,7 @@ const initialState = {
   isLoading: false,
   error: null,
   filter: '',
+  priority: '',
 };
 
 const ColumnSlice = createSlice({
@@ -83,7 +85,14 @@ const ColumnSlice = createSlice({
         state.isLoading = false;
         state.filter = payload;
       })
-      .addCase(filterColumns.rejected, rejected);
+      .addCase(filterColumns.rejected, rejected)
+
+      .addCase(filterPriority.pending, pending)
+      .addCase(filterPriority.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.priority = payload;
+      })
+      .addCase(filterPriority.rejected, rejected);
   },
 });
 

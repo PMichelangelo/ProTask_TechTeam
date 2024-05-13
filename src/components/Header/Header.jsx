@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useCurrentTheme } from '../../helpers/useCurrentTheme';
-import { selectUser } from '../../redux/auth/auth-selectors';
+import { useUser } from '../../helpers/useUser';
 import MenuIcon from './MenuIcon';
 import UserInfo from './UserInfo/UserInfo';
 import Sidebar from '../Sidebar/Sidebar';
@@ -9,19 +8,17 @@ import ThemeSelector from './ThemeSelector/ThemeSelector';
 import styles from './header.module.css';
 
 const Header = () => {
-  const user = useSelector(selectUser);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const currentTheme = useCurrentTheme();
+  const { user } = useUser();
+  const { themeClassName } = useCurrentTheme();
 
   const handleToggleSidebar = () => {
     setIsSidebarOpen(prevState => !prevState);
   };
 
-  const themePageTheme = currentTheme.themeClassName || '';
-
   return (
     <>
-      <header className={`${styles.header} ${themePageTheme}`}>
+      <header className={`${styles.header} ${themeClassName || ''}`}>
         <button
           type="button"
           className={styles.button}
@@ -35,7 +32,7 @@ const Header = () => {
 
           {user && (
             <div className={styles.userInfo}>
-              <UserInfo user={user.message} />
+              <UserInfo user={user} />
             </div>
           )}
         </div>

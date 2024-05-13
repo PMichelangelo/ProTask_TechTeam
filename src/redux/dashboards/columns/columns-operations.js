@@ -51,3 +51,14 @@ export const filterColumns = createAsyncThunk(
     }
   }
 );
+
+export const filterPriority = createAsyncThunk(
+  'columns/filterPriority',
+  async (priority, { rejectWithValue }) => {
+    try {
+      return priority;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
