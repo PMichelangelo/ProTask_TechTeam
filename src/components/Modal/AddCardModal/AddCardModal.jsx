@@ -99,7 +99,7 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
   const selectedDate = new Date(year, month - 1, day);
   const isToday = currentDate.toDateString() === selectedDate.toDateString();
   const monthName = selectedDate.toLocaleString('en', { month: 'long' });
-  const formattedValue = isToday ? `Today ${monthName}/${day}` : `${monthName}/${day}`;
+  const formattedValue = isToday ? `Today, ${monthName} ${day}` : `${monthName} ${day}`;
 
   return (
     <button className="example-custom-input" onClick={onClick} ref={ref}>
