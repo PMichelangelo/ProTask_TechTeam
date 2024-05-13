@@ -13,12 +13,12 @@ export const setToken = async token => {
 };
 
 export const registerRequest = async body => {
-  const { data } = await authInstance.post('/users/register', body);
+  const { data } = await authInstance.post('/auth/register', body);
   return data;
 };
 
 export const loginRequest = async body => {
-  const { data } = await authInstance.post('/users/login', body);
+  const { data } = await authInstance.post('/auth/login', body);
   setToken(data.token);
   console.log('Fetched data from server:', data);
    const { email, name, avatarURL, theme } = data.user;
@@ -32,7 +32,7 @@ export const loginRequest = async body => {
 export const currentRequest = async (token) => {
   setToken(token);
   try {
-    const { data } = await authInstance.get("/users/current");
+    const { data } = await authInstance.get("/auth/current");
     console.log('Данные после запроса текущего пользователя:', data);
     return data;
   }
@@ -43,7 +43,7 @@ export const currentRequest = async (token) => {
 };
 
 export const logoutRequest = async () => {
-  const { data } = await authInstance.post('/users/logout');
+  const { data } = await authInstance.post('/auth/logout');
   setToken();
   return data;
 };
