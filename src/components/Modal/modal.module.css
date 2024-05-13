@@ -10,29 +10,28 @@
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
-.modal_content {
+.modal_content{
   display: grid;
   grid-template-columns: auto;
   flex-direction: column;
   margin: 0;
   position: relative;
   border-radius: 8px;
-  background: #fcfcfc;
+  background-color: #fcfcfc;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
   padding: 24px;
 }
 
 .theme_dark {
-  background: #151515;
+   background-color: #151515;
+   
 }
-
 .theme_light {
-  background: #fcfcfc;
+   background-color:#fcfcfc;
 }
-
-.theme_violet {
-  background: #fcfcfc;
-}
+.theme_violet {  
+ background-color: #fcfcfc;
+} 
 
 .titel {
   margin-bottom: 24px;
@@ -41,6 +40,16 @@
   letter-spacing: -0.02em;
   color: #161616;
 }
+
+.theme_dark {
+ color: #ffff;
+}
+.theme_light {
+  color:#161616;
+}
+.theme_violet {  
+  color: #161616;
+} 
 
 @media (min-width: 375px) {
 }

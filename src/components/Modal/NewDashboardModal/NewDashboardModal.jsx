@@ -5,6 +5,9 @@ import FormBtn from '../FormBtn/FormBtn';
 import Notiflix from 'notiflix';
 import { useState } from 'react';
 
+import { useSelector } from 'react-redux';
+import {selectTheme} from "../../../redux/theme/theme-selectors"
+
 const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) => {
   const INITIAL_STATE = {
     title: initialBoardState ? initialBoardState.title : '',
@@ -13,6 +16,16 @@ const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) =>
   };
 
   const [newBoardState, setNewBoardState] = useState({ ...INITIAL_STATE });
+
+  const currentTheme = useSelector(selectTheme);
+
+  const themeClassMap = {
+    dark: css.theme_dark,
+    light: css.theme_light,
+    violet: css.theme_violet,
+  };
+
+  const dasbortTheme = themeClassMap[currentTheme] || '';
  
 
   const handleChange = ({ target }) => {
@@ -58,7 +71,7 @@ const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) =>
         onChange={handleChange}
       />
       <svg className={css.icon}>
-        <use className={css.icon_use} href={`${IconsSprite}#${icon}`} />
+        <use className={`${css.icon_use} ${dasbortTheme}`} href={`${IconsSprite}#${icon}`} />
       </svg>
     </label>
   ));
@@ -101,14 +114,14 @@ const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) =>
     <form className={css.form} onSubmit={handleSubmit}>
       <input
         value={title}
-        className={css.input}
+        className={`${css.input} ${dasbortTheme}`}
         type="text"
         name="title"
         required
         onChange={handleChange}
         placeholder="Title "
       ></input>
-      <p className={css.radio_titel}>Icon:</p>
+      <p className={`${css.radio_titel} ${dasbortTheme}`}>Icon:</p>
       <div className={css.radio_wrapper_icon}>{elementsIcon}</div>
       <p className={css.radio_titel}>Background:</p>
       <div className={css.radio_wrapper_bgimg}>{elementsBackground}</div>

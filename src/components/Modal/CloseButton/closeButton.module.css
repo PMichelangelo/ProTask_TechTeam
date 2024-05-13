@@ -17,3 +17,16 @@
   stroke: black;
   fill: transparent;
 }
+
+.theme_dark {
+  stroke: white;
+  fill: transparent;
+}
+.theme_light {
+  stroke: black;
+  fill: transparent;
+}
+.theme_violet {  
+  stroke: black;
+  fill: transparent;
+} 
