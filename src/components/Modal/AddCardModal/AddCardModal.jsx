@@ -6,35 +6,32 @@ import React, { useEffect, useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
-import './calendar.css'
+import './calendar.css';
 
-
-
-const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
-
+const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   const options = {
     year: 'numeric',
     month: 'numeric',
-    day: 'numeric'
-};
-    const dat=new Date();
+    day: 'numeric',
+  };
+  const dat = new Date();
 
-    const firstData=dat.toLocaleDateString('en-US', options);
+  const firstData = dat.toLocaleDateString('en-US', options);
 
   const INITIAL_STATE = {
     title: initialTaskState ? initialTaskState.title : '',
     description: initialTaskState ? initialTaskState.description : '',
-    color: initialTaskState ? initialTaskState.description.priority :'Low',
+    priority: initialTaskState ? initialTaskState.description.priority : 'Low',
   };
 
   const [addCardModalState, setAddCardModal] = useState({ ...INITIAL_STATE });
   const [selectedDate, setSelectedDate] = useState(firstData);
 
   useEffect(() => {
-    if (initialTaskState){ setSelectedDate(initialTaskState.deadline)}
-     },[initialTaskState]);
-
-
+    if (initialTaskState) {
+      setSelectedDate(initialTaskState.deadline);
+    }
+  }, [initialTaskState]);
 
   const validateInput = () => {
     return (
@@ -64,51 +61,50 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
   };
 
   const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
-  const formattedDate = new Date(date).toLocaleString('en-US', {
-    month: 'long',
-    year: 'numeric',
-  });
+    const formattedDate = new Date(date).toLocaleString('en-US', {
+      month: 'long',
+      year: 'numeric',
+    });
 
-
-  return (
-    <div className={css.calendarHeader}>
-      <button onClick={decreaseMonth}>
-        <svg className='arrow' width="4" height="8">
+    return (
+      <div className={css.calendarHeader}>
+        <button onClick={decreaseMonth}>
+          <svg className="arrow" width="4" height="8">
             <use href={`${sprite}#icon-arrow-left`}></use>
-        </svg>
-      </button>
-      <span className={css.date}>{formattedDate}</span>
-      <button onClick={increaseMonth}>
-        <svg className='arrow' width="4" height="8">
+          </svg>
+        </button>
+        <span className={css.date}>{formattedDate}</span>
+        <button onClick={increaseMonth}>
+          <svg className="arrow" width="4" height="8">
             <use href={`${sprite}#icon-arrow-right`}></use>
-        </svg>
-      </button>
-    </div>
-  );
-};
-
+          </svg>
+        </button>
+      </div>
+    );
+  };
 
   const dayClassName = date => {
     return date ? css.customDay : null;
   };
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
+    const [day, month, year] = value.split('/');
+    const currentDate = new Date();
+    const selectedDate = new Date(year, month - 1, day);
+    const isToday = currentDate.toDateString() === selectedDate.toDateString();
+    const monthName = selectedDate.toLocaleString('en', { month: 'long' });
+    const formattedValue = isToday
+      ? `Today, ${monthName} ${day}`
+      : `${monthName} ${day}`;
 
-  const [day, month, year] = value.split("/");
-  const currentDate = new Date();
-  const selectedDate = new Date(year, month - 1, day);
-  const isToday = currentDate.toDateString() === selectedDate.toDateString();
-  const monthName = selectedDate.toLocaleString('en', { month: 'long' });
-  const formattedValue = isToday ? `Today, ${monthName} ${day}` : `${monthName} ${day}`;
-
-  return (
-    <button className="example-custom-input" onClick={onClick} ref={ref}>
-      {formattedValue}
-    </button>
-  );
+    return (
+      <button className="example-custom-input" onClick={onClick} ref={ref}>
+        {formattedValue}
+      </button>
+    );
   });
 
-  const { title, description, color } = addCardModalState;
+  const { title, description, priority } = addCardModalState;
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <input
@@ -135,9 +131,9 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
         <div className={css.radio_container_item}>
           <div>
             <input
-              checked={color === 'Low'}
+              checked={priority === 'Low'}
               className={css.radio_input}
-              name="color"
+              name="priority"
               type="radio"
               value="Low"
               id="Low"
@@ -147,7 +143,7 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
               <svg className={css.icon}>
                 <use
                   href={`${sprite}${
-                    color === 'Low' ? '#radio-active-icon' : '#radio-icon'
+                    priority === 'Low' ? '#radio-active-icon' : '#radio-icon'
                   }`}
                 />
               </svg>
@@ -156,9 +152,9 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
 
           <div>
             <input
-              checked={color === 'Medium'}
+              checked={priority === 'Medium'}
               className={css.radio_input}
-              name="color"
+              name="priority"
               type="radio"
               value="Medium"
               id="Medium"
@@ -168,7 +164,7 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
               <svg className={css.icon}>
                 <use
                   href={`${sprite}${
-                    color === 'Medium' ? '#radio-active-icon' : '#radio-icon'
+                    priority === 'Medium' ? '#radio-active-icon' : '#radio-icon'
                   }`}
                 />
               </svg>
@@ -177,9 +173,9 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
 
           <div>
             <input
-              checked={color === 'High'}
+              checked={priority === 'High'}
               className={css.radio_input}
-              name="color"
+              name="priority"
               type="radio"
               value="High"
               id="High"
@@ -189,7 +185,7 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
               <svg className={css.icon}>
                 <use
                   href={`${sprite}${
-                    color === 'High' ? '#radio-active-icon' : '#radio-icon'
+                    priority === 'High' ? '#radio-active-icon' : '#radio-icon'
                   }`}
                 />
               </svg>
@@ -198,9 +194,9 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
           </div>
           <div>
             <input
-              checked={color === 'Without'}
+              checked={priority === 'Without'}
               className={css.radio_input}
-              name="color"
+              name="priority"
               type="radio"
               value="Without"
               id="Without"
@@ -210,7 +206,9 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
               <svg className={css.icon}>
                 <use
                   href={`${sprite}${
-                    color === 'Without' ? '#radio-active-icon' : '#radio-icon'
+                    priority === 'Without'
+                      ? '#radio-active-icon'
+                      : '#radio-icon'
                   }`}
                 />
               </svg>

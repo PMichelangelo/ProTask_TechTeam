@@ -10,8 +10,14 @@ import sprite from '../../../../../../images/icons.svg';
 
 import css from './addCard.module.css';
 
-const AddCard = ({ columnId }) => {
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../../../../../redux/theme/theme-selectors';
+import createStyle from 'shared/functions/style';
+
+const AddCard = ({ boardId, columnId }) => {
   const dispatch = useDispatch();
+
+  const theme = useSelector(selectTheme);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -20,14 +26,21 @@ const AddCard = ({ columnId }) => {
   };
 
   const handleSubmit = body => {
-    dispatch(addTask({ columnId, body }));
+    dispatch(addTask({ boardId, columnId, body }));
   };
 
   return (
     <>
-      <button className={css.addCardBtn} onClick={handleClick}>
-        <span className={css.plus}>
-          <svg className={css.plusIcon}>
+      <button
+        className={`${css.addCardBtn} ${css[createStyle(theme, 'btn')]}`}
+        onClick={handleClick}
+      >
+        <span className={`${css.plus} ${css[createStyle(theme, 'plus')]}`}>
+          <svg
+            className={`${css.plusIcon} ${
+              css[createStyle(theme, 'plus_icon')]
+            }`}
+          >
             <use href={`${sprite}#plus-icon`} />
           </svg>
         </span>

@@ -10,8 +10,14 @@ import sprite from '../../../../images/icons.svg';
 
 import css from './addColumn.module.css';
 
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../../../redux/theme/theme-selectors';
+import createStyle from 'shared/functions/style';
+
 const AddColumn = ({ boardId }) => {
   const dispatch = useDispatch();
+
+  const theme = useSelector(selectTheme);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -25,9 +31,16 @@ const AddColumn = ({ boardId }) => {
 
   return (
     <>
-      <button className={css.addColumnBtn} onClick={handleClick}>
-        <span className={css.plus}>
-          <svg className={css.plusIcon}>
+      <button
+        className={`${css.addColumnBtn} ${css[createStyle(theme, 'btn')]}`}
+        onClick={handleClick}
+      >
+        <span className={`${css.plus} ${css[createStyle(theme, 'plus')]}`}>
+          <svg
+            className={`${css.plusIcon} ${
+              css[createStyle(theme, 'plus_icon')]
+            }`}
+          >
             <use href={`${sprite}#plus-icon`} />
           </svg>
         </span>

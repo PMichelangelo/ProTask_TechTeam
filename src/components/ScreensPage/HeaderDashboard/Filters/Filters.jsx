@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import { selectTheme } from '../../../../redux/theme/theme-selectors';
 import { useCurrentTheme } from '../../../../helpers/useCurrentTheme';
 import { filterColumns } from '../../../../redux/dashboards/columns/columns-operations';
 import { filterDashboardSchemas } from '../../../../schemas/filterDashboardSchemas';
@@ -12,6 +13,8 @@ import FilterInput from './FilterInput';
 import css from './filters.module.css';
 import sprite from '../../../../images/icons.svg';
 
+import createStyle from 'shared/functions/style';
+
 const priorityOptions = [
   { value: 'without', label: 'Without priority' },
   { value: 'low', label: 'Low' },
@@ -20,6 +23,8 @@ const priorityOptions = [
 ];
 
 const Filters = () => {
+  const theme = useSelector(selectTheme);
+
   const {
     register,
     formState: { errors },
@@ -36,7 +41,7 @@ const Filters = () => {
   });
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  const { themeClassName } = useCurrentTheme();
+  const themeClassName = useCurrentTheme();
 
   const filter = getValues('filter').trim();
   const dispatch = useDispatch();
@@ -60,15 +65,24 @@ const Filters = () => {
 
   return (
     <div className={css.filterButtonWrap}>
-      <button className={css.filterButton} onClick={handleFilterOpen}>
-        <svg className={css.filterIcon}>
+      <button
+        className={`${css.filterButton} ${
+          css[createStyle(theme, 'filterButton')]
+        }`}
+        onClick={handleFilterOpen}
+      >
+        <svg
+          className={`${css.filterIcon} ${
+            css[createStyle(theme, 'filterIcon')]
+          }`}
+        >
           <use href={`${sprite}#filter-icon`} />
         </svg>
         Filters
       </button>
 
       {isFilterOpen && (
-        <div className={`${css.filterModal} ${themeClassName}`}>
+        <div className={`${css.filterModal} ${themeClassName()}`}>
           <h2 className={css.filterTitle}>Filters</h2>
 
           <form

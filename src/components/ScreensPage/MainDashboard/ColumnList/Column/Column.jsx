@@ -26,7 +26,7 @@ const Column = ({ column }) => {
         <ColumnHeader column={column} />
         <CardList cards={currentColumnCards} />
       </div>
-      <AddCard columnId={column._id} />
+      <AddCard boardId={column.boardId} columnId={column._id} />
     </li>
   );
 };

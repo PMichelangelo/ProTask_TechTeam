@@ -23,9 +23,11 @@ const TaskSlice = createSlice({
         payload.columns.forEach(column => {
           column.tasks.forEach(task => {
             state.items.push({
+              boardId: payload._id,
               columnId: column._id,
               _id: task._id,
               title: task.title,
+              priority: task.priority,
               description: task.description,
               deadline: task.deadline,
             });
@@ -37,7 +39,7 @@ const TaskSlice = createSlice({
       .addCase(addTask.pending, pending)
       .addCase(addTask.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.items.push(payload);
+        state.items.unshift(payload);
         Notiflix.Notify.success(
           `Task with title ${payload.title} has been added`
         );

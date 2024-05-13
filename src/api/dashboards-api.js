@@ -23,6 +23,17 @@ export const getOneDashboardRequest = async (boardId, token) => {
   }
 };
 
+export const getBackgroundIcons = async token => {
+  setToken(token);
+  try {
+    const data = await authInstance.get(`/boards/background-icons`);
+    return data;
+  } catch (error) {
+    setToken();
+    throw error;
+  }
+};
+
 export const addDashboardRequest = async body => {
   return await authInstance.post(`/boards/create-board`, body);
 };
