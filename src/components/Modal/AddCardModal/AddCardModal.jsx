@@ -71,7 +71,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (!validateInput()) {
-      Notiflix.Notify.failure('Distription cannot be empty');
+      Notiflix.Notify.failure('Description cannot be empty');
       return;
     }
     onClose(false);

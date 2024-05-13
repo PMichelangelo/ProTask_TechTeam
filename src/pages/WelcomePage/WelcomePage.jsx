@@ -18,7 +18,7 @@ const WelcomePage = () => {
 
     return(
         <div className={styles.wrap}>
-            <img className={styles.image} src={welcomeImg} alt="Man with a laptop emoji"/>
+            <img className={styles.image} src={welcomeImg} alt="Man with a laptop emoji" width={81} height={81}/>
             <div className={styles.item}>
                 <div className={styles.logoIconWrap}>
                     <svg className={styles.logoIcon}>

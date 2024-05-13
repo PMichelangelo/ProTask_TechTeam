@@ -66,6 +66,10 @@
     outline: none;
     cursor: pointer;
     letter-spacing: -0.02em;
+    transition: 0.3s;
+  }
+  .button:hover{
+    background-color:#333333;
   }
   .link {
     text-decoration: none;
@@ -73,6 +77,11 @@
     font-weight: 500;
     font-size: 14px;
     letter-spacing: -0.02em;
+    transition: 0.5s;
+  }
+  .link:hover{
+    color:#333333;
+    text-shadow: 2px 2px 8px #333333;
   }
 }
 

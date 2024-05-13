@@ -5,6 +5,7 @@ import NeedHelpModal from '../../Modal/NeedHelpModal/NeedHelpModal';
 import { useState } from 'react';
 import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
 import image from "../../../images/Cactus.png"
+import { sendUserNeedHelp } from 'api/user-api';
 
 const NeedHelp = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -13,10 +14,15 @@ const NeedHelp = () => {
     setModalActive(true);
   };
 
-  const forSubmitNeedHelp = data => {
-    console.log(data);
+  const forSubmitNeedHelp = async ({description}) => {
+    try {
+      const data = {description}
+      console.log(data);
+      await sendUserNeedHelp(data);
+    } catch (error) {
+      console.error("Failed to send a help request", error);
+    }
   };
-
   return (
     <CurrentTheme>
       <div className={css.help}>
@@ -35,7 +41,6 @@ const NeedHelp = () => {
         <Modal
           isOpen={modalActive}
           onClose={setModalActive}
-          titel={'Edit board'}
         >
           <NeedHelpModal
             onClose={setModalActive}
@@ -48,3 +53,4 @@ const NeedHelp = () => {
 };
 
 export default NeedHelp;
+

@@ -7,7 +7,7 @@ import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 const INITIAL_STATE = {
   email: '',
-  distription: '',
+  description: '',
 };
 
 const NeedHelpModal = ({ onClose, onSubmit }) => {
@@ -31,15 +31,13 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
   };
 
   const validateInput = () => {
-    return (modalState.distription.trim() !== '')
+    return (modalState.description.trim() !== '')
   };
-
-
 
   const handleSubmit = e => {
     e.preventDefault();
     if (!validateInput()) {
-      Notiflix.Notify.failure('Distription cannot be empty')
+      Notiflix.Notify.failure('Description cannot be empty')
       return;
     }
 
@@ -48,7 +46,7 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
     setModalState({ ...INITIAL_STATE });
   };
 
-  const { email, distription } = modalState;
+  const { email, description } = modalState;
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <input
@@ -63,8 +61,8 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
 
       <textarea
         className={`${css.textarea} ${helpTheme}`}
-        value={distription}
-        name="distription"
+        value={description}
+        name="description"
         rows="7"
         required
         placeholder="Comment"
