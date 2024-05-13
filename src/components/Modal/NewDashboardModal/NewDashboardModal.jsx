@@ -123,7 +123,7 @@ const NewDashboardModal = ({ onClose, onSubmit, initialBoardState, btnText }) =>
       ></input>
       <p className={`${css.radio_titel} ${dasbortTheme}`}>Icon:</p>
       <div className={css.radio_wrapper_icon}>{elementsIcon}</div>
-      <p className={css.radio_titel}>Background:</p>
+      <p className={`${css.radio_titel} ${dasbortTheme}`}>Background:</p>
       <div className={css.radio_wrapper_bgimg}>{elementsBackground}</div>
       <FormBtn textBtn={btnText} />
     </form>
