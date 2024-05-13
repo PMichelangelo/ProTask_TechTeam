@@ -1,7 +1,7 @@
 import css from './current-theme.module.css';
 
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 const CurrentTheme = ({ children }) => {
   const currentTheme = useSelector(selectTheme);

@@ -10,7 +10,7 @@ import {
   fetchOneDashboard,
 } from '../../redux/dashboards/dashboards-operations';
 import { selectDashboards } from '../../redux/dashboards/dashboards-selectors';
-import { selectTheme } from '../../redux/theme/theme-selectors';
+import { selectTheme } from '../../redux/auth/auth-selectors';
 
 import css from './screensPage.module.css';
 

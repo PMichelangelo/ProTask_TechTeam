@@ -9,7 +9,7 @@ import CurrentTheme from '../../shared/components/CurrentTheme/CurrentTheme';
 import css from './sidebar.module.css';
 
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../redux/theme/theme-selectors';
+import { selectTheme } from '../../redux/auth/auth-selectors';
 import { useEffect, useRef } from 'react';
 
 const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
