@@ -3,8 +3,6 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: var(--light-text-color);
-  background-color: var(--light-plus-color);
   max-width: 335px;
   width: calc(100vw - 20px * 2);
   height: 56px;
@@ -16,7 +14,6 @@
 }
 
 .plus {
-  background-color: var(--light-text-color);
   height: 28px;
   width: 28px;
   display: flex;
@@ -28,7 +25,6 @@
 .plusIcon {
   width: 14px;
   height: 14px;
-  stroke: var(--light-plus-color);
 }
 
 @media screen and (min-width: 375px) {
@@ -41,4 +37,42 @@
 }
 
 @media screen and (min-width: 1440px) {
+}
+
+/* theme btn */
+
+.theme_dark_btn {
+  background-color: var(--dark-plus-color);
+  color: var(--dark-text-color);
+}
+
+.theme_light_btn,
+.theme_violet_btn {
+  background-color: var(--light-plus-color);
+  color: var(--light-text-color);
+}
+
+/* theme plus */
+
+.theme_dark_plus {
+  background-color: var(--dark-text-color);
+}
+
+.theme_light_plus {
+  background-color: var(--light-text-color);
+}
+
+.theme_violet_plus {
+  background-color: var(--button-violet-wrap-color);
+}
+
+/* theme plus_icon */
+
+.theme_dark_plus_icon {
+  stroke: var(--dark-plus-color);
+}
+
+.theme_light_plus_icon,
+.theme_violet_plus_icon {
+  stroke: var(--light-plus-color);
 }
