@@ -2,8 +2,7 @@ import css from './addcardModal.module.css';
 import Notiflix from 'notiflix';
 import sprite from '../../../images/icons.svg';
 import FormBtn from './../FormBtn/FormBtn';
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -70,6 +69,7 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
     year: 'numeric',
   });
 
+
   return (
     <div className={css.calendarHeader}>
       <button onClick={decreaseMonth}>
@@ -91,6 +91,22 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
   const dayClassName = date => {
     return date ? css.customDay : null;
   };
+
+  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
+
+  const [day, month, year] = value.split("/");
+  const currentDate = new Date();
+  const selectedDate = new Date(year, month - 1, day);
+  const isToday = currentDate.toDateString() === selectedDate.toDateString();
+  const monthName = selectedDate.toLocaleString('en', { month: 'long' });
+  const formattedValue = isToday ? `Today ${monthName}/${day}` : `${monthName}/${day}`;
+
+  return (
+    <button className="example-custom-input" onClick={onClick} ref={ref}>
+      {formattedValue}
+    </button>
+  );
+  });
 
   const { title, description, color } = addCardModalState;
   return (
@@ -208,6 +224,7 @@ const AddCardModal = ({ onClose, onSubmit  , initialTaskState, btnText }) => {
         <DatePicker
           selected={selectedDate}
           onChange={handleChangeData}
+          customInput={<ExampleCustomInput />}
           dateFormat="dd/MM/yyyy"
           renderCustomHeader={renderCustomHeader}
           calendarClassName={css.customCalendar}
