@@ -6,7 +6,7 @@ import authReducer from './auth/auth-slice';
 import dashboardsReducer from './dashboards/dashboards-slice';
 import columnsReducer from './dashboards/columns/columns-slice';
 import tasksReducer from './dashboards/tasks/tasks-slice';
-import themeReducer from './theme/theme-slice';
+// import themeReducer from './theme/theme-slice';
 
 const persistConfig = {
   key: 'root',
@@ -15,14 +15,14 @@ const persistConfig = {
 };
 
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
-const persistedThemeReducer = persistReducer(persistConfig, themeReducer);
+// const persistedThemeReducer = persistReducer(persistConfig, themeReducer);
 
 const rootReducer = combineReducers({
   auth: persistedAuthReducer,
   dashboards: dashboardsReducer,
   columns: columnsReducer,
   tasks: tasksReducer,
-  theme: persistedThemeReducer,
+  // theme: persistedThemeReducer,
 });
 
 export default rootReducer;

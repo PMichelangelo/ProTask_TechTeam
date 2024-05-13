@@ -3,7 +3,7 @@ import sprite from '../../../images/icons.svg';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../redux/auth/auth-operation';
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 const Logout = () => {
   const dispatch = useDispatch();

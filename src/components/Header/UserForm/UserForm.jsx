@@ -7,7 +7,7 @@ import UploadButton from './UploadButton';
 import { updateProfileSchemas } from '../../../schemas/udpadeProfileSchemas';
 
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../../redux/theme/theme-selectors';
+import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 import styles from './UserForm.module.css';
 

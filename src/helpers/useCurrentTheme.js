@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../redux/theme/theme-selectors';
+import { selectTheme } from '../redux/auth/auth-selectors';
 
 import styles from '../components/Header/header.module.css';
 

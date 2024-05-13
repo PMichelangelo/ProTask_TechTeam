@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, current, logout } from './auth-operation';
+import { register, login, current, logout, updateTheme } from './auth-operation';
 import { pending, rejected } from '../../shared/functions/redux';
 const initialState = {
   user: {},
@@ -38,11 +38,23 @@ const authSlice = createSlice({
                 state.isLogin = true;
                 state.isLoading = false;
               state.error = null;
-              state.theme = payload.theme || "light";
+              state.theme = payload.theme || "dark";
             })
             .addCase(current.rejected, (state) => {
                 state.isLoading = false;
                 state.token = "";
+            })
+          .addCase(updateTheme.pending, state => {
+                state.isLoading = true;
+                state.error = null;
+            })
+            .addCase(updateTheme.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.theme = action.payload.theme;
+            })
+            .addCase(updateTheme.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.error.message;
             })
             .addCase(logout.pending, pending)
             .addCase(logout.fulfilled, state => {
@@ -51,9 +63,11 @@ const authSlice = createSlice({
                 state.user = {};
                 state.token = '';
              })
-            .addCase(logout.rejected, rejected);
+          .addCase(logout.rejected, rejected);
+
 
     }
-});
+})
+
 
 export default authSlice.reducer;
