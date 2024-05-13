@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/ProTask_TechTeam/static/css/main.62cd0a68.css",
-    "main.js": "/ProTask_TechTeam/static/js/main.3f06da62.js",
+    "main.js": "/ProTask_TechTeam/static/js/main.c22e5356.js",
     "static/css/930.98d81239.chunk.css": "/ProTask_TechTeam/static/css/930.98d81239.chunk.css",
     "static/js/930.1e5b793e.chunk.js": "/ProTask_TechTeam/static/js/930.1e5b793e.chunk.js",
-    "static/css/722.f24a7e18.chunk.css": "/ProTask_TechTeam/static/css/722.f24a7e18.chunk.css",
-    "static/js/722.5d8e689a.chunk.js": "/ProTask_TechTeam/static/js/722.5d8e689a.chunk.js",
+    "static/css/722.d4bde8b1.chunk.css": "/ProTask_TechTeam/static/css/722.d4bde8b1.chunk.css",
+    "static/js/722.1380a868.chunk.js": "/ProTask_TechTeam/static/js/722.1380a868.chunk.js",
     "static/css/589.1def9359.chunk.css": "/ProTask_TechTeam/static/css/589.1def9359.chunk.css",
     "static/js/589.cebe8d6c.chunk.js": "/ProTask_TechTeam/static/js/589.cebe8d6c.chunk.js",
     "static/css/29.92b5ad5b.chunk.css": "/ProTask_TechTeam/static/css/29.92b5ad5b.chunk.css",
@@ -18,11 +18,11 @@
     "static/media/icons.svg": "/ProTask_TechTeam/static/media/icons.f1bb77ed62e69738854553452f6a51f9.svg",
     "index.html": "/ProTask_TechTeam/index.html",
     "main.62cd0a68.css.map": "/ProTask_TechTeam/static/css/main.62cd0a68.css.map",
-    "main.3f06da62.js.map": "/ProTask_TechTeam/static/js/main.3f06da62.js.map",
+    "main.c22e5356.js.map": "/ProTask_TechTeam/static/js/main.c22e5356.js.map",
     "930.98d81239.chunk.css.map": "/ProTask_TechTeam/static/css/930.98d81239.chunk.css.map",
     "930.1e5b793e.chunk.js.map": "/ProTask_TechTeam/static/js/930.1e5b793e.chunk.js.map",
-    "722.f24a7e18.chunk.css.map": "/ProTask_TechTeam/static/css/722.f24a7e18.chunk.css.map",
-    "722.5d8e689a.chunk.js.map": "/ProTask_TechTeam/static/js/722.5d8e689a.chunk.js.map",
+    "722.d4bde8b1.chunk.css.map": "/ProTask_TechTeam/static/css/722.d4bde8b1.chunk.css.map",
+    "722.1380a868.chunk.js.map": "/ProTask_TechTeam/static/js/722.1380a868.chunk.js.map",
     "589.1def9359.chunk.css.map": "/ProTask_TechTeam/static/css/589.1def9359.chunk.css.map",
     "589.cebe8d6c.chunk.js.map": "/ProTask_TechTeam/static/js/589.cebe8d6c.chunk.js.map",
     "29.92b5ad5b.chunk.css.map": "/ProTask_TechTeam/static/css/29.92b5ad5b.chunk.css.map",
@@ -33,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.62cd0a68.css",
-    "static/js/main.3f06da62.js"
+    "static/js/main.c22e5356.js"
   ]
 }
