@@ -37,7 +37,7 @@ const ScreensPage = () => {
   }, [dispatch, boardName, boards]);
 
   useEffect(() => {
-    if(isLogin){
+    if (isLogin) {
       dispatch(fetchAllDashboards());
     }
   }, [isLogin, dispatch]);
@@ -74,7 +74,7 @@ const ScreensPage = () => {
             Before starting your project, it is essential{' '}
             <span className={`${css[createStyle(theme, 'span')]}`}>
               to create a board
-            </span>{' '}
+            </span>
             to visualize and track all the necessary tasks and milestones. This
             board serves as a powerful tool to organize the workflow and ensure
             effective collaboration among team members.
