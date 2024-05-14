@@ -1,0 +1,11 @@
+.moveModal {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  z-index: 100;
+  width: 250px;
+  background-color: var(--light-header-color);
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  border-radius: 8px;
+  padding: 24px;
+}

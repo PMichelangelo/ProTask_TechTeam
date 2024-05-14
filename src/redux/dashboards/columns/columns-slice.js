@@ -7,7 +7,6 @@ import {
   deleteColumn,
   filterColumns,
   filterPriority,
-  switchColumn,
 } from './columns-operations';
 import { fetchOneDashboard } from '../dashboards-operations';
 
@@ -64,23 +63,6 @@ const ColumnSlice = createSlice({
         }
       })
       .addCase(editColumn.rejected, rejected)
-
-      .addCase(switchColumn.pending, pending)
-      .addCase(
-        switchColumn.fulfilled,
-        (state, { payload: { taskId, newColumnId: columnId } }) => {
-          state.isLoading = false;
-          const oldItemIdx = state.items.findIndex(item => item._id === taskId);
-          if (oldItemIdx !== -1) {
-            const updatedItem = { ...state.items[oldItemIdx], columnId };
-            state.items.splice(oldItemIdx, 1, updatedItem);
-            Notiflix.Notify.success(
-              'The task has been successfully moved to a new column'
-            );
-          }
-        }
-      )
-      .addCase(switchColumn.rejected, rejected)
 
       .addCase(deleteColumn.pending, pending)
       .addCase(deleteColumn.fulfilled, (state, { payload }) => {
