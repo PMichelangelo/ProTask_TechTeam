@@ -51,6 +51,9 @@
 input[type='radio']:checked + img {
   scale: 1.5;
 }
+input[name="background"]:checked + div {
+  scale: 1.5;
+}
 
 input[type='radio']:checked + svg use {
   opacity: 1;
@@ -116,6 +119,44 @@ input[type='radio']:checked + svg use {
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
+.item {
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background-color: #161616;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.item.theme_dark {
+  background-color: #1f1f1f;;
+  
+}
+.item.theme_light {
+  background-color: #f6f6f7;
+}
+.item.theme_violet {  
+  background-color: #f6f6f7;
+} 
+
+
+.item_svg {
+  width: 16px;
+  height: 16px;
+}
+
+.item_use {
+  stroke :white;
+  fill: white;
+}
+.item_use.theme_violet {  
+  stroke: black;
+  fill: black;
+} 
+
 
 @media (min-width: 375px) {
   .form {
