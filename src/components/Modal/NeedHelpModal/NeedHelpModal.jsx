@@ -1,7 +1,6 @@
 import css from './needHelpModal.module.css';
 import Notiflix from 'notiflix';
 import { useState } from 'react';
-
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/auth-selectors';
 
@@ -11,17 +10,13 @@ const INITIAL_STATE = {
 };
 
 const NeedHelpModal = ({ onClose, onSubmit }) => {
-
   const currentTheme = useSelector(selectTheme);
-
   const themeClassMap = {
     dark: css.theme_dark,
     light: css.theme_light,
     violet: css.theme_violet,
   };
-
   const helpTheme = themeClassMap[currentTheme] || '';
-
 
   const [modalState, setModalState] = useState({ ...INITIAL_STATE });
 
@@ -34,7 +29,7 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
     return (modalState.description.trim() !== '')
   };
 
-  const handleSubmit = e => {
+   const handleSubmit = e => {
     e.preventDefault();
     if (!validateInput()) {
       Notiflix.Notify.failure('Description cannot be empty')
@@ -55,7 +50,7 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
         type="email"
         name="email"
         required
-        placeholder="Enter you email "
+        placeholder="Enter your email"
         onChange={handleChange}
       ></input>
 
@@ -77,5 +72,3 @@ const NeedHelpModal = ({ onClose, onSubmit }) => {
 };
 
 export default NeedHelpModal;
-
-

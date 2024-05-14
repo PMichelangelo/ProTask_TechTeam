@@ -7,23 +7,29 @@ import css from './boardList.module.css';
 import BoardListItem from './BoardListItem/BoardListItem';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { updateBoardId } from '../../../redux/dashboards/dashboards-slice';
+
 
 const BoardList = () => {
   const [activeBoardId, setActiveBoardId] = useState(null);
   const dashboards = useSelector(selectDashboards);
   const loading = useSelector(selectDashboardsLoading);
+  const dispatch = useDispatch()
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (dashboards.length > 0 && activeBoardId === null && !loading) {
       setActiveBoardId(dashboards[0]._id);
+      dispatch(updateBoardId(dashboards[0]._id))
       navigate(`/home/${dashboards[0].title}`);
     }
-  }, [dashboards, navigate, activeBoardId, loading]);
+  }, [dashboards, navigate, activeBoardId, loading, dispatch]);
 
   const handleBoardItemClick = boardId => {
-    setActiveBoardId(boardId);
+    setActiveBoardId(boardId)
+    dispatch(updateBoardId(boardId))
   };
 
   return (

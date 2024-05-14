@@ -15,6 +15,7 @@ import { selectTheme } from '../../redux/auth/auth-selectors';
 
 import css from './screensPage.module.css';
 import createStyle from 'shared/functions/style';
+import { updateBoardId } from '../../redux/dashboards/dashboards-slice';
 
 const ScreensPage = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ const ScreensPage = () => {
       const id = currentBoard._id;
       setBoardId(id);
       dispatch(fetchOneDashboard(id));
+      dispatch(updateBoardId(id))
     }
   }, [dispatch, boardName, boards]);
 

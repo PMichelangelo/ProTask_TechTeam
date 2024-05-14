@@ -66,8 +66,7 @@ const ThemeSelector = () => {
         type="button"
         className={styles.arrowIcon}
         onClick={() => setShowOptions(!showOptions)}
-      >
-        <p className={styles.themeTitle}>Theme</p>
+      ><p className={styles.themeTitle}>Theme</p>
         <ThemeSelectorIcon />
       </button>
       {showOptions && (

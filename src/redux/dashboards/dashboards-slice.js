@@ -14,11 +14,17 @@ const initialState = {
   items: [],
   isLoading: false,
   error: null,
+  activeBoardId:""
 };
 
 const DashboardSlice = createSlice({
   name: 'dashboards',
   initialState,
+  reducers: {
+    updateBoardId(state, action) {
+      state.activeBoardId = action.payload
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchAllDashboards.pending, pending)
@@ -73,3 +79,4 @@ const DashboardSlice = createSlice({
 });
 
 export default DashboardSlice.reducer;
+export const {updateBoardId} = DashboardSlice.actions

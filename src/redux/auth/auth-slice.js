@@ -40,11 +40,11 @@ const authSlice = createSlice({
               state.isLoading = false;
           })
             .addCase(current.pending, pending)
-          .addCase(current.fulfilled, (state, { payload }) => {
+            .addCase(current.fulfilled, (state, { payload }) => {
               const { name, email, avatarURL, theme } = payload.message
-            state.user = { name, email, avatarURL, theme};
-                state.isLogin = true;
-                state.isLoading = false;
+              state.user = { name, email, avatarURL, theme};
+              state.isLogin = true;
+              state.isLoading = false;
               state.error = null;
             })
             .addCase(current.rejected, (state) => {
