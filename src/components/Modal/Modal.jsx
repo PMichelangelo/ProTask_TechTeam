@@ -7,7 +7,7 @@ import { selectTheme } from '../../redux/auth/auth-selectors';
 import css from './modal.module.css';
 
 const modalRoot = document.getElementById('modal-root');
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, title }) => {
   const closeModal = useCallback(
     ({ target, currentTarget, code }) => {
       if (target === currentTarget || code === 'Escape') {
@@ -41,7 +41,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           className={`${css.modal_wrapper} ${modalTheme}`}
         >
           <div className={css.modal_content}>
-            <h2 className={css.modalTitle}>Edit board</h2>
+            <h2 className={css.modalTitle}>{title}</h2>
 
             <CloseButton onClose={onClose} />
             {children}

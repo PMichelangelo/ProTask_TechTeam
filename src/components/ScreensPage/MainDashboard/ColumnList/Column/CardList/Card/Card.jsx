@@ -11,11 +11,13 @@ import {
   deleteTask,
   editTask,
 } from '../../../../../../../redux/dashboards/tasks/tasks-operations';
+import { switchColumn } from '../../../../../../../redux/dashboards/columns/columns-operations';
 
 import css from './card.module.css';
 
 import { selectTheme } from '../../../../../../../redux/auth/auth-selectors';
 import createStyle from 'shared/functions/style';
+import MoveCardModal from './MoveCardModal';
 
 function getFormattedDate() {
   const today = new Date();
@@ -43,13 +45,22 @@ function formatDateString(dateString) {
 }
 
 const Card = ({
-  card: { _id: taskId, columnId, title, description, priority, deadline },
+  card: {
+    _id: taskId,
+    columnId,
+    boardId,
+    title,
+    description,
+    priority,
+    deadline,
+  },
 }) => {
   const dispatch = useDispatch();
 
   const theme = useSelector(selectTheme);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
 
   const spriteArr = ['arrow-circle-icon', 'pencil-icon', 'trash-icon'];
   const idArr = [
@@ -63,10 +74,16 @@ const Card = ({
     dispatch(editTask({ columnId, taskId, body }));
   };
 
+  const handleMoveClick = newColumnId => {
+    const body = { taskId, newColumnId };
+    dispatch(switchColumn({ boardId, body }));
+    setIsMoveModalOpen(false);
+  };
+
   const handleClick = e => {
     switch (e.currentTarget.id) {
       case idArr[0]:
-        return;
+        return setIsMoveModalOpen(true);
       case idArr[1]:
         return setIsModalOpen(true);
       case idArr[2]:
@@ -166,6 +183,12 @@ const Card = ({
           btnText={'Edit'}
         />
       </Modal>
+      <MoveCardModal
+        isOpen={isMoveModalOpen}
+        onClose={setIsMoveModalOpen}
+        onClick={handleMoveClick}
+        currentColumnId={columnId}
+      />
     </>
   );
 };

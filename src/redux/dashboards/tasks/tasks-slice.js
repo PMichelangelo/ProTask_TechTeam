@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 
 import { addTask, editTask, deleteTask } from './tasks-operations';
 import { fetchOneDashboard } from '../dashboards-operations';
+import { switchColumn } from '../columns/columns-operations';
 
 import { pending, rejected } from '../../../shared/functions/redux';
 
@@ -42,6 +43,23 @@ const TaskSlice = createSlice({
         );
       })
       .addCase(fetchOneDashboard.rejected, rejected)
+
+      .addCase(switchColumn.pending, pending)
+      .addCase(
+        switchColumn.fulfilled,
+        (state, { payload: { taskId, newColumnId: columnId } }) => {
+          state.isLoading = false;
+          const oldItemIdx = state.items.findIndex(item => item._id === taskId);
+          if (oldItemIdx !== -1) {
+            const updatedItem = { ...state.items[oldItemIdx], columnId };
+            state.items.splice(oldItemIdx, 1, updatedItem);
+            Notiflix.Notify.success(
+              'The task has been successfully moved to a new column'
+            );
+          }
+        }
+      )
+      .addCase(switchColumn.rejected, rejected)
 
       .addCase(addTask.pending, pending)
       .addCase(addTask.fulfilled, (state, { payload }) => {
