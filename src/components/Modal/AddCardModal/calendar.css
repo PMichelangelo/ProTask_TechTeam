@@ -1,5 +1,19 @@
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .example-custom-input {
   color: var(--button-light-color);
+  transition: all 0.3 ease;
+}
+.example-custom-input:hover {
+  color: var(--button-light-alt-color);
+}
+.arrow-down {
+  fill: transparent;
+  stroke: var(--button-light-color);
 }
 
 /* =====Wrapper========= */
@@ -51,4 +65,8 @@
   font-weight: 500;
   background-color: var(--button-light-color);
   border-radius: 50%;
+}
+[class*='day--keyboard-selected'] {
+  border-radius: 50%;
+  background-color: #bedbb069;
 }
