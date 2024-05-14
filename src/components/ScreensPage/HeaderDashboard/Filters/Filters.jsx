@@ -33,7 +33,7 @@ const Filters = () => {
     register,
     formState: { errors },
     getValues,
-    reset,
+    setValue,
     watch,
   } = useForm({
     defaultValues: {
@@ -58,25 +58,17 @@ const Filters = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, getValues()]);
 
-  const handleFilterReset = useCallback(() => {
-    dispatch(filterColumns(''));
-    dispatch(filterPriority(''));
-
-    reset();
-  }, [dispatch, reset]);
-
   const handleFilterOpen = () => {
     setIsFilterOpen(true);
   };
 
   const handleFilterClose = useCallback(() => {
     setIsFilterOpen(false);
-
-    handleFilterReset();
-  }, [setIsFilterOpen, handleFilterReset]);
+  }, [setIsFilterOpen]);
 
   const handleClearPriority = () => {
     dispatch(filterPriority(''));
+    setValue('priority', '');
   };
 
   watch();
@@ -94,6 +86,10 @@ const Filters = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [handleFilterClose, isFilterOpen]);
+
+  const handleFilterInputChange = (event) => {
+    dispatch(filterColumns(event.target.value.trim()));
+  };
 
   return (
     <div className={css.filterButtonWrap}>
@@ -119,13 +115,14 @@ const Filters = () => {
 
           <form
             className={css.filterForm}
-            onSubmit={event => {
+            onSubmit={(event) => {
               event.preventDefault();
             }}
           >
             <FilterInput
               {...register('filter')}
               error={errors.filter?.message}
+              onChange={handleFilterInputChange}
             />
 
             <div className={css.filterPriority}>
