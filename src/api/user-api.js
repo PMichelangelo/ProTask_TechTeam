@@ -1,4 +1,5 @@
 import authInstance from "./auth-api";
+import { setToken } from "./auth-api";
 
 export const sendUserNeedHelp = async (data) => {
     try {
@@ -8,4 +9,32 @@ export const sendUserNeedHelp = async (data) => {
       console.error("Failed to send a help request", error);
       throw error;
     }
-  };
+};
+
+export const updateUserProfile = async (token, body) => {
+  try {
+    setToken(token);
+
+    const formData = new FormData();
+    formData.append('name', body.name);
+    formData.append('email', body.email);
+    formData.append('password', body.password);
+
+    if (body.avatar) {
+      formData.append('profileImage', body.avatar);
+    }
+
+    const response = await authInstance.patch('/users/edit/profile', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    console.log('User info after update:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error("Failed to update user profile", error);
+    throw error;
+  }
+};
+
