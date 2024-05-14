@@ -16,7 +16,7 @@ const UserAvatar = ({ user }) => {
   return (
     <img
       className={styles.userAvatar}
-      src={user.avatarURL || defaultAvatar}
+       src={avatarSrc}
       alt={user.name}
     />
   );
