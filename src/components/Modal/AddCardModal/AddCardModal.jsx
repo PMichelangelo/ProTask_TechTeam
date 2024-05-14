@@ -65,8 +65,8 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   };
 
   const handleCalendarClick = e => {
-  e.stopPropagation();
-};
+    e.stopPropagation();
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -77,7 +77,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
     onClose(false);
     onSubmit({ ...addCardModalState, deadline: selectedDate });
     setAddCardModal({ ...INITIAL_STATE });
-    console.log('button was pressed')
+    console.log('button was pressed');
   };
 
   const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
@@ -88,13 +88,13 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
 
     return (
       <div className={css.calendarHeader}>
-        <button onClick={decreaseMonth}>
+        <button onClick={decreaseMonth} type="button">
           <svg className="arrow" width="4" height="8">
             <use href={`${sprite}#icon-arrow-left`}></use>
           </svg>
         </button>
         <span className={css.date}>{formattedDate}</span>
-        <button onClick={increaseMonth}>
+        <button onClick={increaseMonth} type="button">
           <svg className="arrow" width="4" height="8">
             <use href={`${sprite}#icon-arrow-right`}></use>
           </svg>
@@ -107,8 +107,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
     return date ? css.customDay : null;
   };
 
-  const ExampleCustomInput = forwardRef(({ value, onClick, }, ref) => {
-
+  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
     const [day, month, year] = value.split('/');
     const currentDate = new Date();
     const selectedDate = new Date(year, month - 1, day);
@@ -119,9 +118,19 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
       : `${monthName} ${day}`;
 
     return (
-      <button type="button" className="example-custom-input" onClick={onClick} ref={ref}>
-        {formattedValue}
-      </button>
+      <div className="button-wrapper">
+        <button
+          type="button"
+          className="example-custom-input"
+          onClick={onClick}
+          ref={ref}
+        >
+          {formattedValue}
+        </button>
+        <svg className="arrow-down" width="9" height="5">
+          <use href={`${sprite}#icon-arrow-down`}></use>
+        </svg>
+      </div>
     );
   });
 
@@ -223,7 +232,10 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
               id="Without"
               onChange={handleChange}
             />
-            <label className={`${css.label_icon} ${cardTheme}`} htmlFor="Without">
+            <label
+              className={`${css.label_icon} ${cardTheme}`}
+              htmlFor="Without"
+            >
               <svg className={css.icon}>
                 <use
                   href={`${sprite}${
