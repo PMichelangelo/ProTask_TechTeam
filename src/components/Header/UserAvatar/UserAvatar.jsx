@@ -1,9 +1,9 @@
 import React from 'react';
-
 import defaultAvatar from './avatar.png';
 import styles from './UserAvatar.module.css';
 
 const UserAvatar = ({ user }) => {
+  console.log(user)
   return (
     <img
       className={styles.userAvatar}

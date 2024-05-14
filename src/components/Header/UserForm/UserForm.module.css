@@ -50,7 +50,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 68px;
+  height: 68px;
 }
 
 .uploadButton {

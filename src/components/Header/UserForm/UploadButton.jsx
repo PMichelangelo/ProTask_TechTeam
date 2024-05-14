@@ -1,35 +1,64 @@
-import React, { useId, useState } from 'react';
+import React, { useState } from 'react'; 
 import UserAvatar from '../UserAvatar';
-import { getBase64 } from '../../../helpers/functoins';
 
 import styles from './UserForm.module.css';
 
-export const UploadButton = ({ user, onChange, ...props }) => {
+const UploadButton = ({ user, onChange, ...props }) => {
   const [imagePreview, setImagePreview] = useState(null);
-  const uploadFileId = useId();
 
-  const handleUpload = event => {
+  const handleUpload = (event) => {
     const file = event.target.files[0];
-    getBase64(file, setImagePreview);
-
-    onChange(imagePreview);
-    event.target.value = '';
+    const reader = new FileReader();
+  
+    reader.onload = (e) => {
+      const img = new Image();
+      img.src = e.target.result;
+  
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const maxWidth = 62;
+        const maxHeight = 62;
+        let width = img.width;
+        let height = img.height;
+  
+        if (width > height) {
+          if (width > maxWidth) {
+            height *= maxWidth / width;
+            width = maxWidth;
+          }
+        } else {
+          if (height > maxHeight) {
+            width *= maxHeight / height;
+            height = maxHeight;
+          }
+        }
+  
+        canvas.width = width;
+        canvas.height = height;
+  
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+  
+        const resizedDataURL = canvas.toDataURL('image/jpeg');
+  
+        setImagePreview(resizedDataURL);
+        onChange(file);
+      };
+    };
+    console.log(file.name)
+    reader.readAsDataURL(file);
   };
+  
 
   return (
     <div className={styles.uploadButtonWrapper}>
-      <span
-        style={{
-          width: '68px',
-          height: '68px',
-        }}
-      >
-        <UserAvatar
-          user={imagePreview ? { ...user, avatar: imagePreview } : user}
-        />
-      </span>
+      {imagePreview ? (
+        <img src={imagePreview} alt="Preview" className={styles.imagePreview} />
+      ) : (
+        <UserAvatar user={user} />
+      )}
 
-      <label htmlFor={uploadFileId} className={styles.uploadButton}>
+      <label className={styles.uploadButton}>
         <svg
           width="24"
           height="24"
@@ -58,7 +87,6 @@ export const UploadButton = ({ user, onChange, ...props }) => {
         <input
           type="file"
           accept="image/*"
-          id={uploadFileId}
           className={styles.uploadInput}
           onChange={handleUpload}
           {...props}
