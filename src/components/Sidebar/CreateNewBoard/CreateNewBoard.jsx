@@ -28,7 +28,7 @@ const CreateNewBoard = () => {
         </CurrentTheme>
         <CurrentTheme>
           <div className={css.createNewBoardIcon}>
-            <svg className={css.createNewBoardIconItem} width="20" height="20">
+            <svg className={css.createNewBoardItem} width="20" height="20">
               <use href={`${sprite}#plus-icon`}></use>
             </svg>
           </div>

@@ -66,9 +66,13 @@
 .theme_violet [class*='createNewBoardIcon'] {
   background-color: #b8bcfd;
 }
+.theme_violet [class*='createNewBoardIcon']:hover {
+  background-color: var(--button-violet-wrap-alt-color);
+}
 
-.theme_violet [class*='createNewBoardIconItem'] {
+.theme_violet [class*='createNewBoardItem'] {
   stroke: #fff;
+  background-color: transparent;
 }
 .theme_violet [class*='boardLink']:global(.active) {
   background-color: #ffffff80;
@@ -80,4 +84,13 @@
 }
 .theme_violet > [class^='needHelp'] {
   background-color: #ecedfd66;
+}
+.theme_violet [class*='taskProSpan'] {
+  color: var(--violet-text-color);
+}
+.theme_violet [class*='logoutIcon'] {
+  stroke: var(--dark-text-color);
+}
+.theme_violet [class*='block']:hover [class*='logoutIcon'] {
+  stroke: var(--button-violet-wrap-alt-color);
 }

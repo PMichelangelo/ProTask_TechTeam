@@ -50,20 +50,21 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
       }
       ref={menuRef}
     >
-      <div>
-        <LogoComponent />
-        <div className={css.myBoards}>
-          <h3 className={`${css.myBoardsTitle} ${sidebarTheme}`}>My boards</h3>
-          <CurrentTheme>
-            <CreateNewBoard />
-          </CurrentTheme>
-          <BoardList />
-        </div>
+      <LogoComponent />
+      <div className={css.myBoards}>
+        <h3 className={`${css.myBoardsTitle} ${sidebarTheme}`}>My boards</h3>
+        <CurrentTheme>
+          <CreateNewBoard />
+        </CurrentTheme>
+        <BoardList />
       </div>
-      <div className={css.needHelpLogout}>
+
+      <CurrentTheme>
         <NeedHelp />
+      </CurrentTheme>
+      <CurrentTheme>
         <Logout />
-      </div>
+      </CurrentTheme>
     </div>
   );
 };

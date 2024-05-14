@@ -1,7 +1,6 @@
 .block {
   display: flex;
   margin-left: 24px;
-  margin-bottom: 24px;
 }
 
 .logoutBtn {
@@ -16,6 +15,7 @@
 .logoutIcon {
   stroke: #bedbb0;
   fill: transparent;
+  transition: stroke 0.25s ease;
 }
 
 .logoutText {
