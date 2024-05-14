@@ -85,6 +85,9 @@
 .theme_violet > [class^='needHelp'] {
   background-color: #ecedfd66;
 }
+.theme_violet [class*='taskProSpan'] {
+  color: var(--violet-text-color);
+}
 .theme_violet [class*='logoutIcon'] {
   stroke: var(--dark-text-color);
 }
