@@ -1,5 +1,5 @@
 .screensPage {
-  padding-left: 20px;
+  /* padding-left: 20px; */
   display: flex;
   flex-direction: column;
   height: calc(100% - 60px);
@@ -30,14 +30,15 @@
     max-width: 486px;
   }
   .screensPage {
-    padding-left: 32px;
+    /* padding-left: 32px; */
     height: calc(100% - 60px);
   }
 }
 
 @media screen and (min-width: 1440px) {
   .screensPage {
-    padding-left: 284px;
+    /* padding-left: 284px; */
+    padding-left: 260px;
   }
 }
 

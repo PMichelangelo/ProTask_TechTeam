@@ -4,4 +4,5 @@
   gap: 8px;
   max-height: calc(100% - 14px - 56px);
   overflow-y: auto;
+  padding-right: 8px;
 }
