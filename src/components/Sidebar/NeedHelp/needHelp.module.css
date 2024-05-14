@@ -6,6 +6,7 @@
   height: 238px;
   margin-left: 14px;
   margin-top: 40px;
+  border-radius: 8px;
 }
 .helpText {
   font-family: Poppins;
