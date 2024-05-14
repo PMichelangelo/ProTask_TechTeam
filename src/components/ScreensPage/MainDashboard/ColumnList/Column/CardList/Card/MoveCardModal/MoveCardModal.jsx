@@ -13,7 +13,6 @@ const MoveCardModal = ({ isOpen, onClose, onClick, currentColumnId }) => {
   const columns = useSelector(selectColumns);
   const selectRef = useRef(null);
   const theme = useSelector(selectTheme)
-  console.log(theme)
   const columnsToMove = columns.filter(column => {
     return column._id !== currentColumnId;
   });

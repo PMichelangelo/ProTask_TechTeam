@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import UserAvatar from '../UserAvatar';
 import UserForm from '../UserForm';
-import { selectTheme } from '../../../redux/auth/auth-selectors';
+import { selectTheme, selectToken } from '../../../redux/auth/auth-selectors';
 import styles from './userInfo.module.css';
 import { updateUserProfile } from '../../../api/user-api';
 
@@ -11,6 +11,7 @@ const UserInfo = ({ user: initialUser }) => {
   const [user, setUser] = useState(initialUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const currentTheme = useSelector(selectTheme);
+  const token = useSelector(selectToken)
 
   const themeClassMap = {
     dark: styles.theme_dark,
@@ -26,21 +27,22 @@ const UserInfo = ({ user: initialUser }) => {
     setIsModalOpen(false);
   };
 
-  const handleEditProfile = async formData => {
+  const handleEditProfile = async (updatedUserData) => {
+    console.log("updatedUserData", updatedUserData)
     try {
-      const updatedUser = { ...user, ...formData };
-      const formDataToSend = new FormData();
-      formDataToSend.append('name', updatedUser.name);
-      formDataToSend.append('email', updatedUser.email);
-      formDataToSend.append('password', updatedUser.password);
-      if (updatedUser.avatar) {
-        formDataToSend.append('profileImage', updatedUser.avatar);
-      }
-      const updatedUserData = await updateUserProfile(user.token, formDataToSend);
-      setUser(updatedUserData);
-      console.log(formData);
-      closeModal();
-    } catch (error) {
+      const formData = {
+      name: updatedUserData.name || '',
+      email: updatedUserData.email || '',
+      password: updatedUserData.password || '',
+      avatarURL: updatedUserData.avatar || '',
+    };
+    console.log('Data being sent to server:', formData);
+    const response = await updateUserProfile(token, formData);
+    console.log('User info after update:', response);
+      setUser(formData);
+    closeModal();
+    }
+    catch (error) {
       console.error(error);
     }
   };
