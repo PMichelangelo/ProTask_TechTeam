@@ -20,6 +20,7 @@ const UserForm = ({ user, onSubmit }) => {
     defaultValues: {
       name: user?.name,
       email: user?.email,
+      password:"",
       avatar: null,
     },
     criteriaMode: 'all',
@@ -53,7 +54,7 @@ const UserForm = ({ user, onSubmit }) => {
           <UploadButton
             user={user}
             onChange={(file) => {
-              field.onChange(file); 
+              field.onChange(file);
             }}
           />
         )}
@@ -73,10 +74,17 @@ const UserForm = ({ user, onSubmit }) => {
         error={errors?.email?.message}
       />
 
-      <Input
-        type="password"
-        placeholder="Password"
-        error={errors?.password?.message}
+       <Controller
+        name="password"
+        control={control}
+        render={({ field }) => (
+          <Input
+            type="password"
+            placeholder="Password"
+            {...field}
+            error={errors?.password?.message}
+          />
+        )}
       />
 
       <button className={styles.formButton} type="submit">

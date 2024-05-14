@@ -11,25 +11,22 @@ export const sendUserNeedHelp = async (data) => {
     }
 };
 
-export const updateUserProfile = async (token, body) => {
+export const updateUserProfile = async(token, body) => {
   try {
     setToken(token);
-
     const formData = new FormData();
-    formData.append('name', body.name);
-    formData.append('email', body.email);
+    if (body.name) {
+      formData.append('name', body.name);
+    }
+    if (body.email) {
+      formData.append('email', body.email);
+    }
     formData.append('password', body.password);
 
     if (body.avatar) {
       formData.append('profileImage', body.avatar);
     }
-
-    const response = await authInstance.patch('/users/edit/profile', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    });
-
+    const response = await authInstance.patch('/users/edit/profile', formData, );
     console.log('User info after update:', response.data);
     return response.data;
   } catch (error) {

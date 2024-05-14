@@ -3,12 +3,11 @@ import defaultAvatar from './avatar.png';
 import styles from './UserAvatar.module.css';
 
 const UserAvatar = ({ user }) => {
-  console.log(user)
   return (
     <img
       className={styles.userAvatar}
-      src={user?.avatarURL || defaultAvatar}
-      alt={user?.name}
+      src={user.avatarURL || defaultAvatar}
+      alt={user.name}
     />
   );
 };
