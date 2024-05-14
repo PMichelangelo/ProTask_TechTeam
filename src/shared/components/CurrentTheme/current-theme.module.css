@@ -85,3 +85,9 @@
 .theme_violet > [class^='needHelp'] {
   background-color: #ecedfd66;
 }
+.theme_violet [class*='logoutIcon'] {
+  stroke: var(--dark-text-color);
+}
+.theme_violet [class*='block']:hover [class*='logoutIcon'] {
+  stroke: var(--button-violet-wrap-alt-color);
+}
