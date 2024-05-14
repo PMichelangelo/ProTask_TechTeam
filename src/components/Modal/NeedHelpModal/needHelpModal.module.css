@@ -13,6 +13,7 @@
     font-size: 14px;
     letter-spacing: -0.02em;
     color: #161616;
+    opacity: 0.4;
   }
   
   .input.theme_dark {
@@ -29,21 +30,15 @@
   .input.theme_dark::placeholder {
     color: #fff;
   }
-  .input.theme_dark:focus {
-    outline: none;
-  }
+
   .input.theme_light {
     border: 1px solid #bedbb0;
   }
-  .input.theme_light:focus {
-    outline: none;
-  }
+
   .input.theme_violet {
     border: 1px solid #5255bc;
   }
-  .input.theme_violet:focus {
-    outline: none;
-  }
+
   
   .textarea{
   border: 1px solid #bedbb0;
@@ -56,6 +51,7 @@
   letter-spacing: -0.02em;
   color: #161616;
   resize:none;
+  opacity: 0.4;
   }
 
   .textarea.theme_dark {
@@ -72,21 +68,15 @@
   .textarea.theme_dark::placeholder {
     color: #fff;
   }
-  .textarea.theme_dark:focus {
-    outline: none;
-  }
+
   .textarea.theme_light {
     border: 1px solid #bedbb0;
   }
-  .textarea.theme_light:focus {
-    outline: none;
-  }
+
   .textarea.theme_violet {
     border: 1px solid #5255bc;
   }
-  .textarea.theme_violet:focus {
-    outline: none;
-  }
+ 
   
   .btn {
     width: 100%;
@@ -114,10 +104,10 @@
     background-color: #bedbb0;
     
   }
-  .btn .theme_light {
+  .btn.theme_light {
     background-color:#bedbb0;
   }
-  .btn .theme_violet {  
+  .btn.theme_violet {  
   background-color:#7b7ede;
   color: #fff;
   } 
@@ -129,15 +119,6 @@
     background-color:  #9dc888;
   }
   
-  .btn .theme_dark:focus,
-  .btn.theme_dark:hover {
-    background-color:  #9dc888;
-  }
-  
-  .btn.theme_light:focus,
-  .btn.theme_light:hover {
-    background-color:  #9dc888;
-  }
   
   .btn.theme_violet:focus,
   .btn.theme_violet:hover {

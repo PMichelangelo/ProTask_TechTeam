@@ -51,7 +51,7 @@
 input[type='radio']:checked + img {
   scale: 1.5;
 }
-input[name="background"]:checked + div {
+input[name='background']:checked + div {
   scale: 1.5;
 }
 
@@ -74,7 +74,6 @@ input[type='radio']:checked + svg use {
   stroke: #161616;
   opacity: 0.5;
 }
-
 
 .icon {
   cursor: pointer;
@@ -114,9 +113,11 @@ input[type='radio']:checked + svg use {
 }
 
 .radio_wrapper_bgimg {
-  gap: 8px;
+  gap: 4px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
+  width: 252px;
+  justify-content: flex-start;
   margin-bottom: 24px;
 }
 .item {
@@ -128,20 +129,17 @@ input[type='radio']:checked + svg use {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .item.theme_dark {
-  background-color: #1f1f1f;;
-  
+  background-color: #1f1f1f;
 }
 .item.theme_light {
   background-color: #f6f6f7;
 }
-.item.theme_violet {  
+.item.theme_violet {
   background-color: #f6f6f7;
-} 
-
+}
 
 .item_svg {
   width: 16px;
@@ -149,14 +147,18 @@ input[type='radio']:checked + svg use {
 }
 
 .item_use {
-  stroke :white;
+  stroke: white;
   fill: white;
 }
-.item_use.theme_violet {  
+.item_use.theme_violet {
   stroke: black;
   fill: black;
-} 
+}
 
+.item_use.theme_light {
+  stroke: black;
+  fill: black;
+}
 
 @media (min-width: 375px) {
   .form {
