@@ -75,7 +75,7 @@ const Card = ({
   const handleClick = e => {
     switch (e.currentTarget.id) {
       case idArr[0]:
-        return setIsMoveModalOpen(!isMoveModalOpen);
+        return setIsMoveModalOpen(true);
       case idArr[1]:
         return setIsModalOpen(true);
       case idArr[2]:

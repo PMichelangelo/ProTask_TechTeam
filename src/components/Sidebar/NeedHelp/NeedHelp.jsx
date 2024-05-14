@@ -3,10 +3,9 @@ import sprite from '../../../images/icons.svg';
 import Modal from '../../Modal/Modal';
 import NeedHelpModal from '../../Modal/NeedHelpModal/NeedHelpModal';
 import { useState } from 'react';
-import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
 import image from '../../../images/Cactus.png';
 import { sendUserNeedHelp } from 'api/user-api';
-
+// import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
 const NeedHelp = () => {
   const [modalActive, setModalActive] = useState(false);
 

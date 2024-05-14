@@ -8,7 +8,7 @@ import ColumnHeader from './ColumnHeader';
 import { selectTasks } from '../../../../../redux/dashboards/tasks/tasks-selectors';
 
 import css from './column.module.css';
-import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
+//import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
 
 const Column = ({ column }) => {
   const allCards = useSelector(selectTasks);
