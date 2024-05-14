@@ -1,5 +1,6 @@
 import css from './newDashboard.module.css';
 import IconsSprite from '../../../images/icons.svg';
+import sprite from "./icon.svg"
 import { selectToken } from '../../../redux/auth/auth-selectors';
 import FormBtn from '../FormBtn/FormBtn';
 import Notiflix from 'notiflix';
@@ -112,7 +113,7 @@ const NewDashboardModal = ({
     const defaultElement =
     <div className={`${css.item} ${dasbortTheme}`}>
     <svg  className={css.item_svg}>   
-      <use className={`${css.item_use} ${dasbortTheme}`}  href={`${IconsSprite}#eye-icon`} />
+      <use className={`${css.item_use} ${dasbortTheme}`}  href={`${sprite}#Icon (1)`} />
     </svg>
   </div>
 
