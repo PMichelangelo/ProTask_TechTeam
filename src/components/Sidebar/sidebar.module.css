@@ -9,20 +9,23 @@
   flex-direction: column;
   justify-content: space-between;
   transform: translateX(-100%);
-  transition: 500ms transform;
+  transition: transform 500ms ease;
 }
 
 .openSidebar {
   min-height: 768px;
   z-index: 1;
   position: absolute;
-  transition: 500ms;
+  transition: transform 500ms ease;
   transform: translateX(0);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 225px;
   height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
 }
 
 .myBoardsTitle {

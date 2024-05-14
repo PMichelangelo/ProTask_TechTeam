@@ -11,6 +11,7 @@ import css from './sidebar.module.css';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/auth/auth-selectors';
 import { useEffect, useRef } from 'react';
+const modalRoot = document.getElementById('modal-root');
 
 const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
   const menuRef = useRef(null);
@@ -20,6 +21,8 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
     if (
       menuRef.current &&
       !menuRef.current.contains(event.target) &&
+      (!modalRoot || !modalRoot.contains(event.target)) &&
+      isMenuOpen &&
       window.innerWidth < 1440
     ) {
       setIsMenuOpen(false);
@@ -50,21 +53,22 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
       }
       ref={menuRef}
     >
-      <LogoComponent />
-      <div className={css.myBoards}>
-        <h3 className={`${css.myBoardsTitle} ${sidebarTheme}`}>My boards</h3>
-        <CurrentTheme>
-          <CreateNewBoard />
-        </CurrentTheme>
-        <BoardList />
+      <div>
+        <LogoComponent />
+        <div className={css.myBoards}>
+          <h3 className={css.myBoardsTitle}>My boards</h3>
+          <CurrentTheme>
+            <CreateNewBoard />
+          </CurrentTheme>
+          <BoardList />
+        </div>
       </div>
-
-      <CurrentTheme>
-        <NeedHelp />
-      </CurrentTheme>
-      <CurrentTheme>
-        <Logout />
-      </CurrentTheme>
+      <div className={css.needHelpLogout}>
+        <CurrentTheme>
+          <NeedHelp />
+          <Logout />
+        </CurrentTheme>
+      </div>
     </div>
   );
 };
