@@ -7,6 +7,8 @@ import { useState, useEffect } from 'react';
 import { getBackgroundIcons } from '../../../api/dashboards-api';
 
 
+
+
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/auth-selectors';
 
@@ -38,7 +40,7 @@ const NewDashboardModal = ({
   const dasbortTheme = themeClassMap[currentTheme] || '';
   const token = useSelector(selectToken);
 
-  console.log(beckImg);
+ 
 
   useEffect(() => {
     const fetchQuery = async () => {
@@ -107,20 +109,27 @@ const NewDashboardModal = ({
     </label>
   ));
 
+    const defaultElement =
+    <div className={`${css.item} ${dasbortTheme}`}>
+    <svg  className={css.item_svg}>   
+      <use className={`${css.item_use} ${dasbortTheme}`}  href={`${IconsSprite}#eye-icon`} />
+    </svg>
+  </div>
 
-  const elementsBackground = beckImg && beckImg.map(({ title, url }) => (
-    <label key={title}>
-      <input
-        className={css.radio_input}
-        name="background"
-        type="radio"
-        value={title}
-        checked={newBoardState.background === title}
-        onChange={handleChange}
-      />
-      <img className={css.backgraund_img} src={url} alt="" />
-    </label>
-  ));
+
+    const elementsBackground = beckImg && beckImg.map(({ title, url }) => (
+      <label key={title}>
+        <input
+          className={css.radio_input}
+          name="background"
+          type="radio"
+          value={title}
+          checked={newBoardState.background === title}
+          onChange={handleChange}
+        />
+        <img className={css.backgraund_img} src={url} alt="" />
+      </label>
+    ));
 
   const { title } = newBoardState;
   return (
@@ -137,7 +146,20 @@ const NewDashboardModal = ({
       <p className={`${css.radio_titel} ${dasbortTheme}`}>Icon:</p>
       <div className={css.radio_wrapper_icon}>{elementsIcon}</div>
       <p className={`${css.radio_titel} ${dasbortTheme}`}>Background:</p>
-      <div className={css.radio_wrapper_bgimg}>{elementsBackground}</div>
+      <div className={css.radio_wrapper_bgimg}>
+        <label key={"none-background"} >
+          <input
+            className={css.radio_input}
+            name="background"
+            type="radio"
+            value={"none-background"}
+            checked={newBoardState.background === "none-background"}
+            onChange={handleChange}
+          />
+          {defaultElement}
+        </label>
+        {elementsBackground}
+        </div>
       <FormBtn textBtn={btnText} />
     </form>
   );
