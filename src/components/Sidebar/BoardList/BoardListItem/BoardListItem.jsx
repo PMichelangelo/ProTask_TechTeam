@@ -1,4 +1,6 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
+import { Confirm } from 'notiflix';
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -20,8 +22,16 @@ import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../../redux/auth/auth-selectors';
 import createStyle from 'shared/functions/style';
 
-const BoardListItem = ({ board, isActive, onClick }) => {
+const BoardListItem = ({
+  dashboards,
+  board,
+  isActive,
+  onClick,
+  setActiveBoardId,
+}) => {
   const theme = useSelector(selectTheme);
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const [modalActive, setModalActive] = useState(false);
@@ -40,7 +50,23 @@ const BoardListItem = ({ board, isActive, onClick }) => {
     if (e.currentTarget.id === idArr[0]) {
       setModalActive(true);
     } else {
-      dispatch(deleteDashboard(board._id));
+      Confirm.show(
+        'Deleting',
+        `Are you sure you want to delete board ${board.title}?`,
+        'Yes',
+        'No',
+        () => {
+          dispatch(deleteDashboard(board._id));
+          if (dashboards.length > 1) {
+            const remainingBoard = dashboards.find(b => b._id !== board._id);
+            navigate(`/home/${remainingBoard.title}`);
+            setActiveBoardId(remainingBoard._id);
+          } else {
+            navigate(`/home`);
+            setActiveBoardId(null);
+          }
+        }
+      );
     }
   };
 

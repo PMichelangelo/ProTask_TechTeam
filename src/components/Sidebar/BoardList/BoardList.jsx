@@ -31,10 +31,12 @@ const BoardList = () => {
       {dashboards.map(board => {
         return (
           <BoardListItem
+            dashboards={dashboards}
             key={board._id}
             board={board}
             isActive={activeBoardId === board._id}
             onClick={() => handleBoardItemClick(board._id)}
+            setActiveBoardId={setActiveBoardId}
           />
         );
       })}

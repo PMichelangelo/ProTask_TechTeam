@@ -4,7 +4,6 @@
   left: 0;
   width: 225px;
   height: 100vh;
-  /* background-color: #121212; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,7 +17,6 @@
   position: absolute;
   transition: 500ms;
   transform: translateX(0);
-  /* background-color: #121212; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -27,12 +25,13 @@
 }
 
 .myBoardsTitle {
-  color: rgba(255, 255, 255, 0.5);
+  opacity: 0.5;
   font-weight: 400;
   font-size: 12px;
   margin-left: 14px;
   margin-top: 70px;
 }
+
 .theme_dark {
   background-color: #121212;
   color: #fff;
@@ -77,6 +76,7 @@
     color: #fff;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .sidebar {
     width: 260px;

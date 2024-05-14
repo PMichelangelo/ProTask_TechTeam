@@ -29,6 +29,18 @@ export const editColumn = createAsyncThunk(
   }
 );
 
+export const switchColumn = createAsyncThunk(
+  'columns/switch',
+  async ({ boardId, body }, { rejectWithValue }) => {
+    try {
+      await columnsApi.editColumnRequest(boardId, body);
+      return body;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const deleteColumn = createAsyncThunk(
   'columns/delete',
   async ({ boardId, columnId }, { rejectWithValue }) => {

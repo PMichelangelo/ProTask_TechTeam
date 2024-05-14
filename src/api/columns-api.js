@@ -20,6 +20,10 @@ export const editColumnRequest = async (boardId, columnId, body) => {
   return await authInstance.put(`/boards/current/${boardId}/${columnId}`, body);
 };
 
+export const switchColumnRequest = async (boardId, body) => {
+  return await authInstance.put(`/boards/current/${boardId}`, body);
+};
+
 export const deleteColumnRequest = async (boardId, columnId) => {
   return await authInstance.delete(`/boards/current/${boardId}/${columnId}`);
 };
