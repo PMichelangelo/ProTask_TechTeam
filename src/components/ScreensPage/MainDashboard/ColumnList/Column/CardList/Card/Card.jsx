@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 
+import { Confirm } from 'notiflix';
+
 import BtnList from 'shared/components/BtnList';
 import Modal from 'components/Modal/Modal';
 import AddCardModal from 'components/Modal/AddCardModal/AddCardModal';
@@ -25,9 +27,18 @@ function getFormattedDate() {
 
 function formatDateString(dateString) {
   const parts = dateString.split('/');
-  const month = parts[0];
-  const day = parts[1];
+  let month = parts[0];
+  let day = parts[1];
   const year = parts[2];
+
+  if (month.length === 1) {
+    month = `0${month}`;
+  }
+
+  if (day.length === 1) {
+    day = `0${day}`;
+  }
+
   return `${day}/${month}/${year}`;
 }
 
@@ -59,7 +70,15 @@ const Card = ({
       case idArr[1]:
         return setIsModalOpen(true);
       case idArr[2]:
-        return dispatch(deleteTask({ columnId, taskId }));
+        return Confirm.show(
+          'Deleting',
+          `Are you sure you want to delete task ${title}?`,
+          'Yes',
+          'No',
+          () => {
+            dispatch(deleteTask({ columnId, taskId }));
+          }
+        );
       default:
         return;
     }
@@ -89,12 +108,24 @@ const Card = ({
           css[createStyle(theme, 'card')]
         }`}
       >
-        <h4 className={css.cardTitle}>{title}</h4>
-        <p className={css.cardText}>{description}</p>
+        <h4 className={`${css.cardTitle} ${css[createStyle(theme, 'text')]}`}>
+          {title}
+        </h4>
+        <p
+          className={`${css.cardText} ${css[createStyle(theme, 'text')]} ${
+            css[createStyle(theme, 'descr')]
+          }`}
+        >
+          {description}
+        </p>
         <div className={css.wrapCardInfo}>
           <div className={css.wrapPriorityDeadline}>
             <div className={css.wrapLeft}>
-              <h6 className={css.infoText}>Priority</h6>
+              <h6
+                className={`${css.infoText} ${css[createStyle(theme, 'text')]}`}
+              >
+                Priority
+              </h6>
               <div className={css.prioritySpanText}>
                 <span
                   className={`${css.colorSpan} ${getPriorityClass(
@@ -102,12 +133,20 @@ const Card = ({
                     'priority'
                   )}`}
                 ></span>
-                <p className={css.info}>{priority}</p>
+                <p className={`${css.info} ${css[createStyle(theme, 'text')]}`}>
+                  {priority}
+                </p>
               </div>
             </div>
             <div className={css.wrapLeft}>
-              <h6 className={css.infoText}>Deadline</h6>
-              <p className={css.info}>{formattedDeadline}</p>
+              <h6
+                className={`${css.infoText} ${css[createStyle(theme, 'text')]}`}
+              >
+                Deadline
+              </h6>
+              <p className={`${css.info} ${css[createStyle(theme, 'text')]}`}>
+                {formattedDeadline}
+              </p>
             </div>
           </div>
           <BtnList

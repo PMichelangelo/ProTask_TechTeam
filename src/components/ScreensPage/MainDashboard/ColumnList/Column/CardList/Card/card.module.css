@@ -28,14 +28,12 @@
 
 .cardPriorityWithout::before {
   background-color: var(--radio-grey);
-  opacity: 0.3;
 }
 
 .cardTitle {
   font-weight: 600;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: var(--light-text-color);
   padding-bottom: 8px;
 }
 
@@ -43,8 +41,6 @@
   font-size: 12px;
   line-height: 133%;
   letter-spacing: -0.02em;
-  color: var(--light-text-color);
-  opacity: 0.7;
   max-width: 290px;
   width: 100%;
   display: -webkit-box;
@@ -60,9 +56,8 @@
   content: '';
   height: 1px;
   width: calc(100% - 24px - 20px);
-  background-color: var(--light-text-color);
   opacity: 0.1;
-  top: 85px;
+  top: 62%;
   left: 24px;
   transform: translateY(-50%);
 }
@@ -89,14 +84,12 @@
   font-weight: normal;
   font-size: 8px;
   letter-spacing: -0.02em;
-  color: var(--light-text-color);
   opacity: 0.5;
 }
 
 .info {
   font-size: 10px;
   letter-spacing: -0.02em;
-  color: var(--light-text-color);
 }
 
 .prioritySpanText {
@@ -124,7 +117,6 @@
 
 .priorityWithout {
   background-color: var(--radio-grey);
-  opacity: 0.3;
 }
 
 /*  card theme  */
@@ -136,4 +128,37 @@
 .theme_light_card,
 .theme_violet_card {
   background-color: var(--light-plus-color);
+}
+
+/* card after theme  */
+
+.theme_dark_card::after {
+  background-color: var(--dark-text-color);
+}
+
+.theme_light_card::after,
+.theme_violet_card::after {
+  background-color: var(--light-text-color);
+}
+
+/* text theme */
+
+.theme_dark_text {
+  color: var(--dark-text-color);
+}
+
+.theme_light_text,
+.theme_violet_text {
+  color: var(--light-text-color);
+}
+
+/*  description theme  */
+
+.theme_dark_descr {
+  opacity: 0.5;
+}
+
+.theme_light_descr,
+.theme_violet_descr {
+  opacity: 0.7;
 }

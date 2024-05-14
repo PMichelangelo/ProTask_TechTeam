@@ -53,7 +53,7 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
       <div>
         <LogoComponent />
         <div className={css.myBoards}>
-          <h3 className={css.myBoardsTitle}>My boards</h3>
+          <h3 className={`${css.myBoardsTitle} ${sidebarTheme}`}>My boards</h3>
           <CurrentTheme>
             <CreateNewBoard />
           </CurrentTheme>
