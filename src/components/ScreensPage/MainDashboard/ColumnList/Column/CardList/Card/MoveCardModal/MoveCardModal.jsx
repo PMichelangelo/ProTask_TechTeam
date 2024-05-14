@@ -1,16 +1,19 @@
 import css from './moveCardModal.module.css';
-
+import sprite from '../../../../../../../../images/icons.svg'
 // import { selectTheme } from '../../../../../../../../redux/auth/auth-selectors';
 // import createStyle from 'shared/functions/style';
 import { useSelector } from 'react-redux';
 import { selectColumns } from '../../../../../../../../redux/dashboards/columns/columns-selectors';
+import { selectTheme } from '../../../../../../../../redux/auth/auth-selectors';
 import { useEffect, useRef } from 'react';
+import createStyle from 'shared/functions/style';
 
 const MoveCardModal = ({ isOpen, onClose, onClick, currentColumnId }) => {
   //   const theme = useSelector(selectTheme);
   const columns = useSelector(selectColumns);
   const selectRef = useRef(null);
-
+  const theme = useSelector(selectTheme)
+  console.log(theme)
   const columnsToMove = columns.filter(column => {
     return column._id !== currentColumnId;
   });
@@ -31,14 +34,19 @@ const MoveCardModal = ({ isOpen, onClose, onClick, currentColumnId }) => {
 
   return (
     isOpen && (
-      <div className={`${css.moveModal}`} ref={selectRef}>
+      <div className={`${css.moveModal} ${css[createStyle(theme, 'moveModal')]}`} ref={selectRef}>
         {columnsToMove.length === 0 ? (
           <p>There is no columns to move your task</p>
         ) : (
-          <ul>
+          <ul className={css.move_button_list}>
             {columnsToMove.map(item => (
               <li key={item._id}>
-                <button onClick={() => onClick(item._id)}>{item.title}</button>
+                <button onClick={() => onClick(item._id)} className={`${css.moveButton} ${css[createStyle(theme, 'moveButton')]}`}>
+                  {item.title}
+                  <svg className={`${css.move_icon} ${css[createStyle(theme, 'move_icon')]}`} width="16" height="16">
+                    <use href={`${sprite}#arrow-circle-icon`}/>
+                  </svg>
+                </button>
               </li>
             ))}
           </ul>

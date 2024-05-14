@@ -164,10 +164,11 @@
   opacity: 0.7;
 }
 
-/*  popup   */
-.popup {
+/*  container for move task modal   */
+.modalMoveWrapper {
   position: absolute;
   bottom: 40%;
-  left: 75%;
-  background-color: var(--dark-input-focus-color);
+  left: 40%;
+  overflow: visible;
+  z-index: 999;
 }

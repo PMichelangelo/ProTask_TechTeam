@@ -75,7 +75,7 @@ const Card = ({
   const handleClick = e => {
     switch (e.currentTarget.id) {
       case idArr[0]:
-        return setIsMoveModalOpen(true);
+        return setIsMoveModalOpen(!isMoveModalOpen);
       case idArr[1]:
         return setIsModalOpen(true);
       case idArr[2]:
@@ -154,6 +154,14 @@ const Card = ({
               </p>
             </div>
           </div>
+          <div className={css.modalMoveWrapper}>
+            <MoveCardModal
+              isOpen={isMoveModalOpen}
+              onClose={setIsMoveModalOpen}
+              onClick={handleMoveClick}
+              currentColumnId={columnId}
+            />
+          </div>
           <BtnList
             theme={theme}
             spriteArr={spriteArr}
@@ -171,12 +179,6 @@ const Card = ({
           btnText={'Edit'}
         />
       </Modal>
-      <MoveCardModal
-        isOpen={isMoveModalOpen}
-        onClose={setIsMoveModalOpen}
-        onClick={handleMoveClick}
-        currentColumnId={columnId}
-      />
     </>
   );
 };
