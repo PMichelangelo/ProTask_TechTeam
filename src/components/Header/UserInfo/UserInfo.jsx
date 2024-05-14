@@ -40,6 +40,8 @@ const UserInfo = ({ user: initialUser }) => {
     const response = await updateUserProfile(token, formData);
     console.log('User info after update:', response);
       setUser(formData);
+      console.log("setUser",formData)
+
     closeModal();
     }
     catch (error) {
