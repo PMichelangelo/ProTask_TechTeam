@@ -8,7 +8,8 @@ import { selectTheme } from '../../../redux/auth/auth-selectors';
 
 import styles from './userInfo.module.css';
 
-const UserInfo = ({ user }) => {
+const UserInfo = ({ user: initialUser }) => {
+  const [user, setUser] = useState(initialUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const currentTheme = useSelector(selectTheme);
 
@@ -28,12 +29,18 @@ const UserInfo = ({ user }) => {
 
   const handleEditProfile = formData => {
     try {
+      const updatedUser = { ...user, ...formData };
+      if (formData.avatar) {
+        updatedUser.avatarURL = formData.avatar;
+        setUser(updatedUser);
+      }
       console.log(formData);
       closeModal();
     } catch (error) {
       console.error(error);
     }
   };
+  
 
   const userInfoPageTheme = themeClassMap[currentTheme] || '';
 

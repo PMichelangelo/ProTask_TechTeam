@@ -14,13 +14,13 @@ import styles from './UserForm.module.css';
 const UserForm = ({ user, onSubmit }) => {
   const {
     control,
-    register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: {
       name: user?.name,
       email: user?.email,
+      avatar: null,
     },
     criteriaMode: 'all',
     mode: 'onChange',
@@ -37,26 +37,29 @@ const UserForm = ({ user, onSubmit }) => {
 
   const modalTheme = themeClassMap[currentTheme] || '';
 
+  const handleFormSubmit = (data) => {
+    onSubmit(data);
+  };
+
   return (
     <form
       className={`${styles.formWrapper} ${modalTheme}`}
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(handleFormSubmit)}
     >
       <Controller
+        name="avatar"
+        control={control}
         render={({ field }) => (
           <UploadButton
             user={user}
-            onChange={file => {
-              field.onChange(file);
+            onChange={(file) => {
+              field.onChange(file); 
             }}
           />
         )}
-        name="avatar"
-        control={control}
       />
 
       <Input
-        {...register('name')}
         type="text"
         placeholder="Name"
         defaultValue={user?.name}
@@ -64,7 +67,6 @@ const UserForm = ({ user, onSubmit }) => {
       />
 
       <Input
-        {...register('email')}
         type="email"
         placeholder="Email"
         defaultValue={user?.email}
@@ -72,7 +74,6 @@ const UserForm = ({ user, onSubmit }) => {
       />
 
       <Input
-        {...register('password')}
         type="password"
         placeholder="Password"
         error={errors?.password?.message}
