@@ -36,7 +36,10 @@ const UserInfo = ({ user: initialUser }) => {
       if (updatedUser.avatar) {
         formDataToSend.append('profileImage', updatedUser.avatar);
       }
-      const updatedUserData = await updateUserProfile(user.token, formDataToSend);
+      const updatedUserData = await updateUserProfile(
+        user.token,
+        formDataToSend
+      );
       setUser(updatedUserData);
       console.log(formData);
       closeModal();
@@ -60,7 +63,7 @@ const UserInfo = ({ user: initialUser }) => {
           <UserAvatar user={user} />
         </span>
       </button>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} title="Edit profile">
         <UserForm user={user} onSubmit={handleEditProfile} />
       </Modal>
     </div>

@@ -46,28 +46,34 @@ const Sidebar = ({ setIsMenuOpen, isMenuOpen }) => {
 
   return (
     <div
-      className={
-        isMenuOpen
-          ? `${css.openSidebar} ${sidebarTheme}`
-          : `${css.sidebar} ${sidebarTheme}`
-      }
-      ref={menuRef}
+      className={` ${css.sidebarContainer} ${
+        isMenuOpen ? css.sidebarOpen : ''
+      }`}
     >
-      <div>
-        <LogoComponent />
-        <div className={css.myBoards}>
-          <h3 className={css.myBoardsTitle}>My boards</h3>
-          <CurrentTheme>
-            <CreateNewBoard />
-          </CurrentTheme>
-          <BoardList />
+      <div
+        className={
+          isMenuOpen
+            ? `${css.openSidebar} ${sidebarTheme}`
+            : `${css.sidebar} ${sidebarTheme}`
+        }
+        ref={menuRef}
+      >
+        <div>
+          <LogoComponent />
+          <div className={css.myBoards}>
+            <h3 className={css.myBoardsTitle}>My boards</h3>
+            <CurrentTheme>
+              <CreateNewBoard />
+            </CurrentTheme>
+            <BoardList />
+          </div>
         </div>
-      </div>
-      <div className={css.needHelpLogout}>
-        <CurrentTheme>
-          <NeedHelp />
-          <Logout />
-        </CurrentTheme>
+        <div className={css.needHelpLogout}>
+          <CurrentTheme>
+            <NeedHelp />
+            <Logout />
+          </CurrentTheme>
+        </div>
       </div>
     </div>
   );
