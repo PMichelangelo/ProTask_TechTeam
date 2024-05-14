@@ -8,6 +8,7 @@ import ColumnHeader from './ColumnHeader';
 import { selectTasks } from '../../../../../redux/dashboards/tasks/tasks-selectors';
 
 import css from './column.module.css';
+import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
 
 const Column = ({ column }) => {
   const allCards = useSelector(selectTasks);
@@ -30,6 +31,7 @@ const Column = ({ column }) => {
     <li className={itemClass}>
       <div className={css.wrap}>
         <ColumnHeader column={column} />
+
         <CardList cards={filteredColumnCards} />
       </div>
       <AddCard boardId={column.boardId} columnId={column._id} />

@@ -1,7 +1,7 @@
 .filterButtonWrap {
   position: relative;
   padding-top: 14px;
-  padding-bottom: 40px;
+  padding-bottom: 26px;
   padding-right: 20px;
 }
 
@@ -147,7 +147,6 @@
   border-radius: 50%;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-
 }
 
 /* Checked */

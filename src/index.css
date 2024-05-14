@@ -89,6 +89,40 @@ body {
   background-color: palevioletred;
 }
 
+*::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 12px;
+  background-color: #fff;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background-color: #e8e8e8;
+}
+
+/* ======= Light ========= */
+[class*='cardList']::-webkit-scrollbar {
+  background: #e8e8e8;
+}
+[class*='cardList']::-webkit-scrollbar-thumb {
+  background-color: #1616161a;
+}
+
+/* ======= Dark ========= */
+body [class*='theme_dark'] *::-webkit-scrollbar {
+  background: #ffffff37;
+}
+body [class*='theme_dark'] *::-webkit-scrollbar-thumb {
+  background: #121212;
+}
+
+/* ======= Violet ======== */
+body [class*='theme_violet'] *::-webkit-scrollbar {
+  background: #fff;
+}
+body [class*='theme_violet'] *::-webkit-scrollbar-thumb {
+  background: #b8bcfd;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
