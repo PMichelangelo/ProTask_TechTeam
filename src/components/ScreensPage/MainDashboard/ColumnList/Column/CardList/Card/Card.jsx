@@ -1,12 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-
 import { Confirm } from 'notiflix';
-
 import BtnList from 'shared/components/BtnList';
 import Modal from 'components/Modal/Modal';
 import AddCardModal from 'components/Modal/AddCardModal/AddCardModal';
-
 import {
   deleteTask,
   editTask,
@@ -26,21 +23,17 @@ function getFormattedDate() {
   const year = today.getFullYear();
   return `${day}/${month}/${year}`;
 }
-
 function formatDateString(dateString) {
   const parts = dateString.split('/');
   let month = parts[0];
   let day = parts[1];
   const year = parts[2];
-
   if (month.length === 1) {
     month = `0${month}`;
   }
-
   if (day.length === 1) {
     day = `0${day}`;
   }
-
   return `${day}/${month}/${year}`;
 }
 
@@ -69,7 +62,6 @@ const Card = ({
     `deleteCard${taskId}`,
     `deadline${taskId}`,
   ];
-
   const handleSubmit = body => {
     dispatch(editTask({ columnId, taskId, body }));
   };
@@ -100,11 +92,8 @@ const Card = ({
         return;
     }
   };
-
   const formattedDeadline = formatDateString(deadline);
-
   const isDeadline = formattedDeadline === getFormattedDate();
-
   function getPriorityClass(priority, prefix = '') {
     switch (priority) {
       case 'High':
@@ -117,7 +106,6 @@ const Card = ({
         return css[`${prefix}Without`];
     }
   }
-
   return (
     <>
       <li

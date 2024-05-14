@@ -74,6 +74,7 @@
 }
 
 .wrapCardInfo {
+  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -161,4 +162,12 @@
 .theme_light_descr,
 .theme_violet_descr {
   opacity: 0.7;
+}
+
+/*  popup   */
+.popup {
+  position: absolute;
+  bottom: 40%;
+  left: 75%;
+  background-color: var(--dark-input-focus-color);
 }

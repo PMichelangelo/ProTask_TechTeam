@@ -11,9 +11,7 @@ const ThemeSelectorIcon = () => {
       width="20"
       height="20"
     >
-      {/* Використовуємо <use> для відображення символу */}
       <use href="#Vector" />
-      {/* Ваш символ */}
       <symbol
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

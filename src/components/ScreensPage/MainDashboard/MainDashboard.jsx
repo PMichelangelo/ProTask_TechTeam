@@ -19,15 +19,13 @@ const MainDashboard = ({ boardId }) => {
       return idx === 0
     }
    })
-  const backImgUrl = activeBoard && activeBoard.backgroundURL[`${getScreenType()}${getDeviceType()}`]
-   console.log(getDeviceType())
+  const backImgUrl = activeBoard && activeBoard.backgroundURL && activeBoard.backgroundURL[`${getScreenType()}${getDeviceType()}`];
 
-  const dashboardStyles = {
+  const dashboardStyles = backImgUrl ? {
     backgroundImage: `url(${backImgUrl})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
-
-  }
+  } : {};
 
   return (
     <section className={css.mainDashboardSection} style={dashboardStyles} >
