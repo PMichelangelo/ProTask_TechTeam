@@ -237,7 +237,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
               htmlFor="Without"
             >
               <svg className={css.icon}>
-                <use
+                <use className={`${css.icon} ${cardTheme}`}
                   href={`${sprite}${
                     priority === 'Without'
                       ? '#radio-active-icon'
