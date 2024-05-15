@@ -11,7 +11,7 @@ import Loader from 'components/Loader/Loader';
 const UserInfo = ({ user: initialUser }) => {
   const [user, setUser] = useState(initialUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Add loading state
+  const [isLoading, setIsLoading] = useState(false);
   const currentTheme = useSelector(selectTheme);
   const token = useSelector(selectToken);
 
@@ -30,7 +30,7 @@ const UserInfo = ({ user: initialUser }) => {
   };
 
   const handleEditProfile = async (updatedUserData) => {
-    setIsLoading(true); // Set loading state to true
+    setIsLoading(true);
     try {
       const formData = {
         name: updatedUserData.name || "",
@@ -38,17 +38,14 @@ const UserInfo = ({ user: initialUser }) => {
         password: updatedUserData.password || "",
         avatar: updatedUserData.avatar || "",
       };
-      console.log('Data being sent to server:', formData);
       const response = await updateUserProfile(token, formData);
-      console.log('User info after update:', response);
       setUser(response.user);
-      console.log(response.user);
-      setIsLoading(false); // Set loading state to false after request completes
+      setIsLoading(false);
 
       closeModal();
     } catch (error) {
       console.error(error);
-      setIsLoading(false); // Set loading state to false in case of error
+      setIsLoading(false);
     }
   };
 
