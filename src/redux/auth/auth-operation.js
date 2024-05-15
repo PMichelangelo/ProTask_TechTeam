@@ -7,7 +7,7 @@ import {
   currentRequest,
   logoutRequest,
 } from 'api/auth-api';
-
+import { updateUserProfile } from 'api/user-api';
 import { postUserTheme } from 'api/theme-api';
 
 export const register = createAsyncThunk(
@@ -83,6 +83,18 @@ export const updateTheme = createAsyncThunk(
     try {
       const response = await postUserTheme(theme);
       console.log('theme:',response.data)
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const updateUserProfileA = createAsyncThunk(
+  'auth/updateUserProfile',
+  async (userData, { rejectWithValue }) => {
+    try {
+      const response = await updateUserProfile(userData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
