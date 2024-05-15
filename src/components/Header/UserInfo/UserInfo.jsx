@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import UserAvatar from '../UserAvatar';
 import UserForm from '../UserForm';
-import { selectTheme} from '../../../redux/auth/auth-selectors';
+
+import { selectTheme, selectToken } from '../../../redux/auth/auth-selectors';
+
 import styles from './userInfo.module.css';
 import { updateUserProfile } from '../../../api/user-api';
 
@@ -11,7 +13,8 @@ const UserInfo = ({ user: initialUser }) => {
   const [user, setUser] = useState(initialUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const currentTheme = useSelector(selectTheme);
-
+  const token = useSelector(selectToken)
+  console.log(user)
   const themeClassMap = {
     dark: styles.theme_dark,
     light: styles.theme_light,
@@ -29,17 +32,18 @@ const UserInfo = ({ user: initialUser }) => {
   const handleEditProfile = async (updatedUserData) => {
     console.log("updatedUserData", updatedUserData)
     try {
-      const formData = {
+
+    const formData = {
       name: updatedUserData.name || "",
-      email: updatedUserData.email ||"",
+      email: updatedUserData.email || "",
       password: updatedUserData.password || "",
       avatar: updatedUserData.avatar || "",
     };
-    console.log('Data being sent to server:', formData, user);
-    const response = await updateUserProfile(formData);
-    console.log('User info after update:', response, user);
+    console.log('Data being sent to server:', formData);
+    const response = await updateUserProfile(token, formData);
+    console.log('User info after update:', response);
       setUser(formData);
-      console.log("setUser",response.user)
+      console.log("setUser",response.user) 
 
     closeModal();
     }
