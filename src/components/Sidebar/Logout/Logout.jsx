@@ -4,12 +4,16 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../../redux/auth/auth-operation';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/auth-selectors';
+import {resetDashboards} from "../../../redux/dashboards/dashboards-slice"
 
 const Logout = () => {
   const dispatch = useDispatch();
   const currentTheme = useSelector(selectTheme);
 
-  const onLogout = () => dispatch(logout());
+  const onLogout = () => {
+    dispatch(logout());
+    dispatch(resetDashboards())
+  }
 
   const logoutTextColor = currentTheme === 'light' ? '#161616' : '#ffffff';
 
