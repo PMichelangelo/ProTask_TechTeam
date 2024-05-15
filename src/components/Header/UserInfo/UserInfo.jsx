@@ -39,6 +39,7 @@ const handleEditProfile = async (updatedUserData) => {
     const response = await updateUserProfile(token, formData);
     console.log('User info after update:', response);
     setUser(response.user);
+    console.log(response.user)
 
     closeModal();
   } catch (error) {
