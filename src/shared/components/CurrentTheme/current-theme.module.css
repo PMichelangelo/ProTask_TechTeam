@@ -1,5 +1,8 @@
 /*! =========DARK=========== */
-.theme_dark {
+.current-theme_theme_dark {
+  /* background-color: #161616; */
+}
+.theme_dark [class*='createNewBoard_createNewBoardBtn__'] {
   background-color: #121212;
   color: #fff;
 }
@@ -25,6 +28,34 @@
   background-color: #1f1f1f;
 }
 
+/* ======Calendar=========== */
+.theme_dark [class*='header--custom'] {
+  background-color: #1f1f1f;
+}
+.theme_dark [class*='arrow'] {
+  stroke: #fff;
+}
+.theme_dark [class*='addcardModal_date'] {
+  color: #fff;
+}
+.theme_dark [class*='calendarHeader'] {
+  border-bottom: 1px solid #333333;
+}
+.theme_dark [class*='__day-names'] [class*='day-name'] {
+  color: #ffffff80;
+}
+.theme_dark [class*='__month'] {
+  background-color: #1f1f1f;
+}
+.theme_dark [class*='react-datepicker__day--'][class*='--outside-month'] {
+  color: #333333;
+}
+.theme_dark [class*='react-datepicker__day'] {
+  color: #fff;
+}
+.theme_dark [class*='--selected'] {
+  color: #1f1f1f;
+}
 /*! =========LIGHT=========== */
 .theme_light {
   background-color: #fff;
@@ -50,7 +81,10 @@
 }
 /*! =========VIOLET=========== */
 .theme_violet {
-  background-color: #5255bc;
+  /* background-color: #5255bc;
+  color: #fff; */
+}
+.theme_violet [class*='createNewBoard_createNewBoardBtn__'] {
   color: #fff;
 }
 .theme_violet [class*='logoBg'] {
@@ -93,4 +127,26 @@
 }
 .theme_violet [class*='block']:hover [class*='logoutIcon'] {
   stroke: var(--button-violet-wrap-alt-color);
+}
+
+/* ======Calendar=========== */
+.theme-violet > [class*='input-container'] .arrow-down {
+  background-color: var(--button-violet-wrap-alt-color);
+}
+.theme_violet [class*='addcardModal_customCalendar'] {
+  border: 1px solid var(--button-violet-color);
+}
+.theme_violet [class*='header--custom'] {
+  background-color: #fff;
+}
+
+.theme_violet [class*='--selected'] {
+  background-color: var(--button-violet-wrap-alt-color);
+  color: #fff;
+}
+.theme_violet [class*='--selected']:hover {
+  background-color: var(--button-violet-color);
+}
+.theme_violet [class*='day--keyboard-selected'] {
+  background-color: #5255bc6a;
 }
