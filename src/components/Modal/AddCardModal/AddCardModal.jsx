@@ -80,11 +80,15 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
     setAddCardModal({ ...INITIAL_STATE });
   };
 
+  const today = new Date()
+
   const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
     const formattedDate = new Date(date).toLocaleString('en-US', {
       month: 'long',
       year: 'numeric',
     });
+
+
 
     return (
       <div className={css.calendarHeader}>
@@ -264,6 +268,7 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
             calendarClassName={css.customCalendar}
             dayClassName={dayClassName}
             className={css.my_datepicker}
+            minDate={today}
           />
         </div>
       </CurrentTheme>

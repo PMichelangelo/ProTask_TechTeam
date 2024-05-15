@@ -45,19 +45,13 @@
   }
 }
 
-.theme_light {
-}
-
-.theme_violet {
-}
-
 @media (min-width: 375px) {
 }
 
 @media (min-width: 768px) {
-  .modal_content {
-    /* min-width: 350px; */
-  }
+  /* .modal_content {
+    /* min-width: 350px;
+  } */
 }
 
 @media (min-width: 1440px) {
