@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import UserAvatar from '../UserAvatar';
 import UserForm from '../UserForm';
-import { selectTheme, selectToken } from '../../../redux/auth/auth-selectors';
+import { selectTheme} from '../../../redux/auth/auth-selectors';
 import styles from './userInfo.module.css';
 import { updateUserProfile } from '../../../api/user-api';
 
@@ -11,7 +11,6 @@ const UserInfo = ({ user: initialUser }) => {
   const [user, setUser] = useState(initialUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const currentTheme = useSelector(selectTheme);
-  const token = useSelector(selectToken)
 
   const themeClassMap = {
     dark: styles.theme_dark,
