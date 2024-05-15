@@ -3,7 +3,6 @@ import defaultAvatar from './avatar.png';
 import styles from './UserAvatar.module.css';
 
 const UserAvatar = ({ user }) => {
-  console.log(user)
   let avatarSrc = defaultAvatar;
 
   if (typeof user.avatarURL === 'string' && user.avatarURL.startsWith('data:image')) {

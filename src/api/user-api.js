@@ -24,10 +24,11 @@ export const updateUserProfile = async(token, body) => {
     formData.append('password', body.password);
 
     if (body.avatar) {
-      formData.append('avatarURL', body.avatar);
+      formData.append('avatar', body.avatar);
     }
-    const response = await authInstance.patch('/users/edit/profile', formData, );
-    console.log('User info after update:', response.data);
+    const response = await authInstance.patch('/users/edit/profile', formData);
+    console.log('ResponseData', response.data);
+
     return response.data;
   } catch (error) {
     console.error("Failed to update user profile", error);

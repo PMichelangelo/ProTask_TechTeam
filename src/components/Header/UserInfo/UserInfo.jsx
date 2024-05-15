@@ -31,16 +31,16 @@ const UserInfo = ({ user: initialUser }) => {
     console.log("updatedUserData", updatedUserData)
     try {
       const formData = {
-      name: updatedUserData.name || '',
-      email: updatedUserData.email || '',
-      password: updatedUserData.password || '',
-      avatarURL: updatedUserData.avatar || '',
+      name: updatedUserData.name || "",
+      email: updatedUserData.email ||"",
+      password: updatedUserData.password || "",
+      avatar: updatedUserData.avatar || "",
     };
-    console.log('Data being sent to server:', formData);
-    const response = await updateUserProfile(token, formData);
-    console.log('User info after update:', response);
+    console.log('Data being sent to server:', formData, user);
+    const response = await updateUserProfile(formData);
+    console.log('User info after update:', response, user);
       setUser(formData);
-      console.log("setUser",formData)
+      console.log("setUser",response.user)
 
     closeModal();
     }
