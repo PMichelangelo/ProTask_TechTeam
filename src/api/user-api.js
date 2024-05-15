@@ -27,7 +27,6 @@ export const updateUserProfile = async(token, body) => {
       formData.append('avatar', body.avatar);
     }
     const response = await authInstance.patch('/users/edit/profile', formData);
-    console.log('ResponseData', response.data);
 
     return response.data;
   } catch (error) {

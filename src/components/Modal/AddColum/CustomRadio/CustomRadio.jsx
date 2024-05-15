@@ -9,9 +9,9 @@ const CustomRadio = ({ name, value, checked, onChange, svgIcon }) => {
         value={value}
         checked={checked}
         onChange={onChange}
-        className={css.radioInput} // Класс для скрытия оригинальной радиокнопки
+        className={css.radioInput}
       />
-      <div className={css.radioIcon}>{svgIcon}</div> {/* SVG для радиокнопки */}
+      <div className={css.radioIcon}>{svgIcon}</div>
     </label>
   );
 };

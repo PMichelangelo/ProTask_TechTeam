@@ -5,7 +5,6 @@ import NeedHelpModal from '../../Modal/NeedHelpModal/NeedHelpModal';
 import { useState } from 'react';
 import image from '../../../images/Cactus.png';
 import { sendUserNeedHelp } from 'api/user-api';
-// import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
 const NeedHelp = () => {
   const [modalActive, setModalActive] = useState(false);
 
@@ -16,7 +15,6 @@ const NeedHelp = () => {
   const forSubmitNeedHelp = async ({ description }) => {
     try {
       const data = { description };
-      console.log(data);
       await sendUserNeedHelp(data);
     } catch (error) {
       console.error('Failed to send a help request', error);

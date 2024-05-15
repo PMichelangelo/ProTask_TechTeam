@@ -1,5 +1,3 @@
-//import css from './addColum.module.css';
-
 import FormBtn from '../FormBtn/FormBtn';
 
 import { useState } from 'react';

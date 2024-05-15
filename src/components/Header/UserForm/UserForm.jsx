@@ -40,7 +40,6 @@ const UserForm = ({ user, onSubmit }) => {
 
   const handleFormSubmit = (data) => {
     onSubmit(data);
-    console.log(data)
   };
 
   return (
