@@ -26,26 +26,25 @@ const UserInfo = ({ user: initialUser }) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  
-  const handleEditProfile = async (updatedUserData) => {
-    console.log("updatedUserData", updatedUserData)
-    try {
-      const formData = {
-        name: updatedUserData.name || "",
-        email: updatedUserData.email || "",
-        password: updatedUserData.password || "",
-        avatar: updatedUserData.avatar || "",
-      };
-      console.log('Data being sent to server:', formData);
-      const response = await updateUserProfile(token, formData);
-      console.log('User info after update:', response);
-      setUser(response.user); // Update the user state with the response from the server
-  
-      closeModal();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+const handleEditProfile = async (updatedUserData) => {
+  console.log("updatedUserData", updatedUserData)
+  try {
+    const formData = {
+      name: updatedUserData.name || "",
+      email: updatedUserData.email || "",
+      password: updatedUserData.password || "",
+      avatar: updatedUserData.avatar || "",
+    };
+    console.log('Data being sent to server:', formData);
+    const response = await updateUserProfile(token, formData);
+    console.log('User info after update:', response);
+    setUser(response.user);
+
+    closeModal();
+  } catch (error) {
+    console.error(error);
+  }
+};
 
   const userInfoPageTheme = themeClassMap[currentTheme] || '';
 

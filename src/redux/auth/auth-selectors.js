@@ -7,4 +7,3 @@ export const selectTheme = state => {
     const user = state.auth.user;
     return user && user.theme ? user.theme : "light";
 };
-export const userImg = state => state.auth.user.avatarURL

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, login, current, logout, updateTheme, updateUserProfileA } from './auth-operation';
+import { register, login, current, logout, updateTheme } from './auth-operation';
 import { pending, rejected } from '../../shared/functions/redux';
 const initialState = {
   user: {},
@@ -13,11 +13,6 @@ const initialState = {
 const authSlice = createSlice({
     name: "auth",
     initialState,
-    reducers: {
-      updateUserImg(state, action) {
-        state.userImg = action.payload
-      },
-    },
     extraReducers: builder => {
         builder
             .addCase(register.pending, pending)
@@ -73,11 +68,7 @@ const authSlice = createSlice({
                 state.user = {};
                 state.token = '';
              })
-          .addCase(logout.rejected, rejected)
-          .addCase(updateUserProfileA.fulfilled, (state, action) => {
-            state.user.avatarURL = action.payload.avatarURL; // Assuming the response contains the updated avatarURL
-          })
-        
+          .addCase(logout.rejected, rejected);
 
 
     }
