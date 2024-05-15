@@ -60,21 +60,33 @@ const UserForm = ({ user, onSubmit }) => {
           />
         )}
       />
-
-      <Input
-        type="text"
-        placeholder="Name"
-        defaultValue={user?.name}
-        error={errors?.name?.message}
+      <Controller
+        name="name"
+        control={control}
+        render={({ field }) => (
+          <Input
+            type="text"
+            placeholder="Name"
+            {...field}
+            defaultValue={user?.name}
+            error={errors?.name?.message}
+          />
+        )}
       />
-
-      <Input
-        type="email"
-        placeholder="Email"
-        defaultValue={user?.email}
-        error={errors?.email?.message}
+      
+      <Controller
+        name="email"
+        control={control}
+        render={({ field }) => (
+          <Input
+            type="email"
+            placeholder="Email"
+            {...field}
+            defaultValue={user?.email}
+            error={errors?.email?.message}
+          />
+        )}
       />
-
       <Controller
         name="password"
         control={control}
