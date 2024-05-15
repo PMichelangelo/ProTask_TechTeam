@@ -45,7 +45,6 @@ const UploadButton = ({ user, onChange, ...props }) => {
         onChange(file);
       };
     };
-    console.log(file.name)
     reader.readAsDataURL(file);
   };
   

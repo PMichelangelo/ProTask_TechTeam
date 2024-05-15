@@ -78,7 +78,6 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
     onClose(false);
     onSubmit({ ...addCardModalState, deadline: selectedDate });
     setAddCardModal({ ...INITIAL_STATE });
-    console.log('button was pressed');
   };
 
   const renderCustomHeader = ({ date, decreaseMonth, increaseMonth }) => {

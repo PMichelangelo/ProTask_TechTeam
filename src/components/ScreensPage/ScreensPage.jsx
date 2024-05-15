@@ -44,23 +44,6 @@ const ScreensPage = () => {
     }
   }, [isLogin, dispatch]);
 
-  //   const Board = {
-  //   "title": "",
-  //   "icon": "",
-  //   "background": ""
-  // }
-
-  //   const Column = {
-  //   "title": ""
-  //  }
-
-  // const Task = {
-  // "title": "",
-  // "description": "",
-  // "color": "",
-  // "deadline": ""
-  // }
-
   return (
     <div className={`${css.screensPage} ${css[createStyle(theme, 'page')]}`}>
       <HeaderDashboard boardName={boardName} />

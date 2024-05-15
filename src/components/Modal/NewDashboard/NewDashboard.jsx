@@ -23,7 +23,6 @@ const INITIAL_STATE = {
     const handelSubmit = e => {
       e.preventDefault();
       onClose(false);
-      console.log(({ ...newBoardState }));;
       setNewBoardState({ ...INITIAL_STATE });
     };
   

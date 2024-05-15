@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-// import { useCurrentTheme } from '../../../helpers/useCurrentTheme';
 import { updateTheme } from '../../../redux/auth/auth-operation';
-//import { setTheme } from '../../../redux/theme/theme-slice';
 import { selectTheme } from '../../../redux/auth/auth-selectors';
-// import sprite from '../../../images/icons.svg';
 import ThemeSelectorIcon from '../ThemeSelectorIcon';
 
 import styles from './themeSelector.module.css';
@@ -20,14 +17,11 @@ const ThemeSelector = () => {
   const handleClick = theme => {
     setColorTheme(theme);
     setShowOptions(false);
-    console.log('Отправка запроса на изменение темы:', theme);
 
     dispatch(updateTheme(theme))
       .then(response => {
-        console.log('Ответ сервера:', response);
       })
       .catch(error => {
-        console.error('Ошибка при изменении темы:', error);
       });
   };
 
