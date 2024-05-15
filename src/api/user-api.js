@@ -11,17 +11,24 @@ export const sendUserNeedHelp = async (data) => {
     }
 };
 
-export const updateUserProfile = async (token, body ) => {
-  console.log(body, token)
+export const updateUserProfile = async(token, body) => {
   try {
     setToken(token);
-    console.log(body)
     const formData = new FormData();
-    console.log(formData)
-    formData.append('name', body.name);
-    formData.append('email', body.email);
+    if (body.name) {
+      formData.append('name', body.name);
+    }
+    if (body.email) {
+      formData.append('email', body.email);
+    }
     formData.append('password', body.password);
-    formData.append('avatar', body.avatar);
+
+    if (body.avatar) {
+      formData.append('avatar', body.avatar);
+    }
+    const response = await authInstance.patch('/users/edit/profile', formData);
+    console.log('ResponseData', response.data);
+
     return response.data;
   } catch (error) {
     console.error("Failed to update user profile", error);

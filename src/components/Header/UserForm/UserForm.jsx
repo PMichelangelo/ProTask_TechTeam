@@ -20,7 +20,6 @@ const UserForm = ({ user, onSubmit }) => {
     defaultValues: {
       name: user?.name,
       email: user?.email,
-      password:"",
       avatar: null,
       password: user?.password
     },
@@ -76,11 +75,16 @@ const UserForm = ({ user, onSubmit }) => {
         error={errors?.email?.message}
       />
 
-      <Input
-        type="password"
-        placeholder="Password"
-        defaultValue={user?.password}
-        error={errors?.password?.message}
+      <Controller
+        name="password"
+        control={control}
+        render={({ field }) => (
+          <Input
+            type="password"
+            placeholder="Password"
+            {...field}
+          />
+        )}
       />
 
       <button className={styles.formButton} type="submit">
