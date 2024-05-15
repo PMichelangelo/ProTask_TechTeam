@@ -108,6 +108,7 @@
   --WithoutBlackThema :rgba(255, 255, 255, 0.5);
 }
 .label_icon {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,44 +147,59 @@ input[value='Without'] + label svg use {
   stroke: transparent;
 }
 
+input[value='Without'] + label svg use.icon.theme_dark {
+  fill: var(--WithoutBlackThema);
+  stroke: transparent;
+}
 
-[value='Low']:checked + label svg use {
+input[value='Low']:checked + label svg use {
   fill: transparent;
   stroke: var(--Low);
 }
 
-[value='Low']:checked + .label_icon::before {
+input[value='Low']:checked + .label_icon::before {
   opacity: 1;
   background-color: var(--Low);
 }
 
-[value='Medium']:checked + label svg use {
+input[value='Medium']:checked + label svg use {
   fill: transparent;
   stroke: var(--Medium);
 }
 
-[value='Medium']:checked + .label_icon::before {
+input[value='Medium']:checked + .label_icon::before {
   opacity: 1;
   background-color: var(--Medium);
 }
 
-[value='High']:checked + label svg use {
+input[value='High']:checked + label svg use {
   fill: transparent;
   stroke: var(--High);
 }
-[value='High']:checked + .label_icon::before {
+input[value='High']:checked + .label_icon::before {
   opacity: 1;
   background-color: var(--High);
 }
 
-[value='Without']:checked + label svg use {
+input[value='Without']:checked + label svg use {
   fill: transparent;
   stroke: var(--Without);
 }
 
-[value='Without']:checked + .label_icon::before {
+input[value='Without']:checked + label svg .icon.cardTheme {
+  fill: transparent;
+  stroke: var(--WithoutBlackThema);
+
+}
+
+input[value='Without']:checked + .label_icon::before {
   opacity: 1;
   background-color: var(--Without);
+}
+
+input[value='Without']:checked + label.label_icon.cardTheme::before {
+  opacity: 1;
+  background-color: white
 }
 
 .radio_container {

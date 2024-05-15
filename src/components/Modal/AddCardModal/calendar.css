@@ -17,7 +17,7 @@
 }
 
 /* =====Wrapper========= */
-.react-datepicker {
+[class*='addcardModal_customCalendar'] {
   background-color: var(--dark-text-color);
   border-radius: 8px;
   border: 1px solid var(--button-light-color);
@@ -60,10 +60,18 @@
 }
 .react-datepicker__day {
   color: var(--light-text-color);
+  transition: all 0.3s ease;
+}
+.react-datepicker__day:hover {
+  border-radius: 50%;
 }
 [class*='--selected'] {
   font-weight: 500;
   background-color: var(--button-light-color);
+  border-radius: 50%;
+}
+[class*='--selected']:hover {
+  background-color: var(--button-light-alt-color);
   border-radius: 50%;
 }
 [class*='day--keyboard-selected'] {
