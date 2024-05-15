@@ -3,9 +3,7 @@ import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import UserAvatar from '../UserAvatar';
 import UserForm from '../UserForm';
-
 import { selectTheme, selectToken } from '../../../redux/auth/auth-selectors';
-
 import styles from './userInfo.module.css';
 import { updateUserProfile } from '../../../api/user-api';
 
@@ -28,26 +26,23 @@ const UserInfo = ({ user: initialUser }) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
+  
   const handleEditProfile = async (updatedUserData) => {
     console.log("updatedUserData", updatedUserData)
     try {
-
-    const formData = {
-      name: updatedUserData.name || "",
-      email: updatedUserData.email || "",
-      password: updatedUserData.password || "",
-      avatar: updatedUserData.avatar || "",
-    };
-    console.log('Data being sent to server:', formData);
-    const response = await updateUserProfile(token, formData);
-    console.log('User info after update:', response);
-      setUser(formData);
-      console.log("setUser",response.user) 
-
-    closeModal();
-    }
-    catch (error) {
+      const formData = {
+        name: updatedUserData.name || "",
+        email: updatedUserData.email || "",
+        password: updatedUserData.password || "",
+        avatar: updatedUserData.avatar || "",
+      };
+      console.log('Data being sent to server:', formData);
+      const response = await updateUserProfile(token, formData);
+      console.log('User info after update:', response);
+      setUser(response.user); // Update the user state with the response from the server
+  
+      closeModal();
+    } catch (error) {
       console.error(error);
     }
   };
@@ -67,7 +62,7 @@ const UserInfo = ({ user: initialUser }) => {
           <UserAvatar user={user} />
         </span>
       </button>
-      <Modal isOpen={isModalOpen} onClose={closeModal} title="Edit profile">
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
         <UserForm user={user} onSubmit={handleEditProfile} />
       </Modal>
     </div>
