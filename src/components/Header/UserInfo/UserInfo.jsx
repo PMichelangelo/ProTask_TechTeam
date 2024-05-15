@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import UserAvatar from '../UserAvatar';
 import UserForm from '../UserForm';
+
 import { selectTheme, selectToken } from '../../../redux/auth/auth-selectors';
+
 import styles from './userInfo.module.css';
 import { updateUserProfile } from '../../../api/user-api';
 
@@ -30,6 +32,7 @@ const UserInfo = ({ user: initialUser }) => {
   const handleEditProfile = async (updatedUserData) => {
     console.log("updatedUserData", updatedUserData)
     try {
+
     const formData = {
       name: updatedUserData.name || "",
       email: updatedUserData.email || "",
@@ -64,7 +67,7 @@ const UserInfo = ({ user: initialUser }) => {
           <UserAvatar user={user} />
         </span>
       </button>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} title="Edit profile">
         <UserForm user={user} onSubmit={handleEditProfile} />
       </Modal>
     </div>

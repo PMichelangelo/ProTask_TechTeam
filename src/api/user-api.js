@@ -22,14 +22,6 @@ export const updateUserProfile = async (token, body ) => {
     formData.append('email', body.email);
     formData.append('password', body.password);
     formData.append('avatar', body.avatar);
-
-    const response = await authInstance.patch('/users/edit/profile', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    });
-
-    console.log('User info after update:', response.data);
     return response.data;
   } catch (error) {
     console.error("Failed to update user profile", error);

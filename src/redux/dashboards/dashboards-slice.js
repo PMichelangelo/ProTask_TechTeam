@@ -23,6 +23,9 @@ const DashboardSlice = createSlice({
   reducers: {
     updateBoardId(state, action) {
       state.activeBoardId = action.payload
+    },
+    resetDashboards(state) {
+      state.items = [];
     }
   },
   extraReducers: builder => {
@@ -74,9 +77,10 @@ const DashboardSlice = createSlice({
           );
         }
       })
-      .addCase(deleteDashboard.rejected, rejected);
+      .addCase(deleteDashboard.rejected, rejected)
   },
+
 });
 
 export default DashboardSlice.reducer;
-export const {updateBoardId} = DashboardSlice.actions
+export const { updateBoardId, resetDashboards } = DashboardSlice.actions

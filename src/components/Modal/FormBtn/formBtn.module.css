@@ -28,7 +28,10 @@
 background-color:#7b7ede;
 color: #fff;
 } 
-
+.item_svg:focus,
+.item_svg:hover {
+ scale: 1.5;
+}
 
 
 .btn:focus,

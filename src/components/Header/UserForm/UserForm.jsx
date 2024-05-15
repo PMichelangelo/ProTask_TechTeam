@@ -20,6 +20,7 @@ const UserForm = ({ user, onSubmit }) => {
     defaultValues: {
       name: user?.name,
       email: user?.email,
+      password:"",
       avatar: null,
       password: user?.password
     },
@@ -55,7 +56,7 @@ const UserForm = ({ user, onSubmit }) => {
           <UploadButton
             user={user}
             onChange={(file) => {
-              field.onChange(file); 
+              field.onChange(file);
             }}
           />
         )}
