@@ -11,6 +11,7 @@ import './calendar.css';
 
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/auth-selectors';
+import CurrentTheme from 'shared/components/CurrentTheme/CurrentTheme';
 
 const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
   const options = {
@@ -250,20 +251,23 @@ const AddCardModal = ({ onClose, onSubmit, initialTaskState, btnText }) => {
         </div>
       </div>
 
-      <div className={css.datapicer_conteinet}>
-        <p className={`${css.sub_title} ${cardTheme}`}>Deadline</p>
-        <DatePicker
-          selected={selectedDate}
-          onChange={handleChangeData}
-          onClick={handleCalendarClick}
-          customInput={<ExampleCustomInput />}
-          dateFormat="dd/MM/yyyy"
-          renderCustomHeader={renderCustomHeader}
-          calendarClassName={css.customCalendar}
-          dayClassName={dayClassName}
-          className={css.my_datepicker}
-        />
-      </div>
+      <CurrentTheme className="wrap_theme">
+        <div className={css.datapicer_conteinet}>
+          <p className={`${css.sub_title} ${cardTheme}`}>Deadline</p>
+
+          <DatePicker
+            selected={selectedDate}
+            onChange={handleChangeData}
+            onClick={handleCalendarClick}
+            customInput={<ExampleCustomInput />}
+            dateFormat="dd/MM/yyyy"
+            renderCustomHeader={renderCustomHeader}
+            calendarClassName={css.customCalendar}
+            dayClassName={dayClassName}
+            className={css.my_datepicker}
+          />
+        </div>
+      </CurrentTheme>
       <FormBtn textBtn={btnText} />
     </form>
   );
