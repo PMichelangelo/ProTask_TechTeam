@@ -5,6 +5,8 @@ import { register, login } from "../../redux/auth/auth-operation";
 import { selectAuthError, selectAuthLoading } from "../../redux/auth/auth-selectors";
 import RegisterForm from "components/RegisterForm/RegisterForm";
 import LoginForm from "components/LoginForm/LoginForm";
+import Loader from "components/Loader/Loader";
+
 import styles from "./authPage.module.css";
 
 const AuthPage = () => {
@@ -28,13 +30,13 @@ const AuthPage = () => {
         <div className={styles.formContainer}>
             {id === "register" ? (
                 <>
-                    {authLoading && <div>Loading...</div>}
+                    {authLoading && <Loader />}
                     <RegisterForm onSubmit={handleRegister}/>
                     {authError && <div className={styles.error}>{authError}</div>}
                 </>
             ) : (
                 <>
-                    {authLoading && <div>Loading...</div>}
+                    {authLoading && <Loader />}
                     <LoginForm onSubmit={handleLogin}/>
                     {authError && <div className={styles.error}>{authError}</div>}
                 </>

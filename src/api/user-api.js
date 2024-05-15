@@ -11,18 +11,17 @@ export const sendUserNeedHelp = async (data) => {
     }
 };
 
-export const updateUserProfile = async (token, body) => {
+export const updateUserProfile = async (token, body ) => {
+  console.log(body, token)
   try {
     setToken(token);
-
+    console.log(body)
     const formData = new FormData();
+    console.log(formData)
     formData.append('name', body.name);
     formData.append('email', body.email);
     formData.append('password', body.password);
-
-    if (body.avatar) {
-      formData.append('profileImage', body.avatar);
-    }
+    formData.append('avatar', body.avatar);
 
     const response = await authInstance.patch('/users/edit/profile', formData, {
       headers: {

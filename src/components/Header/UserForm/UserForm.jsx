@@ -21,6 +21,7 @@ const UserForm = ({ user, onSubmit }) => {
       name: user?.name,
       email: user?.email,
       avatar: null,
+      password: user?.password
     },
     criteriaMode: 'all',
     mode: 'onChange',
@@ -39,6 +40,7 @@ const UserForm = ({ user, onSubmit }) => {
 
   const handleFormSubmit = (data) => {
     onSubmit(data);
+    console.log(data)
   };
 
   return (
@@ -76,6 +78,7 @@ const UserForm = ({ user, onSubmit }) => {
       <Input
         type="password"
         placeholder="Password"
+        defaultValue={user?.password}
         error={errors?.password?.message}
       />
 

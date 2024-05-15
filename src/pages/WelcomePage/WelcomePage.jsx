@@ -6,6 +6,7 @@ import { selectIsLogin } from "../../redux/auth/auth-selectors";
 import styles from "./welcomePage.module.css"
 
 import welcomeImg from "../../images/Welcome.png"
+import welcomeImgx2 from "../../images/Welcome-2x.png"
 import icon from "../../images/icons.svg"
 
 
@@ -18,7 +19,7 @@ const WelcomePage = () => {
 
     return(
         <div className={styles.wrap}>
-            <img className={styles.image} src={welcomeImg} alt="Man with a laptop emoji" width={81} height={81}/>
+            <img className={styles.image} src={welcomeImg}  srcSet={welcomeImgx2} alt="Man with a laptop emoji"/>
             <div className={styles.item}>
                 <div className={styles.logoIconWrap}>
                     <svg className={styles.logoIcon}>
