@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const authInstance = axios.create({
-  baseURL: 'http://localhost:3001/',
+  baseURL: 'https://protask-backend-qjoh.onrender.com',
 });
 authInstance.interceptors.response.use(
   response => response,
