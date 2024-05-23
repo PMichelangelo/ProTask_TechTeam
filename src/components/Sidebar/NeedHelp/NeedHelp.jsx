@@ -12,9 +12,9 @@ const NeedHelp = () => {
     setModalActive(true);
   };
 
-  const forSubmitNeedHelp = async ({ description }) => {
+  const forSubmitNeedHelp = async ({ description, email }) => {
     try {
-      const data = { description };
+      const data = { description, email };
       await sendUserNeedHelp(data);
     } catch (error) {
       console.error('Failed to send a help request', error);
@@ -34,7 +34,7 @@ const NeedHelp = () => {
         </svg>
         <p className={css.helpBtnText}>Need help?</p>
       </button>
-      <Modal isOpen={modalActive} onClose={setModalActive} title={"Need help"}>
+      <Modal isOpen={modalActive} onClose={setModalActive} title={'Need help'}>
         <NeedHelpModal onClose={setModalActive} onSubmit={forSubmitNeedHelp} />
       </Modal>
     </div>
