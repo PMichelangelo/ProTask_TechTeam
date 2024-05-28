@@ -1,5 +1,5 @@
 import authInstance from './auth-api';
-import { setToken } from './auth-api';
+//import { setToken } from './auth-api';
 
 export const sendUserNeedHelp = async data => {
   try {
