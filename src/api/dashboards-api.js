@@ -2,7 +2,7 @@ import authInstance from './auth-api';
 import { setToken } from './auth-api';
 
 export const getAllDashboardsRequest = async token => {
-  setToken(token);
+  // setToken(token);
   try {
     const data = await authInstance.get(`/boards`);
     return data;
@@ -13,7 +13,7 @@ export const getAllDashboardsRequest = async token => {
 };
 
 export const getOneDashboardRequest = async (boardId, token) => {
-  setToken(token);
+  // setToken(token);
   try {
     const data = await authInstance.get(`/boards/${boardId}`);
     return data;
@@ -24,7 +24,7 @@ export const getOneDashboardRequest = async (boardId, token) => {
 };
 
 export const getBackgroundIcons = async token => {
-  setToken(token);
+  // setToken(token);
   try {
     const data = await authInstance.get(`/boards/background-icons`);
     return data;

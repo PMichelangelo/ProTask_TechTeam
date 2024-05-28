@@ -1,19 +1,19 @@
-import authInstance from "./auth-api";
-import { setToken } from "./auth-api";
+import authInstance from './auth-api';
+import { setToken } from './auth-api';
 
-export const sendUserNeedHelp = async (data) => {
-    try {
-      const response = await authInstance.patch('/users/need-help', data);
-      return response;
-    } catch (error) {
-      console.error("Failed to send a help request", error);
-      throw error;
-    }
+export const sendUserNeedHelp = async data => {
+  try {
+    const response = await authInstance.patch('/users/need-help', data);
+    return response;
+  } catch (error) {
+    console.error('Failed to send a help request', error);
+    throw error;
+  }
 };
 
-export const updateUserProfile = async(token, body) => {
+export const updateUserProfile = async (token, body) => {
   try {
-    setToken(token);
+    // setToken(token);
     const formData = new FormData();
     if (body.name) {
       formData.append('name', body.name);
@@ -30,8 +30,7 @@ export const updateUserProfile = async(token, body) => {
 
     return response.data;
   } catch (error) {
-    console.error("Failed to update user profile", error);
+    console.error('Failed to update user profile', error);
     throw error;
   }
 };
-

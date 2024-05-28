@@ -2,7 +2,7 @@ import authInstance from './auth-api';
 import { setToken } from './auth-api';
 
 export const getColumnsRequest = async (boardId, token) => {
-  setToken(token);
+  // setToken(token);
   try {
     const data = await authInstance.get(`/boards/current/${boardId}`);
     return data;
